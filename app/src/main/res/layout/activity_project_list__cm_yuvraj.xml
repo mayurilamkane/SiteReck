@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Construction_Manager.ProjectList_CM">
+    tools:context=".Construction_Manager.ProjectList_CM_y">
 
     <androidx.cardview.widget.CardView
 
@@ -21,14 +21,16 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:gravity="center">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_project_list"
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </ScrollView>
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_project_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </ScrollView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

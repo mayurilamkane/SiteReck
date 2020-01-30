@@ -12,16 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignupActivity"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Construction_Manager.ProjectList_CM" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".Construction_Manager.Activities.dashboard_cm">
+            
         </activity>
+        <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM"></activity>
+        <activity android:name=".Construction_Manager.Activities.MaterialRequestListCM" />
+        <activity android:name=".Construction_Manager.Activities.material_Request_CM"></activity>
+        <activity android:name=".Construction_Manager.Activities.ProjectList_cm">
+
+        </activity>
+        <activity android:name=".Construction_Manager.request_dashboard_cm" />
+        <activity android:name=".Construction_Manager.Activities.All_Activities_of_cm" />
+        <activity android:name=".Construction_Manager.ProjectList_CM_y" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
