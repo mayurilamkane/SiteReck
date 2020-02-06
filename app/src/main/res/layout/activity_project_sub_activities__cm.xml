@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Construction_Manager.Activities.ProjectSubActivities_CM"
+    android:background="#7EECE8EC">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_act_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#010"
+                android:text="Activity Name"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_progress"
+        android:layout_below="@id/card_act_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="10dp"
+        >
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Activity Progress"
+                android:textColor="#010"/>
+
+            <TextView
+                android:id="@+id/tv_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#010"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_sub_act_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cd_progress"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_subAct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/bt_upload"
+        android:layout_alignStart="@id/card_sub_act_list"
+        android:layout_alignParentBottom="true"
+        android:background="#00ccff"
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="#FFFFFF"
+        android:text="upload"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#00ccff"
+        android:layout_margin="10dp"
+        android:text="submit"
+        android:layout_alignEnd="@id/card_sub_act_list"
+        android:textColor="#FFFFFF"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+        />
+
+    <Button
+        android:id="@+id/bt_plan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/bt_upload"
+        android:layout_toLeftOf="@id/bt_submit"
+        android:layout_alignParentBottom="true"
+        android:background="#00ccff"
+        android:layout_margin="10dp"
+        android:text="plan"
+        android:textColor="#FFFFFF"
+        style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+        />
+
+</RelativeLayout>

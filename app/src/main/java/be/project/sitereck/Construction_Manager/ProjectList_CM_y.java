@@ -10,7 +10,7 @@ import java.util.List;
 
 import be.project.sitereck.R;
 
-public class ProjectList_CM extends AppCompatActivity {
+public class ProjectList_CM_y extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<ProjectDataClass> list; // Create list for data class
@@ -21,7 +21,7 @@ public class ProjectList_CM extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project_list__cm);
+        setContentView(R.layout.activity_project_list__cm_yuvraj);
 
         initElements();
     }
