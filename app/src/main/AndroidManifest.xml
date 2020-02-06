@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="be.project.sitereck">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <dist:module dist:instant="true" />
 
     <application
@@ -16,7 +16,11 @@
         <activity android:name=".Construction_Manager.Edit_profile_cm" />
         <activity android:name=".Construction_Manager.profile_cm" />
         <activity android:name=".Construction_Manager.particular_project">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Construction_Manager.ProjectList_CM" />
         <activity android:name=".MainActivity" />

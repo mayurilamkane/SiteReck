@@ -5,11 +5,10 @@ class ProjectDataClass {
     private String lat,lon;
     private int image;
 
-    public ProjectDataClass(String title, String startDate, String endDate, String id) {
+    public ProjectDataClass(String title, String startDate, String endDate) {
         Title = title;
         StartDate = startDate;
         EndDate = endDate;
-        Id = id;
     }
 
     public String getTitle() {

@@ -1,17 +1,27 @@
 package be.project.sitereck.Construction_Manager;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
 import be.project.sitereck.R;
+
 
 public class particular_project extends AppCompatActivity implements View.OnClickListener,AsyncResult{
     TextView title, start_date, end_date, completed_work, ongoing_work, blocked_work;
     Button btn_location;
-
+    private String JSON_URL="site";
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +36,14 @@ public class particular_project extends AppCompatActivity implements View.OnClic
         blocked_work = (TextView) findViewById(R.id.blocked_text);
         btn_location.setOnClickListener((View.OnClickListener) this);
 
-
-     /* title.setText(new SetSharedPrefrences(this).getSharedProjname());
-        start_date.setText(new SetSharedPrefrences(this).getSharedProjstartdate());
-        end_date.setText(new SetSharedPrefrences(this).getSharedProjenddate());*/
+//        ProjectDataClass projectDataClass = SetSharedPrefrences.getInstance(this).getprojectinfo();
+//
+//        title.setText(String.valueOf(projectDataClass.getTitle()));
+//        start_date.setText(String.valueOf(projectDataClass.getStartDate()));
+//        end_date.setText(String.valueOf(projectDataClass.getEndDate()));
 
     }
+
 
     @Override
     public void onClick(View v) {

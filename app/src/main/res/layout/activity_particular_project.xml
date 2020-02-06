@@ -218,7 +218,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:paddingLeft="20dp"
-                            android:text="Completed Project"
+                            android:text="Completed Work"
                             android:textColor="#333333"
                             android:textSize="15dp"
                             android:textStyle="normal"></TextView>
@@ -252,7 +252,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="Ongoing Project"
+                                android:text="Ongoing Work"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>
@@ -286,7 +286,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="blocked Project"
+                                android:text="blocked Work"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>

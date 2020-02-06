@@ -83,7 +83,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="Completed Project"
+                                android:text="Completed Activity"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>
@@ -117,7 +117,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="Ongoing Project"
+                                android:text="Ongoing Activity"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>
@@ -151,7 +151,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="blocked Project"
+                                android:text="blocked Activity"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>
@@ -185,7 +185,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:paddingLeft="20dp"
-                                android:text="Completed Project"
+                                android:text="Add Activity"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
                                 android:textStyle="normal"></TextView>
@@ -193,7 +193,7 @@
                                 android:id="@+id/Add_activity"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="38dp"
+                                android:paddingLeft="80dp"
                                 android:textStyle="bold"
                                 android:text="12">
                             </TextView>
