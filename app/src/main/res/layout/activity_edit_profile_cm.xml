@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Construction_Manager.Edit_profile_cm"
+    tools:context=".Construction_Manager.Activities.Edit_profile_cm"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:elevation="20dp"
-        android:outlineAmbientShadowColor="@color/grey"
+        android:outlineAmbientShadowColor="@color/grey_10"
         android:background="#FFFFFD">
         <LinearLayout
             android:layout_width="match_parent"

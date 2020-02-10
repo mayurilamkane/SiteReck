@@ -13,6 +13,12 @@ public class ProjectDataClass {
         //this.Id = Id;
     }
 
+    public ProjectDataClass(String title, String startDate, String endDate) {
+        Title = title;
+        StartDate = startDate;
+        EndDate = endDate;
+    }
+
     public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id) {
         Title = proj_name;
         StartDate = proj_start_date;
@@ -26,6 +32,9 @@ public class ProjectDataClass {
         this.Id = proj_id;
         this.lat = lat;
         this.lon = lon;
+    }
+
+    public ProjectDataClass(String s, String s1) {
     }
 
 

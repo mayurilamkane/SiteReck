@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Construction_Manager.profile_cm"
+    tools:context=".Construction_Manager.Activities.profile_cm"
     android:orientation="vertical"
-    android:background="@color/greylight">
+    android:background="@color/grey_10">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -41,7 +41,7 @@
             android:layout_marginTop="200dp"
             app:cardCornerRadius="15dp"
             android:elevation="20dp"
-            android:outlineAmbientShadowColor="@color/grey">
+            android:outlineAmbientShadowColor="@color/grey_10">
             <LinearLayout
                 android:layout_width="match_parent"
 
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
                     android:text="shwetahiremath9220@gmail.com"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/grey_10"
                     android:textSize="16dp">
                 </TextView>
             </LinearLayout>

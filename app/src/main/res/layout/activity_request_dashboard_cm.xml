@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Construction_Manager.request_dashboard_cm">
+    tools:context=".Construction_Manager.Activities.request_dashboard_cm">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"

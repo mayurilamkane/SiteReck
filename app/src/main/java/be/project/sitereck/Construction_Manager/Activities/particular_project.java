@@ -1,4 +1,4 @@
-package be.project.sitereck.Construction_Manager;
+package be.project.sitereck.Construction_Manager.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,15 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 
 import be.project.sitereck.R;
 
 
-public class particular_project extends AppCompatActivity implements View.OnClickListener,AsyncResult{
+public class particular_project extends AppCompatActivity implements View.OnClickListener{
     TextView title, start_date, end_date, completed_work, ongoing_work, blocked_work;
     Button btn_location;
     private String JSON_URL="site";
@@ -54,17 +50,4 @@ public class particular_project extends AppCompatActivity implements View.OnClic
         }
     }
 
-    @Override
-    public void AsyncResultListener(int responseCode, String result) {
-
-        int TOTAL_ONGOING = 0;
-        int TOTAL_BLOCKED = 0;
-        int TOTAL_COMPLETED = 0;
-
-
-        completed_work.setText(String.valueOf(TOTAL_COMPLETED));
-        ongoing_work.setText(String.valueOf(TOTAL_ONGOING));
-        blocked_work.setText(String.valueOf(TOTAL_BLOCKED));
-
-    }
 }

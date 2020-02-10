@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +15,11 @@ import java.util.List;
 
 import be.project.sitereck.Construction_Manager.Adapters.SubActivityAdapter_CM;
 import be.project.sitereck.Construction_Manager.DataClass.SubActivityClass_CM;
-import be.project.sitereck.MainActivity;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.GeneralActivities.MainActivity;
 import be.project.sitereck.R;
 
-public class ProjectSubActivities_CM extends AppCompatActivity implements View.OnClickListener,ItemClickListener {
+public class ProjectSubActivities_CM extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
 
     RecyclerView recyclerView;
     List<SubActivityClass_CM> data;

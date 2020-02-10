@@ -13,13 +13,13 @@ import java.util.List;
 
 import be.project.sitereck.Construction_Manager.Adapters.ProjectListAdapter;
 import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
-import be.project.sitereck.MainActivity;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.GeneralActivities.MainActivity;
 import be.project.sitereck.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProjectList_cm extends AppCompatActivity implements ItemClickListener,View.OnClickListener{
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
     List<ProjectDataClass> listItems;
     CircleImageView circleImageView;
 
@@ -41,7 +41,8 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
             ProjectDataClass projectDataClass=new ProjectDataClass("Project" + (i+1),"Assigned By: ");
             listItems.add(projectDataClass);
         }
-        adapter=new ProjectListAdapter(listItems,this,this);
+        ProjectListAdapter adapter = new ProjectListAdapter(listItems, this, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
     }
@@ -50,12 +51,12 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     public void onClick(View v, int adapterPosition) {
 
                 listItems.get(adapterPosition);
-                Intent intent = new Intent(ProjectList_cm.this, MainActivity.class);
+                Intent intent = new Intent(ProjectList_cm.this, dashboard_cm.class);
                 startActivity(intent);
     }
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(ProjectList_cm.this,MainActivity.class));
+        startActivity(new Intent(ProjectList_cm.this,profile_cm.class));
     }
 }

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/grey_10"
     android:fitsSystemWindows="true"
 
-    tools:context=".Construction_Manager.particular_project">
+    tools:context=".Construction_Manager.Activities.particular_project">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey"
+        android:background="@color/grey_10"
         >
 
         <LinearLayout
@@ -49,7 +49,7 @@
                     android:layout_height="230dp"
                     app:cardCornerRadius="15dp"
                     android:elevation="20dp"
-                    android:outlineAmbientShadowColor="@color/grey">
+                    android:outlineAmbientShadowColor="@color/grey_10">
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
@@ -62,16 +62,18 @@
                         android:src="@drawable/ic_event_note_black_24dp">
 
                     </ImageView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="20dp"
-                        android:text="PROJECT TITLE"
-                        android:textColor="#333333"
-                        android:textSize="15dp"
-                        android:textStyle="bold"></TextView>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:paddingLeft="20dp"
+                           android:text="PROJECT TITLE"
+                           android:textColor="#333333"
+                           android:textSize="15dp"
+                           android:textStyle="bold" />
                    </LinearLayout>
+
                     <TextView
                         android:id="@+id/text_title"
                         android:layout_width="wrap_content"
@@ -83,7 +85,7 @@
                         android:text="shdghjgfhjadf"
                         android:textColor="@color/grey_10"
                         android:textSize="15dp"
-                        android:textStyle="normal"></TextView>
+                        android:textStyle="normal" />
 
                     <View
                         android:id="@+id/view1"
@@ -93,7 +95,7 @@
                         android:layout_marginTop="100dp"
                         android:layout_marginRight="10dp"
                         android:background="#77111111"
-                        android:padding="10dp"></View>
+                        android:padding="10dp" />
 
 
                     <LinearLayout
@@ -106,40 +108,43 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/ic_date_range_black_24dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="start"
-                        android:paddingLeft="20dp"
-                        android:paddingTop="0dp"
-                        android:text="DATE"
-                        android:textColor="#333333"
-                        android:textSize="15dp"
-                        android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="start"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="0dp"
+                            android:text="DATE"
+                            android:textColor="#333333"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="160dp"
-                        android:gravity="start"
-                        android:paddingLeft="90dp"
-                        android:paddingTop="0dp"
-                        android:text="START DATE :"
-                        android:textColor="#333333"
-                        android:textSize="15dp"
-                        android:textStyle="normal"></TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="160dp"
+                            android:gravity="start"
+                            android:paddingLeft="90dp"
+                            android:paddingTop="0dp"
+                            android:text="START DATE :"
+                            android:textColor="#333333"
+                            android:textSize="15dp"
+                            android:textStyle="normal" />
+
                         <TextView
                             android:id="@+id/text_startdate"
                             android:layout_marginTop="160dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="20-2-2018"
-                            android:paddingLeft="20dp"></TextView>
+                            android:paddingLeft="20dp" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -174,7 +179,7 @@
                     android:layout_height="240dp"
                     app:cardCornerRadius="15dp"
                     android:elevation="20dp"
-                    android:outlineAmbientShadowColor="@color/grey"
+                    android:outlineAmbientShadowColor="@color/grey_10"
                     android:layout_marginTop="20dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -187,6 +192,7 @@
                             android:layout_height="50dp"
                             android:src="@drawable/ic_event_available_black_24dp">
                         </ImageView>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -195,7 +201,7 @@
                             android:text="PROJECT STATUS"
                             android:textColor="#333333"
                             android:textSize="15dp"
-                            android:textStyle="bold"></TextView>
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -213,15 +219,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:paddingLeft="20dp"
-                            android:text="Completed Work"
-                            android:textColor="#333333"
-                            android:textSize="15dp"
-                            android:textStyle="normal"></TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingLeft="20dp"
+                                android:text="Completed Work"
+                                android:textColor="#333333"
+                                android:textSize="15dp"
+                                android:textStyle="normal" />
                             <TextView
                                 android:id="@+id/complete_text"
                                 android:layout_width="wrap_content"
@@ -247,6 +254,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -255,7 +263,7 @@
                                 android:text="Ongoing Work"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
-                                android:textStyle="normal"></TextView>
+                                android:textStyle="normal" />
                             <TextView
                                 android:id="@+id/ongoing_text"
                                 android:layout_width="wrap_content"
@@ -281,6 +289,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -289,7 +298,7 @@
                                 android:text="blocked Work"
                                 android:textColor="#333333"
                                 android:textSize="15dp"
-                                android:textStyle="normal"></TextView>
+                                android:textStyle="normal" />
                             <TextView
                                 android:id="@+id/blocked_text"
                                 android:layout_width="wrap_content"
@@ -310,7 +319,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/linback_cm"
                     android:text="project location"
-                    android:textColor="@color/white"
+                    android:textColor="@color/grey_10"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

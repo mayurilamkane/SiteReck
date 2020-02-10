@@ -1,7 +1,9 @@
-package be.project.sitereck.Construction_Manager;
+package be.project.sitereck.Construction_Manager.SharedPref;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 
 public class SetSharedPrefrences {
 
@@ -43,7 +45,7 @@ public class SetSharedPrefrences {
         sp.commit();
     }*/
 
-    public  ProjectDataClass getprojectinfo(){
+    public ProjectDataClass getprojectinfo(){
         SharedPreferences sharedPreferences=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
         return  new ProjectDataClass(
                 sharedPreferences.getString(proj_name,null),

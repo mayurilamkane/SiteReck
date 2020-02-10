@@ -1,4 +1,4 @@
-package be.project.sitereck.Construction_Manager;
+package be.project.sitereck.Construction_Manager.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import be.project.sitereck.R;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -36,7 +35,7 @@ public class Edit_profile_cm extends AppCompatActivity implements View.OnClickLi
       String name;
         switch (v.getId()) {
             case R.id.save_btn:
-                Intent intent = new Intent(Edit_profile_cm.this, update_activity.class);
+                Intent intent = new Intent(Edit_profile_cm.this, Edit_profile_cm.class);
                 startActivity(intent);
               name=editText1.getText().toString();
 

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.Construction_Manager.Activities.ItemClickListener;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.Construction_Manager.DataClass.Activity_dataClass_cm;
 import be.project.sitereck.R;
 

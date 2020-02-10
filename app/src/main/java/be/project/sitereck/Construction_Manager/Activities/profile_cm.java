@@ -1,4 +1,4 @@
-package be.project.sitereck.Construction_Manager;
+package be.project.sitereck.Construction_Manager.Activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

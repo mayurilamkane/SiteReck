@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="be.project.sitereck">
 
     <dist:module dist:instant="true" />
@@ -11,15 +12,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Construction_Manager.ProjectList_CM"></activity>
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+<!--    CM -->
+        <activity android:name=".Construction_Manager.Activities.All_Activities_of_cm"/>
+        <activity android:name=".Construction_Manager.Activities.dashboard_cm" />
+        <activity android:name=".Construction_Manager.Activities.Edit_profile_cm"/>
+        <activity android:name=".Construction_Manager.Activities.material_Request_CM"/>
+        <activity android:name=".Construction_Manager.Activities.MaterialRequestListCM"/>
+        <activity android:name=".Construction_Manager.Activities.particular_project"/>
+        <activity android:name=".Construction_Manager.Activities.profile_cm"/>
+        <activity android:name=".Construction_Manager.Activities.ProjectList_cm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM"/>
+        <activity android:name=".Construction_Manager.Activities.request_dashboard_cm"/>
+        <activity android:name=".Construction_Manager.Activities.update_activity"/>
+
+<!--        General-->
+        <activity android:name=".GeneralActivities.MainActivity"></activity>
+        <activity android:name=".GeneralActivities.LoginActivity"></activity>
+        <activity android:name=".GeneralActivities.SignupActivity"></activity>
+
+<!--        pm -->
     </application>
 
 </manifest>

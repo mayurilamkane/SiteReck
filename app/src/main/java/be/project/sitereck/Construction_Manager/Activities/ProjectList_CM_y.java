@@ -1,4 +1,4 @@
-package be.project.sitereck.Construction_Manager;
+package be.project.sitereck.Construction_Manager.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import java.util.List;
 
+import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 import be.project.sitereck.R;
 
 public class ProjectList_CM_y extends AppCompatActivity {

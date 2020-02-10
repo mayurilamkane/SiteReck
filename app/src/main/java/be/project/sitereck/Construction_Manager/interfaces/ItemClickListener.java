@@ -1,4 +1,4 @@
-package be.project.sitereck.Construction_Manager.Activities;
+package be.project.sitereck.Construction_Manager.interfaces;
 
 import android.view.View;
 
