@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+//import be.project.sitereck.Construction_Manager.Activities.ItemClickListener;
 import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.R;
 
 public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.ViewHolder> {
@@ -37,8 +38,8 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ProjectDataClass projectDataClass = listItems.get(position);
         holder.textViewHead.setText(projectDataClass.getTitle());
-        holder.textViewDesc.setText(projectDataClass.getStartDate());
-        holder.textViewDesc.setText(projectDataClass.getEndDate());
+        holder.tv_startdate.setText(projectDataClass.getStartDate());
+        holder.tv_enddate.setText(projectDataClass.getEndDate());
     }
 
     @Override
@@ -48,7 +49,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textViewHead;
-        public TextView textViewDesc;
+        public TextView textViewDesc ,tv_startdate,tv_enddate;
         public ItemClickListener itemClickListener;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +60,8 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
 
             textViewHead=(TextView)itemView.findViewById(R.id.textviewHead);
             textViewDesc=(TextView)itemView.findViewById(R.id.textviewDesc);
+            tv_startdate=(TextView)itemView.findViewById(R.id.tv_startdate);
+            tv_enddate=(TextView)itemView.findViewById(R.id.tv_enddate);
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
         }

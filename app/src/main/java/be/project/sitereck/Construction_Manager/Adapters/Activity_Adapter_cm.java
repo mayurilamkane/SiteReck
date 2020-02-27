@@ -19,11 +19,11 @@ import be.project.sitereck.Construction_Manager.DataClass.Activity_dataClass_cm;
 import be.project.sitereck.R;
 
 public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_cm.ActivityViewHolder> {
-    private Context context;
     private List<Activity_dataClass_cm> list;
-    private Activity activity;
-    private View view;
-    private ItemClickListener itemClickListener;
+    private Context context;
+    //private Activity activity;
+    //private View view;
+     ItemClickListener itemClickListener;
 
     public Activity_Adapter_cm(Context context, List<Activity_dataClass_cm> list,ItemClickListener itemClickListener) {
         this.context = context;
@@ -34,8 +34,9 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
     @NonNull
     @Override
     public ActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater=LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.card_activity_time_line_cm,null);
+        //LayoutInflater inflater=LayoutInflater.from(context);
+        //View view=inflater.inflate(R.layout.card_activity_time_line_cm,null);
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.card_activity_time_line_cm,parent,false);
 
         return new ActivityViewHolder(view,itemClickListener);
     }
@@ -45,7 +46,7 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
 
         Activity_dataClass_cm  activity_dataClass_cm=list.get(position);
        holder.title.setText(activity_dataClass_cm.getTitle());
-       holder.status.setText(activity_dataClass_cm.getStatus());
+      // holder.status.setText(activity_dataClass_cm.getStatus());
        holder.startDate.setText(activity_dataClass_cm.getStartDate());
        holder.endDate.setText(activity_dataClass_cm.getEndDate());
 
@@ -57,9 +58,9 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
     }
 
     public class ActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title, status, startDate, endDate;
-        CardView holderCard;
-        LinearLayout parentlayout;
+        public TextView title, status, startDate, endDate;
+        public CardView holderCard;
+        public LinearLayout parentlayout;
         public ItemClickListener itemClickListener;
 
         public ActivityViewHolder(@NonNull View itemView, ItemClickListener itemClickListener) {

@@ -66,4 +66,11 @@ public class ProjectDataClass {
         Title = title;
     }
 
+    public void setStartDate(String startDate) {
+        StartDate = startDate;
+    }
+
+    public void setEndDate(String endDate) {
+        EndDate = endDate;
+    }
 }
