@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import be.project.sitereck.ProjectManager.Activities.ActivityManager_PM;
 import be.project.sitereck.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -33,23 +34,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initElements() {
         btn_login = findViewById(R.id.btn_login);
-        tv_signup = (TextView)findViewById(R.id.tv_sign_up);
-        et_password = (EditText)findViewById(R.id.et_password);
-        et_email= (EditText)findViewById(R.id.et_email);
+        tv_signup = findViewById(R.id.tv_sign_up);
+        et_password = findViewById(R.id.et_password);
+        et_email= findViewById(R.id.et_email);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_login:
-                btn_login_click();
-                break;
-
+        if (v.getId() == R.id.btn_login) {
+            btn_login_click();
         }
 
     }
 
     private void btn_login_click() {
 //        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        if (et_email.getText().toString().equals("pm")){
+            Intent intent =  new Intent(this, ActivityManager_PM.class);
+            startActivity(intent);
+        }
+
     }
 }
