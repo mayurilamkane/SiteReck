@@ -13,6 +13,8 @@ public class ProjectDataClass {
         //this.Id = Id;
     }
 
+
+
     public ProjectDataClass(String title, String startDate, String endDate) {
         Title = title;
         StartDate = startDate;
@@ -20,10 +22,12 @@ public class ProjectDataClass {
     }
 
     public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id) {
+
         Title = proj_name;
         StartDate = proj_start_date;
         EndDate = proj_end_date;
         this.Id = proj_id;
+
     }
     public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id,String lat ,String lon) {
         Title = proj_name;
@@ -33,10 +37,6 @@ public class ProjectDataClass {
         this.lat = lat;
         this.lon = lon;
     }
-
-    public ProjectDataClass(String s, String s1) {
-    }
-
 
     public String getId() {
         return Id;
@@ -62,6 +62,7 @@ public class ProjectDataClass {
         return lon;
     }
 
+
     public void setTitle(String title) {
         Title = title;
     }
@@ -69,7 +70,6 @@ public class ProjectDataClass {
     public void setStartDate(String startDate) {
         StartDate = startDate;
     }
-
     public void setEndDate(String endDate) {
         EndDate = endDate;
     }
