@@ -1,8 +1,10 @@
-package be.project.sitereck;
+package be.project.sitereck.GeneralActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import be.project.sitereck.R;
 
 public class MainActivity extends AppCompatActivity {
 

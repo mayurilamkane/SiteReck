@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Construction_Manager.Activities.profile_cm"
+    android:orientation="vertical"
+    android:background="@color/grey_10">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@drawable/background_profile_cm"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginTop="50dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/shweta"
+                android:layout_gravity="center">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Shweta Hiremath"
+                android:textColor="#FDFAFA"
+                android:textSize="30dp"
+                android:textStyle="italic">
+            </TextView>
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="330dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            app:cardCornerRadius="15dp"
+            android:elevation="20dp"
+            android:outlineAmbientShadowColor="@color/grey_10">
+            <LinearLayout
+                android:layout_width="match_parent"
+
+
+
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingLeft="20dp">
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_email_black_24dp">
+                </ImageView>
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="shwetahiremath9220@gmail.com"
+                    android:textColor="@color/grey_10"
+                    android:textSize="16dp">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="70dp"
+                android:paddingLeft="20dp">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_phone_android_black_24dp">
+                </ImageView>
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="9975092571"
+                    android:textSize="16dp">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="125dp"
+                android:paddingLeft="20dp">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_videocam_black_24dp">
+                </ImageView>
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="9975092571"
+                    android:textSize="16dp">
+                </TextView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/edit_btn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="550dp"
+            android:text="Edit"
+            android:textColor="#C51162"
+            android:background="@drawable/btn_round_10dp"
+            android:layout_marginLeft="200dp">
+
+        </Button>
+
+    </RelativeLayout>
+</LinearLayout>

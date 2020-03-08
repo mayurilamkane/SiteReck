@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Construction_Manager.Activities.All_Activities_of_cm">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_projecttitle_cm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:elevation="10dp">
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <TextView
+             android:id="@+id/tv_projecttitle"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="SITERECK"
+             android:gravity="center"
+             android:layout_margin="20dp"
+             android:textSize="30sp"
+             android:textStyle="bold"
+             android:layout_alignParentTop="true"
+             />
+
+
+     </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/card_projecttitle_cm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:elevation="15dp"
+        android:padding="10dp"
+        app:cardElevation="10dp"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_ptimeline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

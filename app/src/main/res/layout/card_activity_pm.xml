@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="10dp">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rltlyt">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity"
+                android:textColor="#CE93D8"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_alignParentLeft="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SubActivity"
+                android:textColor="#E6EE9C"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="25dp"
+                android:layout_alignParentRight="true"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rltlytlist"
+        android:layout_below="@id/rltlyt"
+        android:layout_marginTop="10dp"    >
+
+        <TextView
+            android:id="@+id/tv_act"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activity"
+            android:textStyle="bold"
+            android:textColor="#9C27B0"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_alignParentLeft="true"
+            />
+        <TextView
+            android:id="@+id/tv_subact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SubActivity"
+            android:textColor="#cddc39"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

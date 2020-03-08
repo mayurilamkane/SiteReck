@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="be.project.sitereck">
-
+    <uses-permission
+        android:name="android.permission.INTERNET" />
     <dist:module dist:instant="true" />
 
     <application
@@ -12,13 +13,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".Construction_Manager.Activities.All_Activities_of_cm" ></activity>
+        <activity android:name=".Construction_Manager.Activities.dashboard_cm"></activity>
+        <activity android:name=".Construction_Manager.Activities.Edit_profile_cm"></activity>
+        <activity android:name=".Construction_Manager.Activities.material_Request_CM"></activity>
+        <activity android:name=".Construction_Manager.Activities.MaterialRequestListCM" />
+        <activity android:name=".Construction_Manager.Activities.particular_project"></activity>
+        <activity android:name=".Construction_Manager.Activities.profile_cm"></activity>
+        <activity android:name=".Construction_Manager.Activities.ProjectList_cm"></activity>
+        <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM"></activity>
+        <activity android:name=".Construction_Manager.Activities.request_dashboard_cm" />
+        <activity android:name=".Construction_Manager.Activities.update_activity" />
+
+        <activity android:name=".GeneralActivities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GeneralActivities.MainActivity" />
+        <activity android:name=".GeneralActivities.SignupActivity" />
+        <activity android:name=".ProjectManager.Activities.ActivityManager_PM"></activity>
+
+        <activity android:name=".ProjectManager.Activities.AllProjectPm"></activity>
+        <activity android:name=".ProjectManager.Activities.OngoingProjectPm" />
+
+        <activity android:name=".ProjectManager.Activities.AddActivityDurationProjectPM" />
+        <activity android:name=".ProjectManager.Activities.AddProjectActivityPM" />
+        <activity android:name=".ProjectManager.Activities.OngoingProjectDetailPM" />
+        <activity android:name=".ProjectManager.Activities.ActivityPm" />
+        <activity android:name=".ProjectManager.Activities.ProjectPMActivity" />
+        <activity android:name=".ProjectManager.Activities.AddNewProjectPM" />\
+        <activity android:name=".ProjectManager.Activities.DashboardPMActivity"></activity>
     </application>
 
 </manifest>
