@@ -1,11 +1,11 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import be.project.sitereck.GeneralActivities.MainActivity;
 import be.project.sitereck.R;

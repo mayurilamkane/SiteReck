@@ -20,13 +20,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.project.sitereck.GeneralClasses.URL;
-import be.project.sitereck.GeneralInterfaces.ItemClickListener;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.GeneralClasses.URL_STRINGS;
+
 import be.project.sitereck.ProjectManager.Adapters.ActivityMangerAdapter;
-import be.project.sitereck.ProjectManager.DataClass.ActivityManagerClass_PM;
+import be.project.sitereck.ProjectManager.POJO.ActivityManagerClass_PM;
 import be.project.sitereck.R;
 
-public class ActivityManager_PM extends AppCompatActivity implements View.OnClickListener, ItemClickListener{
+public class ActivityManager_PM extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
 
     List<ActivityManagerClass_PM> data = new ArrayList<>();
     RecyclerView recyclerView;
@@ -48,7 +49,7 @@ public class ActivityManager_PM extends AppCompatActivity implements View.OnClic
     }
 
     private void sendRequest() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.getCallActivitylistPm(), new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallActivitylistPm(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -129,6 +130,7 @@ public class ActivityManager_PM extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
 
     }
+
 
     @Override
     public void onClick(View view, int position) {

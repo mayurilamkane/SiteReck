@@ -1,8 +1,8 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import be.project.sitereck.R;
 

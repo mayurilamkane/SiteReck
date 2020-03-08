@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-//import be.project.sitereck.Construction_Manager.Activities.ItemClickListener;
 import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.R;
+
+//import be.project.sitereck.Construction_Manager.Activities.ItemClickListener;
 
 public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.ViewHolder> {
     private List<ProjectDataClass> listItems;

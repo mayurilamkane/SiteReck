@@ -16,12 +16,13 @@
         android:padding="2dp">
 
       <CheckBox
-          android:id="@+id/cd_sub_activity"
+          android:id="@+id/cd_activity"
           android:layout_width="match_parent"
           android:layout_gravity="center"
           android:paddingLeft="5dp"
           android:layout_height="wrap_content"
-          android:text="subactivity 1"/>
+          android:text="subactivity 1"
+        />
 
         <View
             android:layout_width="match_parent"

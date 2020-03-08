@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.GeneralInterfaces.ItemClickListener;
-import be.project.sitereck.ProjectManager.DataClass.AssignCmData;
+
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.ProjectManager.Activities.AssignCmToProject_PM;
+import be.project.sitereck.ProjectManager.POJO.AssignCmData;
 import be.project.sitereck.R;
 
 public class CmToProjectAdapter extends RecyclerView.Adapter<CmToProjectAdapter.CTPHolder> {
@@ -19,7 +21,7 @@ public class CmToProjectAdapter extends RecyclerView.Adapter<CmToProjectAdapter.
     List<AssignCmData> list;
     ItemClickListener itemClickListener;
 
-    public CmToProjectAdapter(List<AssignCmData> list, ItemClickListener itemClickListener) {
+    public CmToProjectAdapter(List<AssignCmData> list, AssignCmToProject_PM itemClickListener) {
         this.list = list;
         this.itemClickListener = itemClickListener;
     }

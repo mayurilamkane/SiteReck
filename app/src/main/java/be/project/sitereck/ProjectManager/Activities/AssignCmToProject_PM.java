@@ -21,10 +21,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.project.sitereck.GeneralClasses.URL;
-import be.project.sitereck.GeneralInterfaces.ItemClickListener;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.GeneralClasses.URL_STRINGS;
+
 import be.project.sitereck.ProjectManager.Adapters.CmToProjectAdapter;
-import be.project.sitereck.ProjectManager.DataClass.AssignCmData;
+import be.project.sitereck.ProjectManager.POJO.AssignCmData;
 import be.project.sitereck.R;
 
 public class AssignCmToProject_PM extends AppCompatActivity implements View.OnClickListener , ItemClickListener {
@@ -42,13 +43,14 @@ public class AssignCmToProject_PM extends AppCompatActivity implements View.OnCl
 
         initData();
         sendRequest();
+        //itemclick listner check?
         adapter = new CmToProjectAdapter(data,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
     private void sendRequest() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.getCallCmList(), new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallCmList(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -78,8 +80,9 @@ public class AssignCmToProject_PM extends AppCompatActivity implements View.OnCl
 
     }
 
+
     @Override
-    public void onClick(View view, int position) {
+    public void onClick(View v, int adapterPosition) {
 
     }
 }

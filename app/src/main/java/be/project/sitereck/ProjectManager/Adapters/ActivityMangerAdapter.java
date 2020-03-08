@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.GeneralInterfaces.ItemClickListener;
-import be.project.sitereck.ProjectManager.DataClass.ActivityManagerClass_PM;
+
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
+import be.project.sitereck.ProjectManager.POJO.ActivityManagerClass_PM;
 import be.project.sitereck.R;
 
 public class ActivityMangerAdapter extends RecyclerView.Adapter<ActivityMangerAdapter.ActivityManagerHolder> {

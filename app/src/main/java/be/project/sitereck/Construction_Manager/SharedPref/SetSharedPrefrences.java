@@ -7,28 +7,17 @@ import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 
 public class SetSharedPrefrences {
 
-    private static final String SP_NAME ="SITERECK" ;
+   private static final String SP_NAME ="SITERECK" ;
     Context context;
 
+    private String u_id = "u_id";
     private String proj_id="project_id";
     private String proj_name="project_name";
     private String proj_start_date="project_start_date";
     private String proj_end_date="project_end_date";
 
 
-    private  static SetSharedPrefrences  mInstance;
-   /* public String getVar_proj_name() {
-        return proj_name;
-    }*/
-
-    /*public String getVar_proj_startdate() {
-        return proj_start_date;
-    }
-
-    public String getVar_proj_enddate() {
-        return proj_end_date;
-    }*/
-
+    private  static SetSharedPrefrences mInstance;
     public SetSharedPrefrences(Context context) {
         this.context=context;
     }
@@ -39,51 +28,49 @@ public class SetSharedPrefrences {
         }
         return mInstance;
       }
-    /*public void setProjname(String name){
+    public String getU_id() {
+        SharedPreferences sp = (SharedPreferences) context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        return sp.getString(u_id,null);
+    }
+
+    public void setU_id(String user_id) {
+        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE).edit();
+        sp.putString(u_id,user_id);
+        sp.commit();
+    }
+   public void setTitle(String name ){
         SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         sp.putString(proj_name, name);
         sp.commit();
-    }*/
+    }
+
+    public void setProjId(String id){
+        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
+        sp.putString(proj_id, id);
+        sp.commit();
+    }
+
+    public  void setStartDate(String startdate){
+        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
+        sp.putString(proj_start_date, startdate);
+        sp.commit();
+    }
+
+    public void setEndDate(String enddate) {
+        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
+        sp.putString(proj_end_date, enddate);
+        sp.commit();
+    }
 
     public ProjectDataClass getprojectinfo(){
         SharedPreferences sharedPreferences=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
         return  new ProjectDataClass(
                 sharedPreferences.getString(proj_name,null),
                 sharedPreferences.getString(proj_start_date,null),
-                sharedPreferences.getString(proj_end_date,null)
+                sharedPreferences.getString(proj_end_date,null),
+                sharedPreferences.getString(proj_id,null)
         );
     }
 
-    public int getSharedProjid() {
 
-        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        return sp.getInt(proj_id, -1);
-    }
-
-    public String getSharedProjname() {
-
-        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        return sp.getString(proj_name, null);
-    }
-
-    /*public  void setProjstartdate(String startdate){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.putString(proj_start_date, startdate);
-        sp.commit();
-    }*/
-    public String getSharedProjstartdate() {
-        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        return sp.getString(proj_start_date, null);
-
-    }
-   /*public void setProjenddate(String enddate){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.putString(proj_end_date, enddate);
-        sp.commit();
-    }*/
-
-    public String getSharedProjenddate() {
-        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        return sp.getString(proj_end_date, null);
-    }
 }

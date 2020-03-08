@@ -110,10 +110,11 @@
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:clickable="true"
                 android:text="Forgot Password?"
-                android:textAlignment="center"
+
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:textColor="#78909C"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
 
             <View
                 android:layout_width="0dp"

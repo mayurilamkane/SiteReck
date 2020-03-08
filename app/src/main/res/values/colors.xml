@@ -9,4 +9,7 @@
     <color name="grey_60">#666666</color>
     <color name="grey_10">#e6e6e6</color>
     <color name="light_green_400">#8BC34A</color>
+    <color name="purple">#550586</color>
+    <color name="grey_50">#FAFAFA</color>
+    <color name="blue_300">#64B5F6</color>
 </resources>

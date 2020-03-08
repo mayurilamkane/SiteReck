@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.Construction_Manager.DataClass.SubActivityClass_CM;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.R;
 
 public class SubActivityAdapter_CM extends RecyclerView.Adapter<SubActivityAdapter_CM.SubActHolder> {
@@ -19,7 +19,7 @@ public class SubActivityAdapter_CM extends RecyclerView.Adapter<SubActivityAdapt
     List<SubActivityClass_CM> list;
     private ItemClickListener mitemClickListener;
 
-    public SubActivityAdapter_CM(List<SubActivityClass_CM> list,ItemClickListener itemClickListener) {
+    public SubActivityAdapter_CM(List<SubActivityClass_CM> list, ItemClickListener itemClickListener) {
         this.mitemClickListener = itemClickListener;
         this.list=list;
     }
@@ -45,7 +45,7 @@ public class SubActivityAdapter_CM extends RecyclerView.Adapter<SubActivityAdapt
 
         CheckBox Title;
         private ItemClickListener itemClickListener;
-        public SubActHolder(@NonNull View itemView,ItemClickListener itemClickListener)
+        public SubActHolder(@NonNull View itemView, ItemClickListener itemClickListener)
         {
             super(itemView);
             Title=(CheckBox)itemView.findViewById(R.id.cd_sub_activity);

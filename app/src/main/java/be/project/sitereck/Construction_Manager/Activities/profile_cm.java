@@ -1,8 +1,5 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -12,14 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import be.project.sitereck.R;
 
-import static android.view.View.*;
+import static android.view.View.OnClickListener;
 
-public class profile_cm extends AppCompatActivity implements View.OnClickListener {
+public class profile_cm extends AppCompatActivity implements OnClickListener {
 
     ImageView image;
     Button btn_edit;
@@ -31,7 +31,7 @@ Uri imageUri;
         setContentView(R.layout.activity_profile_cm);
         image=(ImageView)findViewById(R.id.profile_image);
         btn_edit=( Button)findViewById(R.id.edit_btn);
-        btn_edit.setOnClickListener((View.OnClickListener)this);
+        btn_edit.setOnClickListener((OnClickListener)this);
         image.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

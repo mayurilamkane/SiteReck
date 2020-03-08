@@ -1,4 +1,4 @@
-package be.project.sitereck.ProjectManager.DataClass;
+package be.project.sitereck.ProjectManager.POJO;
 
 public class ActivityManagerClass_PM {
     private String status;

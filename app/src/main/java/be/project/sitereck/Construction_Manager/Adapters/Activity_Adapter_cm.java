@@ -1,6 +1,5 @@
 package be.project.sitereck.Construction_Manager.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.Construction_Manager.DataClass.Activity_dataClass_cm;
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.R;
 
 public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_cm.ActivityViewHolder> {
@@ -25,7 +24,7 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
     //private View view;
      ItemClickListener itemClickListener;
 
-    public Activity_Adapter_cm(Context context, List<Activity_dataClass_cm> list,ItemClickListener itemClickListener) {
+    public Activity_Adapter_cm(Context context, List<Activity_dataClass_cm> list, ItemClickListener itemClickListener) {
         this.context = context;
         this.list = list;
         this.itemClickListener = itemClickListener;
@@ -44,7 +43,7 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
     @Override
     public void onBindViewHolder(@NonNull ActivityViewHolder holder, int position) {
 
-        Activity_dataClass_cm  activity_dataClass_cm=list.get(position);
+        Activity_dataClass_cm activity_dataClass_cm=list.get(position);
        holder.title.setText(activity_dataClass_cm.getTitle());
       // holder.status.setText(activity_dataClass_cm.getStatus());
        holder.startDate.setText(activity_dataClass_cm.getStartDate());

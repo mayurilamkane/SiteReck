@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_activityinfo"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
@@ -26,14 +26,12 @@
                 android:layout_centerHorizontal="true"
                 android:background="@color/grey_10" />
 
-                        <ImageView
-                            android:layout_width="@dimen/spacing_middle"
-                            android:layout_height="@dimen/spacing_middle"
-                            android:layout_marginTop="@dimen/spacing_large"
-                            android:tint="@color/light_green_400"
-                          app:srcCompat="@drawable/timeline_dot"
-                          />
-
+            <ImageView
+                android:layout_width="@dimen/spacing_middle"
+                android:layout_height="@dimen/spacing_middle"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:tint="@color/light_green_400"
+                app:srcCompat="@drawable/timeline_dot" />
 
 
         </RelativeLayout>
@@ -49,76 +47,96 @@
             android:visibility="visible"
             app:cardCornerRadius="2dp"
             app:cardElevation="5dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_activity_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:text="Activity one - check this out"
-            android:textColor="#03A9F4"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/bkg_cm"/>
-        <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:gravity="center_vertical"
-            android:text="status - "
-            android:textColor="#010"
-            android:layout_margin="5dp"
-             />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/bkg_cm"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="horizontal">
-            <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#010"
-                android:text="Start Date - "/>
-            <TextView
-                android:id="@+id/tv_startdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#010"
-                android:layout_weight="2"
-                android:text=""/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#010"
-                android:text="End Date - "/>
-            <TextView
-                android:id="@+id/tv_enddate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#010"
-                android:layout_weight="2"
-                />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_activity_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Activity one - check this out"
+                        android:textColor="#03A9F4"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-    </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/cd_sub_activity"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                         />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/bkg_cm" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:text="status - "
+                    android:textColor="#010" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/bkg_cm" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start Date - "
+                        android:textColor="#010" />
+
+                    <TextView
+                        android:id="@+id/tv_startdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text=""
+                        android:textColor="#010" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End Date - "
+                        android:textColor="#010" />
+
+                    <TextView
+                        android:id="@+id/tv_enddate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:textColor="#010" />
+                </LinearLayout>
+
+            </LinearLayout>
 
 
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
-</LinearLayout >
+</LinearLayout>

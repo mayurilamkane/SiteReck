@@ -1,18 +1,20 @@
 package be.project.sitereck.Construction_Manager.DataClass;
 
 public class RequestitemClass_CM {
-    private  String smaterial,mdate;
+    private  String smaterial;
+    private  String mdate;
+
 
     public RequestitemClass_CM(String smaterial, String mdate) {
         this.smaterial=smaterial;
         this.mdate=mdate;
     }
 
-    public String getSmaterial() {
+    public  String getSmaterial() {
         return smaterial;
     }
 
-    public String getMdate() {
+    public  String getMdate() {
         return mdate;
     }
 

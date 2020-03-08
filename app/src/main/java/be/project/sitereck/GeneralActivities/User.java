@@ -1,6 +1,6 @@
 package be.project.sitereck.GeneralActivities;
 
-public class User {
+public class  User {
     private int id,posi;
     private String name,password,email,contact;
 

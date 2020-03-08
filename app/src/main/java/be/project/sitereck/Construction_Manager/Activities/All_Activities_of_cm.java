@@ -1,14 +1,14 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.CheckBox;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,13 +26,12 @@ import java.util.List;
 
 import be.project.sitereck.Construction_Manager.Adapters.Activity_Adapter_cm;
 import be.project.sitereck.Construction_Manager.DataClass.Activity_dataClass_cm;
-
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
-import be.project.sitereck.GeneralActivities.MainActivity;
 import be.project.sitereck.R;
 
 public class All_Activities_of_cm extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
     private RecyclerView recyclerView;
+    private CheckBox checkbox;
     Activity_Adapter_cm adapter_cm;
     List<Activity_dataClass_cm> list;
     RequestQueue requestQueue;
@@ -95,9 +94,8 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v,int position) {
         list.get(position);
-Intent intent =new Intent(All_Activities_of_cm.this, MainActivity.class);
+Intent intent =new Intent(All_Activities_of_cm.this, update_activity.class);
         startActivity(intent);
-
         //Toast.makeText(this, list.get(position).getTitle() +"  " + list.get(position).getId(), Toast.LENGTH_SHORT).show();
     }
 
