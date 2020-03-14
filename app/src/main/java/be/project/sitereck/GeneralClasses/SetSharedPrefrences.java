@@ -10,9 +10,9 @@ public class SetSharedPrefrences {
     final String SP_NAME = "SITERECK_PM";
 
 
-    final String var_login = "isLogin";
-    final String var_User_id = "user_id";
-    final String var_User_name  = "user_name";
+    static final String var_login = "isLogin";
+    static final String var_User_id = "user_id";
+    static final String var_User_name  = "user_name";
     final String var_User_email = "user_email";
     final String var_User_contact = "user_contact";
     final String var_User_position = "user_position";
@@ -33,7 +33,8 @@ public class SetSharedPrefrences {
     }
 
     public String getVar_User_id() {
-        return var_User_id;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return String.valueOf(sp.getInt(var_User_id,-1));
     }
 
     public String getVar_User_name() {

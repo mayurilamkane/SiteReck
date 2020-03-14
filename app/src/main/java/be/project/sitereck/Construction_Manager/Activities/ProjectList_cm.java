@@ -2,12 +2,15 @@ package be.project.sitereck.Construction_Manager.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,7 +23,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import be.project.sitereck.Construction_Manager.Adapters.ProjectListAdapter;
 import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
@@ -37,6 +42,8 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     List<ProjectDataClass> listItems=new ArrayList<>();
     CircleImageView circleImageView;
     RequestQueue requestQueue;
+    be.project.sitereck.GeneralClasses.SetSharedPrefrences prefrences = new be.project.sitereck.GeneralClasses.SetSharedPrefrences(this);
+
     String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/getProjectList.php";
 
     @Override
@@ -45,6 +52,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         setContentView(R.layout.activity_project_list_cm);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         circleImageView=(CircleImageView)findViewById(R.id.img);
+        System.out.println("user id ----> "+prefrences.getVar_User_id());
         JSON_DATA_WEB_CALL();
 
         adapter = new ProjectListAdapter(listItems,this,this);
@@ -55,34 +63,38 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     }
 
     private void JSON_DATA_WEB_CALL() {
-
+        final String u_id = prefrences.getVar_User_id();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, HTTP_JSON_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
+                    Log.i("tagconvertstr", "["+response+"]");
+                    System.out.println("response --> "+response);
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray array = jsonObject.getJSONArray("projects");
-
                         for(int i =0 ;i<array.length() ; i++){
-
                             JSONObject object = array.getJSONObject(i);
                             ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"));
                             listItems.add(pd);
                         }
                         recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {
-
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(ProjectList_cm.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
-        });
-
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("u_id",u_id);
+                return params;
+            }
+        };
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
