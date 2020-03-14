@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SiteReck</string>
+    <string name="construction_manager_list_header">Construction Manager</string>
 </resources>
