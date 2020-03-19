@@ -1,7 +1,5 @@
 package be.project.sitereck.GeneralActivities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
-import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
+import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.Activities.DashboardPMActivity;
 import be.project.sitereck.R;
 

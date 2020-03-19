@@ -8,6 +8,7 @@ public class URL_STRINGS {
     public static final String CALL_LOGIN = DOMAIN + "Connection/login.php";
     public static final String CALL_CMLIST = DOMAIN + "PM/getCM.php";   //all CM from user table
 
+
     final String GETALLACTIVITIESANDSUBACTIVITIES = "viewAllActivities.php";
     final String ONGOINGPROJECTS = "onGoingProjects.php";
     final String ALLPROJECTS = "getProjectList.php";

@@ -65,6 +65,9 @@ TextView tv_ongoing, tv_completed, tv_blocked;
             case R.id.cd_activity:
                 startActivity(new Intent(DashboardPMActivity.this,ActivityPm.class));
                 break;
+            case R.id.cd_manager:
+                startActivity(new Intent(DashboardPMActivity.this,AllCmList_PM.class));
+                break;
         }
 
     }

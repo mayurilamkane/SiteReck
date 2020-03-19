@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">SiteReck</string>
-    <string name="construction_manager_list_header">Construction Manager</string>
+    <string name="construction_manager_list_header">Construction Managers</string>
+    <string name="construction_manager">Construction Manager</string>
+    <string name="projects_count_xxx">Projects Count - XXX</string>
 </resources>
