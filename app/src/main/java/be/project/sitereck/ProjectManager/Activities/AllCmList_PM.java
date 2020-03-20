@@ -1,5 +1,7 @@
 package be.project.sitereck.ProjectManager.Activities;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -36,6 +38,7 @@ public class AllCmList_PM extends AppCompatActivity implements ItemClickListener
     List<CMInfoDataClass> listItems = new ArrayList<>();
     RequestQueue rq;
     CMInfoDataClass data;
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class AllCmList_PM extends AppCompatActivity implements ItemClickListener
     }
 
     private void JSONCALL() {
+        pd = ProgressDialog.show(this,null,"Loading Your List");
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallCmList(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -64,16 +68,22 @@ public class AllCmList_PM extends AppCompatActivity implements ItemClickListener
                         data = new CMInfoDataClass(object.getString("user_name"), object.getString("user_email"), object.getString("user_contact"), object.getString("user_id"), object.getString("count"));
                         listItems.add(data);
                     }
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                     recyclerView.setAdapter(adapter);
 
                 }catch (JSONException e){
                     e.printStackTrace();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                 }
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if(pd!=null && pd.isShowing())
+                    pd.dismiss();
                 Toast.makeText(AllCmList_PM.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -85,5 +95,11 @@ public class AllCmList_PM extends AppCompatActivity implements ItemClickListener
     public void onClick(View v, int adapterPosition) {
         listItems.get(adapterPosition);
         Toast.makeText(this, "CM- "+ listItems.get(adapterPosition).getCMName(), Toast.LENGTH_SHORT).show();
+        Intent intent  = new Intent(AllCmList_PM.this,CMInfo.class);
+        intent.putExtra("name",listItems.get(adapterPosition).getCMName());
+        intent.putExtra("email",listItems.get(adapterPosition).getEmail());
+        intent.putExtra("contact",listItems.get(adapterPosition).getContact());
+        intent.putExtra("id",listItems.get(adapterPosition).getId());
+        startActivity(intent);
     }
 }

@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     TextView tv_signup;
     EditText et_email,et_password;
     private RequestQueue rQueue;
+    ProgressDialog pd;
     SetSharedPrefrences prefrences = new SetSharedPrefrences(this);
 
     @Override
@@ -73,6 +74,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
            final String email = et_email.getText().toString().trim();
            final String pass = et_password.getText().toString().trim();
 
+            pd = ProgressDialog.show(this,null,"Authenticating");
+
            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallLogin(), new Response.Listener<String>() {
                @Override
                public void onResponse(String response) {
@@ -85,6 +88,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                @Override
                public void onErrorResponse(VolleyError error) {
                    System.out.println(error.toString());
+                   if(pd!=null && pd.isShowing())
+                       pd.dismiss();
                    Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                }
            }){
@@ -125,15 +130,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if (prefrences.getVar_User_position() ==  -1) {
                     Toast.makeText(this, "Something weird happened TRY AGAIN", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                 }else if (prefrences.getVar_User_position() ==  1) {
                     System.out.println("inside pm ");
                     Toast.makeText(this, "Logging IN PM", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, DashboardPMActivity.class);
 //                    finish();
                     startActivity(intent);
 
                 }else if (prefrences.getVar_User_position() ==  2) {
                     Toast.makeText(this, "Logging in CM", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, ProjectList_cm.class);
 //                    finish();
                     startActivity(intent);
@@ -142,6 +153,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             } catch (JSONException ex) {
             ex.printStackTrace();
+            if(pd!=null && pd.isShowing())
+                pd.dismiss();
         }
     }
 }
