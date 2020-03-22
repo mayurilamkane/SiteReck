@@ -1,4 +1,4 @@
-package be.project.sitereck.ProjectManager.Activities;
+package be.project.sitereck.ProjectManager.POJO;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
-import be.project.sitereck.ProjectManager.POJO.DataForCardProject;
 import be.project.sitereck.R;
 
-class CmProjectAdapter extends RecyclerView.Adapter<CmProjectAdapter.ViewHolder>{
+public class CmProjectAdapter extends RecyclerView.Adapter<CmProjectAdapter.ViewHolder>{
     List<DataForCardProject> listItems;
     Context context;
     ItemClickListener itemClickListener;
@@ -59,6 +58,7 @@ class CmProjectAdapter extends RecyclerView.Adapter<CmProjectAdapter.ViewHolder>
             name = view.findViewById(R.id.tv_protitle);
             sdate = view.findViewById(R.id.tv_startdate);
             endate = view.findViewById(R.id.tv_enddate);
+            this.itemClickListener=itemClickListener;
             view.setOnClickListener(this);
         }
         @Override

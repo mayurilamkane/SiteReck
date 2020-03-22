@@ -78,6 +78,7 @@ public class AllProjectPm extends AppCompatActivity implements AsyncResult, View
 //        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         try {
             JSONObject jsonObject = new JSONObject(result);
+            System.out.println(jsonObject);
             int found = jsonObject.getInt("found");
             if (found == 1){
                 JSONArray projects = jsonObject.getJSONArray("projects");

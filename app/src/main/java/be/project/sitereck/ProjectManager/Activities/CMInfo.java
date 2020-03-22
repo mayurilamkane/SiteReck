@@ -30,6 +30,7 @@ import java.util.Map;
 
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
+import be.project.sitereck.ProjectManager.POJO.CmProjectAdapter;
 import be.project.sitereck.ProjectManager.POJO.DataForCardProject;
 import be.project.sitereck.R;
 
@@ -60,6 +61,9 @@ public class CMInfo extends AppCompatActivity implements ItemClickListener {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent  = new Intent(CMInfo.this,CMProjList.class);
+                intent.putExtra("id",cmId);
+                startActivity(intent);
 
             }
         });
@@ -81,7 +85,7 @@ public class CMInfo extends AppCompatActivity implements ItemClickListener {
 
                     for (int i =0; i <array.length(); i++){
                         JSONObject object = array.getJSONObject(i);
-                        data = new DataForCardProject(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"));
+                        data = new DataForCardProject(object.getString("proj_id"),object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"));
                         list.add(data);
                     }
                     if(pd!=null && pd.isShowing())

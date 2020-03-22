@@ -11,6 +11,13 @@ public class URL_STRINGS {
     private static final String CALL_MATREQ = DOMAIN + "PM/getALLMATREQ.php";
 
 
+    public static String getCallAddcmtopro() {
+        return CALL_ADDCMTOPRO;
+    }
+
+    private static final String CALL_ADDCMTOPRO = DOMAIN + "PM/getADDCMTOPRO.php";
+    private static final String CALL_CMNONPRO = DOMAIN + "PM/getCMNONPROJECT.php";
+
 
     final String GETALLACTIVITIESANDSUBACTIVITIES = "viewAllActivities.php";
     final String ONGOINGPROJECTS = "onGoingProjects.php";
@@ -71,6 +78,7 @@ public String getMaterialRequestProjectWise() {
 
     public static String getCallCmpro() {   return CALL_CMPRO;  }
     public static String getCallMatreq() {  return CALL_MATREQ; }
+    public static String getCallCmnonpro() {    return CALL_CMNONPRO;   }
     public static String getCallRegister() {    return CALL_REGISTER;   }
     public static String getCallLogin() {   return CALL_LOGIN;  }
     public static String getCallCmList() {
