@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProjectManager.Activities.CMProjList"></activity>
+        <activity android:name=".ProjectManager.Activities.ProjectDash"></activity>
+        <activity android:name=".ProjectManager.Activities.CMProjList" />
         <activity android:name=".ProjectManager.Activities.MaterialRequestFromCm" />
         <activity android:name=".ProjectManager.Activities.CMInfo" />
         <activity android:name=".ProjectManager.Activities.AllCmList_PM" />
@@ -29,7 +30,7 @@
         <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM" />
         <activity android:name=".Construction_Manager.Activities.request_dashboard_cm" />
         <activity android:name=".Construction_Manager.Activities.update_activity" />
-        <activity android:name=".GeneralActivities.LoginActivity"></activity>
+        <activity android:name=".GeneralActivities.LoginActivity" />
         <activity android:name=".GeneralActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
