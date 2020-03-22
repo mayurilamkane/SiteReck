@@ -44,7 +44,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     RequestQueue requestQueue;
     be.project.sitereck.GeneralClasses.SetSharedPrefrences prefrences = new be.project.sitereck.GeneralClasses.SetSharedPrefrences(this);
 
-    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/getProjectList.php";
+    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/CM/getProjectList.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
