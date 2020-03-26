@@ -66,6 +66,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             btn_login_click();
         }
 
+        if (v.getId() == R.id.tv_sign_up) {
+            Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private void btn_login_click() {

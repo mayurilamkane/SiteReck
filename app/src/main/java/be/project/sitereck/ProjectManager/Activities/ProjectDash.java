@@ -11,6 +11,7 @@ import be.project.sitereck.R;
 
 public class ProjectDash extends AppCompatActivity implements View.OnClickListener{
     Button btnActivity,btnCM,btnReq;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +25,13 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btAct:
-                Intent intent = new Intent(this,ActivityManager_PM.class);
+                intent = new Intent(this,ActivityManager_PM.class);
                 startActivity(intent);
                 break;
 
             case R.id.btCm:
+                 intent = new Intent(this,ProjCMList.class);
+                startActivity(intent);
                 break;
 
             case R.id.btReq:

@@ -10,10 +10,15 @@ public class URL_STRINGS {
     private static final String CALL_CMPRO = DOMAIN + "PM/getCMPROJECT.php";
     private static final String CALL_MATREQ = DOMAIN + "PM/getALLMATREQ.php";
 
+    private static final String CALL_PROJCMLIST = DOMAIN + "PM/getPROJCMLIST.php";
 
+    private static final String CALL_RCM = DOMAIN + "PM/removeCm.php";
+
+    public static String getCallRcm() { return CALL_RCM;    }
     public static String getCallAddcmtopro() {
         return CALL_ADDCMTOPRO;
     }
+    public static String getCallProjcmlist() {  return CALL_PROJCMLIST; }
 
     private static final String CALL_ADDCMTOPRO = DOMAIN + "PM/getADDCMTOPRO.php";
     private static final String CALL_CMNONPRO = DOMAIN + "PM/getCMNONPROJECT.php";
