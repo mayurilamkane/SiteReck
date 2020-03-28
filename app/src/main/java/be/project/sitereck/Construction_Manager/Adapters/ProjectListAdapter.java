@@ -41,6 +41,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
         holder.textViewHead.setText(projectDataClass.getTitle());
         holder.tv_startdate.setText(projectDataClass.getStartDate());
         holder.tv_enddate.setText(projectDataClass.getEndDate());
+        holder.textViewDesc.setText(projectDataClass.getAssignBy());
     }
 
     @Override
@@ -63,6 +64,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
             textViewDesc=(TextView)itemView.findViewById(R.id.textviewDesc);
             tv_startdate=(TextView)itemView.findViewById(R.id.tv_startdate);
             tv_enddate=(TextView)itemView.findViewById(R.id.tv_enddate);
+
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
         }

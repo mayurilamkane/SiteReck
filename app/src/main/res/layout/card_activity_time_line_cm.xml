@@ -81,16 +81,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/bkg_cm" />
-
-                <TextView
-                    android:id="@+id/tv_status"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="@dimen/spacing_small"
-                    android:gravity="center_vertical"
-                    android:text="status - "
-                    android:textColor="#010" />
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status  - "
+                        android:textColor="#010" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text=""
+                        android:textColor="#010" />
+
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
