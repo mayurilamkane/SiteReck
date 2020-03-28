@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProjectManager.Activities.AllCmList_PM"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ProjectManager.Activities.MaterialRequestFromCm">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -23,7 +23,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="monospace"
                 android:gravity="center"
-                android:text="@string/construction_manager_list_header"
+                android:text="@string/material_request"
                 android:textColor="#000"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -32,9 +32,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec_CM_LIST"
+            android:id="@+id/rec_cmmrlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </ScrollView>
+
 </LinearLayout>

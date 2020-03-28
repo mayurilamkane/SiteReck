@@ -4,9 +4,20 @@ public class URL_STRINGS {
 
     private static final String DOMAIN = "https://sitereck-1.000webhostapp.com/API/";
 
-    public static final String CALL_REGISTER = DOMAIN + "Connection/register.php";
-    public static final String CALL_LOGIN = DOMAIN + "Connection/login.php";
-    public static final String CALL_CMLIST = DOMAIN + "PM/getCM.php";   //all CM from user table
+    private static final String CALL_REGISTER = DOMAIN + "Connection/register.php";
+    private static final String CALL_LOGIN = DOMAIN + "Connection/login.php";
+    private static final String CALL_CMLIST = DOMAIN + "PM/getCM.php";   //all CM from user table
+    private static final String CALL_CMPRO = DOMAIN + "PM/getCMPROJECT.php";
+    private static final String CALL_MATREQ = DOMAIN + "PM/getALLMATREQ.php";
+
+
+    public static String getCallAddcmtopro() {
+        return CALL_ADDCMTOPRO;
+    }
+
+    private static final String CALL_ADDCMTOPRO = DOMAIN + "PM/getADDCMTOPRO.php";
+    private static final String CALL_CMNONPRO = DOMAIN + "PM/getCMNONPROJECT.php";
+
 
     final String GETALLACTIVITIESANDSUBACTIVITIES = "viewAllActivities.php";
     final String ONGOINGPROJECTS = "onGoingProjects.php";
@@ -24,15 +35,7 @@ public class URL_STRINGS {
 
 ////
     public static  final String CALL_ACTIVITYLIST_PM = DOMAIN +"getActivityList.php";
-    public static String getCallRegister() {
-        return CALL_REGISTER;
-    }
-    public static String getCallLogin() {
-        return CALL_LOGIN;
-    }
-    public static String getCallCmList() {
-        return CALL_CMLIST;
-    }
+
     public static String getCallActivitylistPm() {
         return CALL_ACTIVITYLIST_PM;
     }
@@ -68,13 +71,17 @@ public String getMaterialRequestProjectWise() {
     public String getGETALLACTIVITIESANDSUBACTIVITIES() {
         return DOMAIN+GETALLACTIVITIESANDSUBACTIVITIES;
     }
-
-    public String getALLPROJECTS() {
-        return DOMAIN+ALLPROJECTS;
-    }
-
+    public String getALLPROJECTS() {    return DOMAIN+ALLPROJECTS;  }
     public String getONGOINGPROJECTS() {
         return DOMAIN+ONGOINGPROJECTS;
     }
 
+    public static String getCallCmpro() {   return CALL_CMPRO;  }
+    public static String getCallMatreq() {  return CALL_MATREQ; }
+    public static String getCallCmnonpro() {    return CALL_CMNONPRO;   }
+    public static String getCallRegister() {    return CALL_REGISTER;   }
+    public static String getCallLogin() {   return CALL_LOGIN;  }
+    public static String getCallCmList() {
+        return CALL_CMLIST;
+    }
 }
