@@ -18,13 +18,14 @@
             android:padding="5dp">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Activity Manager"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:textSize="20sp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:gravity="center"/>
+                android:layout_marginLeft="10dp"
+                android:gravity="left|center"
+                android:text="Activity Manager"
+                android:textColor="#FF000000"
+                android:textSize="20sp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

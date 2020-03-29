@@ -13,12 +13,16 @@ public class URL_STRINGS {
     private static final String CALL_PROJCMLIST = DOMAIN + "PM/getPROJCMLIST.php";
 
     private static final String CALL_RCM = DOMAIN + "PM/removeCm.php";
+    private static final String CALL_PROJLIST = DOMAIN +"Project/getProjectList.php";
+    private static final String CALL_PROJACTLIST = DOMAIN +"Project/getProjectActList.php";
 
+    public static String getCallProjactlist() { return CALL_PROJACTLIST;    }
     public static String getCallRcm() { return CALL_RCM;    }
     public static String getCallAddcmtopro() {
         return CALL_ADDCMTOPRO;
     }
     public static String getCallProjcmlist() {  return CALL_PROJCMLIST; }
+    public static String getCallProjList() {  return CALL_PROJLIST; }
 
     private static final String CALL_ADDCMTOPRO = DOMAIN + "PM/getADDCMTOPRO.php";
     private static final String CALL_CMNONPRO = DOMAIN + "PM/getCMNONPROJECT.php";
