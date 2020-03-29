@@ -2,7 +2,7 @@ package be.project.sitereck.Construction_Manager.DataClass;
 
 public class ProjectDataClass {
 
-    String Title ,StartDate,EndDate,Id;
+    String Title ,StartDate,EndDate,Id,AssignBy;
     String lat,lon;
     int image;
 
@@ -21,12 +21,13 @@ public class ProjectDataClass {
         EndDate = endDate;
     }
 
-    public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id) {
+    public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id,String user_name) {
 
         Title = proj_name;
         StartDate = proj_start_date;
         EndDate = proj_end_date;
         this.Id = proj_id;
+        AssignBy=user_name;
 
     }
     public ProjectDataClass(String proj_name, String proj_start_date, String proj_end_date, String proj_id,String lat ,String lon) {
@@ -53,6 +54,7 @@ public class ProjectDataClass {
     public String getEndDate() {
         return EndDate;
     }
+    public String getAssignBy(){return  AssignBy;}
 
     public String getLat() {
         return lat;
@@ -66,7 +68,7 @@ public class ProjectDataClass {
     public void setTitle(String title) {
         Title = title;
     }
-
+public void setAssignBy(String assignBy){AssignBy=assignBy;}
     public void setStartDate(String startDate) {
         StartDate = startDate;
     }

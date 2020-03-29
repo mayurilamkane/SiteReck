@@ -43,12 +43,20 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
     @Override
     public void onBindViewHolder(@NonNull ActivityViewHolder holder, int position) {
 
+
+
         Activity_dataClass_cm activity_dataClass_cm=list.get(position);
        holder.title.setText(activity_dataClass_cm.getTitle());
-      // holder.status.setText(activity_dataClass_cm.getStatus());
        holder.startDate.setText(activity_dataClass_cm.getStartDate());
        holder.endDate.setText(activity_dataClass_cm.getEndDate());
 
+        if(activity_dataClass_cm.getStatus().equals("0")){
+            holder.status.setText("Not Started ");
+        } else if(activity_dataClass_cm.getStatus().equals("1")){
+            holder.status.setText(" Started ");
+        }else {
+            holder.status.setText(" Completed ");
+        }
     }
 
     @Override

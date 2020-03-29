@@ -33,6 +33,11 @@ public class SetSharedPrefrences {
         return sp.getString(u_id,null);
     }
 
+    public String getProjectId(){
+        SharedPreferences sp=(SharedPreferences) context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        return sp.getString(proj_id,null);
+    }
+
     public void setU_id(String user_id) {
         SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE).edit();
         sp.putString(u_id,user_id);
@@ -68,7 +73,9 @@ public class SetSharedPrefrences {
                 sharedPreferences.getString(proj_name,null),
                 sharedPreferences.getString(proj_start_date,null),
                 sharedPreferences.getString(proj_end_date,null),
-                sharedPreferences.getString(proj_id,null)
+                sharedPreferences.getString(proj_id,null),
+                sharedPreferences.getString(u_id,null)
+
         );
     }
 
