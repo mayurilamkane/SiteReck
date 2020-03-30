@@ -1,5 +1,6 @@
 package be.project.sitereck.GeneralActivities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -18,9 +19,10 @@ import be.project.sitereck.R;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
 //TODO: Complete Signup Remove NUll Pointer exception
-    private EditText name, email, password,contact,pass,rpass;
+    private EditText name, email,contact,pass,rpass;
     private RadioGroup radioGroup;
     private RadioButton radiobutton;
+    ProgressDialog pd;
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if (v.getId() == R.id.btn_signup){
             if (!name.getText().toString().isEmpty() && !email.getText().toString().isEmpty() && !contact.getText().toString().isEmpty() && !pass.getText().toString().isEmpty() && !rpass.getText().toString().isEmpty() && (radioGroup.getCheckedRadioButtonId() != -1)){
+                //pd.dismiss();
                 if(Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
                     if(pass.getText().toString() == rpass.getText().toString()){
 

@@ -38,7 +38,7 @@ public class MatReqAdapter extends RecyclerView.Adapter<MatReqAdapter.ViewHolder
         MatReqItemClass r=list.get(position);
         holder.material_name.setText(r.getSmaterial());
         holder.req_date.setText(r.getMdate());
-        holder.proname.setText(r.getProjectName());
+
 
     }
 
@@ -48,14 +48,14 @@ public class MatReqAdapter extends RecyclerView.Adapter<MatReqAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView material_name,req_date,proname;
+        public TextView material_name,req_date;
         public ItemClickListener itemClickListener;
 
         public ViewHolder(@NonNull View itemView, ItemClickListener itemClickListener) {
             super(itemView);
             material_name=(TextView)itemView.findViewById(R.id.tv_material_name);
             req_date=(TextView)itemView.findViewById(R.id.tv_req_date);
-            proname=(TextView)itemView.findViewById(R.id.tv_matpro);
+
             this.itemClickListener=itemClickListener;
             itemView.setOnClickListener(this);
         }

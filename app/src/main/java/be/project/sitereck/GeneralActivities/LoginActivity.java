@@ -32,7 +32,6 @@ import be.project.sitereck.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ProgressDialog progressDialog;
     Button btn_login;
     TextView tv_signup;
     EditText et_email,et_password;

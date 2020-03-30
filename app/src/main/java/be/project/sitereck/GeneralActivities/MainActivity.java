@@ -44,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
             }else if (prefrences.getVar_User_position() ==  1) {
                 System.out.println("inside pm ");
                 Toast.makeText(this, "Logging IN PM", Toast.LENGTH_SHORT).show();
+                //IF PM SEND TO DashBoardPMActivity.java
                 Intent intent = new Intent(MainActivity.this, DashboardPMActivity.class);
                 startActivity(intent);
                 finish();
 
             }else if (prefrences.getVar_User_position() ==  2) {
                 Toast.makeText(this, "Logging in CM", Toast.LENGTH_SHORT).show();
+                //IF CM SEND TO ProjectList_cm.java
                 Intent intent = new Intent(MainActivity.this, ProjectList_cm.class);
                 startActivity(intent);
                 finish();
