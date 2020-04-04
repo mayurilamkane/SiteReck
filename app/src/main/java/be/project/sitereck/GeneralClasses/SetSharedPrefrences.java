@@ -16,9 +16,9 @@ public class SetSharedPrefrences {
     static final String var_login = "isLogin";
     static final String var_User_id = "user_id";
     static final String var_User_name  = "user_name";
-    final String var_User_email = "user_email";
-    final String var_User_contact = "user_contact";
-    final String var_User_position = "user_position";
+    static final String var_User_email = "user_email";
+    static final String var_User_contact = "user_contact";
+    static final String var_User_position = "user_position";
 
     private  static be.project.sitereck.GeneralClasses.SetSharedPrefrences mInstance;
 

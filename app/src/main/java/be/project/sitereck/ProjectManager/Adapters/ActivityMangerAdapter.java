@@ -47,7 +47,7 @@ public class ActivityMangerAdapter extends RecyclerView.Adapter<ActivityMangerAd
         holder.title.setText(managerClass_pm.getTitle());
         holder.enddate.setText(managerClass_pm.getEndDate());
         holder.startdate.setText(managerClass_pm.getStartDate());
-        holder.stat = managerClass_pm.getStat();
+        holder.stat = managerClass_pm.getStatus();
 
 
         if( holder.stat == "0"){

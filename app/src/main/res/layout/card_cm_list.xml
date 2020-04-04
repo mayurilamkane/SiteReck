@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="1dp">
+<LinearLayout
+
+    android:id="@+id/lay_cm"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="65dp">
-
-
+    android:layout_height="65dp"
+    android:padding="8dp">
+    <TextView
+        android:id="@+id/tv_cmname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="monospace"
+        android:gravity="left"
+        android:paddingLeft="2dp"
+        android:text="@string/construction_manager"
+        android:textColor="#000"
+        android:textSize="15sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+    <TextView
+        android:id="@+id/tv_cmcp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:fontFamily="monospace"
+        android:gravity="left"
+        android:paddingLeft="3dp"
+        android:text="@string/projects_count_xxx"
+        android:textColor="#151515"
+        android:textSize="14sp"
+        tools:ignore="RtlHardcoded,RtlSymmetry" />
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="#001"/>-->
 </LinearLayout>
+</androidx.cardview.widget.CardView>

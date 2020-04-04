@@ -26,6 +26,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
     public EditText edmaterial, edate;
     Button btSubmit, btshowAll;
     RequestQueue requestQueue;
+    be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences prefrences=new be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences(this);
     String HTTP_JSON_URL="https://sitereck-1.000webhostapp.com/API/getMaterial.php";
 
     @Override
@@ -61,7 +62,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
     private void makeRequest() {
         final String material = edmaterial.getText().toString().trim();
         final String date = edate.getText().toString().trim();
-
+        final String projId=prefrences.getProjectId();
         StringRequest stringRequest = new StringRequest(Request.Method.POST,HTTP_JSON_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -81,10 +82,9 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("proj_id","1") ;
+                params.put("proj_id",projId);
                 params.put("req_required_date",date);
                 params.put("req_material",material);
-
                 return params;
             }
 

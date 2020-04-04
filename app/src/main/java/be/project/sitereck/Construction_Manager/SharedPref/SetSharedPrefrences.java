@@ -15,7 +15,6 @@ public class SetSharedPrefrences {
     private String proj_name="project_name";
     private String proj_start_date="project_start_date";
     private String proj_end_date="project_end_date";
-    private String complete_work="completedWork";
 
 
     private  static SetSharedPrefrences mInstance;
@@ -34,15 +33,9 @@ public class SetSharedPrefrences {
         return sp.getString(u_id,null);
     }
 
-    public void setComplete_work(String complete_work) {
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE).edit();
-        sp.putString(complete_work,complete_work);
-        sp.commit();
-    }
-
-    public String getComplete_work() {
-        SharedPreferences sp = (SharedPreferences) context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
-        return sp.getString(complete_work,null);
+    public String getProjectId(){
+        SharedPreferences sp=(SharedPreferences) context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        return sp.getString(proj_id,null);
     }
 
     public void setU_id(String user_id) {
@@ -80,7 +73,9 @@ public class SetSharedPrefrences {
                 sharedPreferences.getString(proj_name,null),
                 sharedPreferences.getString(proj_start_date,null),
                 sharedPreferences.getString(proj_end_date,null),
-                sharedPreferences.getString(proj_id,null)
+                sharedPreferences.getString(proj_id,null),
+                sharedPreferences.getString(u_id,null)
+
         );
     }
 

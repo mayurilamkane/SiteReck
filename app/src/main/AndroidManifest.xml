@@ -14,7 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProjectManager.Activities.AllCmList_PM"></activity>
+        <activity android:name=".ProjectManager.Activities.MapActivity"></activity>
+        <activity android:name=".ProjectManager.Activities.PmProjectList"></activity>
+        <activity android:name=".ProjectManager.Activities.ProjCMList" />
+        <activity android:name=".ProjectManager.Activities.ProjectDash" />
+        <activity android:name=".ProjectManager.Activities.CMProjList" />
+        <activity android:name=".ProjectManager.Activities.MaterialRequestFromCm" />
+        <activity android:name=".ProjectManager.Activities.CMInfo" />
+        <activity android:name=".ProjectManager.Activities.AllCmList_PM" />
         <activity android:name=".Construction_Manager.Activities.All_Activities_of_cm" />
         <activity android:name=".Construction_Manager.Activities.dashboard_cm" />
         <activity android:name=".Construction_Manager.Activities.Edit_profile_cm" />
@@ -28,14 +35,14 @@
         <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM" />
         <activity android:name=".Construction_Manager.Activities.request_dashboard_cm" />
         <activity android:name=".Construction_Manager.Activities.update_activity" />
-        <activity android:name=".GeneralActivities.LoginActivity">
+        <activity android:name=".GeneralActivities.LoginActivity" />
+        <activity android:name=".GeneralActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GeneralActivities.MainActivity" />
         <activity android:name=".GeneralActivities.SignupActivity" />
         <activity android:name=".ProjectManager.Activities.ActivityManager_PM" />
         <activity android:name=".ProjectManager.Activities.AllProjectPm" />

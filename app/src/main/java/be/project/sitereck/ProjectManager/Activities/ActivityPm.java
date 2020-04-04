@@ -46,7 +46,7 @@ public class ActivityPm extends AppCompatActivity {
     FloatingActionButton btn_add;
     Button btn_complete;
 
-HelperClass helperClass;
+    HelperClass helperClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +79,7 @@ HelperClass helperClass;
         JSONObject finalObject = new JSONObject();
 
         for (DataForCard c:list) {
-         all_activities.add(c.getTitle());
+            all_activities.add(c.getTitle());
         }
         HashSet<String> unique_activities = new HashSet(all_activities);
 
@@ -95,7 +95,7 @@ HelperClass helperClass;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-    }
+        }
 //
         for (DataForCard c:list) {
             ACTIVITY = new JSONObject();

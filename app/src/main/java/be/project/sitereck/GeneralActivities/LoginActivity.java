@@ -1,7 +1,5 @@
 package be.project.sitereck.GeneralActivities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,18 +25,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
-import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
+import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.Activities.DashboardPMActivity;
 import be.project.sitereck.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ProgressDialog progressDialog;
     Button btn_login;
     TextView tv_signup;
     EditText et_email,et_password;
     private RequestQueue rQueue;
+    ProgressDialog pd;
     SetSharedPrefrences prefrences = new SetSharedPrefrences(this);
 
     @Override
@@ -66,6 +65,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             btn_login_click();
         }
 
+        if (v.getId() == R.id.tv_sign_up) {
+            Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private void btn_login_click() {
@@ -73,6 +77,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
        if (!(et_email.getText().toString().isEmpty()) && !(et_password.getText().toString().isEmpty())){
            final String email = et_email.getText().toString().trim();
            final String pass = et_password.getText().toString().trim();
+
+            pd = ProgressDialog.show(this,null,"Authenticating");
 
            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallLogin(), new Response.Listener<String>() {
                @Override
@@ -86,6 +92,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                @Override
                public void onErrorResponse(VolleyError error) {
                    System.out.println(error.toString());
+                   if(pd!=null && pd.isShowing())
+                       pd.dismiss();
                    Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                }
            }){
@@ -126,15 +134,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if (prefrences.getVar_User_position() ==  -1) {
                     Toast.makeText(this, "Something weird happened TRY AGAIN", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                 }else if (prefrences.getVar_User_position() ==  1) {
                     System.out.println("inside pm ");
                     Toast.makeText(this, "Logging IN PM", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, DashboardPMActivity.class);
 //                    finish();
                     startActivity(intent);
 
                 }else if (prefrences.getVar_User_position() ==  2) {
                     Toast.makeText(this, "Logging in CM", Toast.LENGTH_SHORT).show();
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, ProjectList_cm.class);
 //                    finish();
                     startActivity(intent);
@@ -143,6 +157,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             } catch (JSONException ex) {
             ex.printStackTrace();
+            if(pd!=null && pd.isShowing())
+                pd.dismiss();
         }
     }
 }

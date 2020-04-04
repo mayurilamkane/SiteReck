@@ -44,7 +44,7 @@ public class AssignCmToProject_PM extends AppCompatActivity implements View.OnCl
         initData();
         sendRequest();
         //itemclick listner check?
-        adapter = new CmToProjectAdapter(data,this);
+        adapter = new CmToProjectAdapter(data,this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }

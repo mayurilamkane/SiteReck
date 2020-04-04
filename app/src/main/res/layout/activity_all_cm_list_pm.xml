@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:text="@string/construction_manager_list_header"
                 android:textColor="#000"
-                android:textSize="15sp" />
+                android:textSize="17sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <ScrollView

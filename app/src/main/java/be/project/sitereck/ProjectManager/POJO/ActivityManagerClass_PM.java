@@ -2,8 +2,21 @@ package be.project.sitereck.ProjectManager.POJO;
 
 public class ActivityManagerClass_PM {
     private String status;
-    private String Title,startDate,endDate;
-    private String stat ;
+    private String Title,startDate,endDate, statusDate;
+    private String ID ;
+
+    public ActivityManagerClass_PM(String status, String title, String startDate, String endDate, String statusDate, String ID) {
+        this.status = status;
+        Title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.statusDate = statusDate;
+        this.ID = ID;
+    }
+
+    public String getStatusDate() { return statusDate;  }
+
+    public String getID() { return ID;  }
 
     public String getStatus() {
         return status;
@@ -25,39 +38,20 @@ public class ActivityManagerClass_PM {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
     public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
 
-    public String getStat() {
-        return stat;
-    }
-
-    public void setStat(String stat) {
-        this.stat = stat;
-    }
-
-    public ActivityManagerClass_PM(String status, String title, String startDate, String endDate, String stat) {
+    public ActivityManagerClass_PM( String title, String startDate, String endDate, String status, String id) {
         this.status = status;
         Title = title;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.stat = stat;
+
+        ID = id;
     }
-    public ActivityManagerClass_PM(String title, String startDate, String endDate, String stat) {
-        Title = title;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.stat = stat;
-    }
+
     public ActivityManagerClass_PM(String title, String startDate, String endDate) {
         Title = title;
         this.startDate = startDate;

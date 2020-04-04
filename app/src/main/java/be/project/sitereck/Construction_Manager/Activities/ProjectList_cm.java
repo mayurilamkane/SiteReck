@@ -1,5 +1,6 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,7 +44,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     CircleImageView circleImageView;
     RequestQueue requestQueue;
     be.project.sitereck.GeneralClasses.SetSharedPrefrences prefrences = new be.project.sitereck.GeneralClasses.SetSharedPrefrences(this);
-
+    ProgressDialog progressDialog;
     String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/CM/getProjectList.php";
 
     @Override
@@ -54,9 +55,11 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         circleImageView=(CircleImageView)findViewById(R.id.img);
         System.out.println("user id ----> "+prefrences.getVar_User_id());
         JSON_DATA_WEB_CALL();
-
+        progressDialog=ProgressDialog.show(ProjectList_cm.this,"Please Wait","Loading List",true,false);
         adapter = new ProjectListAdapter(listItems,this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
         circleImageView.setOnClickListener((View.OnClickListener)this);
     }
 
@@ -72,10 +75,11 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
                     JSONArray array = jsonObject.getJSONArray("projects");
                         for(int i =0 ;i<array.length() ; i++){
                             JSONObject object = array.getJSONObject(i);
-                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"));
+                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"),object.getString("user_name"));
                             listItems.add(pd);
                         }
                         recyclerView.setAdapter(adapter);
+                        progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -109,6 +113,8 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         new SetSharedPrefrences(this).setTitle(String.valueOf(listItems.get(adapterPosition).getTitle()));
         new SetSharedPrefrences(this).setStartDate(String.valueOf(listItems.get(adapterPosition).getStartDate()));
         new SetSharedPrefrences(this).setEndDate(String.valueOf(listItems.get(adapterPosition).getEndDate()));
+        new SetSharedPrefrences(this).setProjId(String.valueOf(listItems.get(adapterPosition).getId()));
+
     }
 
     @Override

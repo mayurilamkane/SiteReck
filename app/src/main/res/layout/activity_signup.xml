@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/spacing_medium"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="@dimen/spacing_middle"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="@dimen/spacing_middle"
+        android:layout_marginEnd="20dp"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
         <LinearLayout
             android:padding="@dimen/spacing_middle"
@@ -31,29 +31,78 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:textStyle="bold" />
             <EditText
+                android:id="@+id/etname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:hint="Name"/>
             <EditText
+                android:id="@+id/etcont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:hint="contact"/>
+            <EditText
+                android:id="@+id/etemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:hint="E-mail"/>
             <EditText
+                android:id="@+id/etpass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:hint="Password"/>
             <EditText
+                android:id="@+id/etrpass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:hint="ReEnter Password"/>
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Your Position"
+                android:layout_margin="@dimen/spacing_middle"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textStyle="bold" />
+            <RadioGroup
+                android:id="@+id/radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_middle"
+                android:orientation="vertical">
+                <RadioButton android:id="@+id/radio_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Project Manager"
+                    />
+                <RadioButton android:id="@+id/radio_cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Construction Manager"
+                    />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:background="#2E6380"
+                android:text="SignUp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

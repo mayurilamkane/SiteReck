@@ -1,5 +1,6 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,7 +24,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import be.project.sitereck.Construction_Manager.Adapters.Activity_Adapter_cm;
 import be.project.sitereck.Construction_Manager.DataClass.Activity_dataClass_cm;
@@ -35,7 +39,9 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
     Activity_Adapter_cm adapter_cm;
     List<Activity_dataClass_cm> list;
     RequestQueue requestQueue;
-    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/CM/getProjectActList.php";
+    be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences prefrences=new be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences(this);
+    ProgressDialog progressDialog;
+    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/getActivityList.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,7 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
         //Toast.makeText(this, "This Is On Going Project List", Toast.LENGTH_SHORT).show();
         list = new ArrayList<>();
         JSON_DATA_WEB_CALL();
-
+        progressDialog = ProgressDialog.show(All_Activities_of_cm.this,"Please Wait","Loading List",true,false);
         recyclerView=(RecyclerView)findViewById(R.id.recy_ptimeline);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter_cm = new Activity_Adapter_cm(this,list,this);
@@ -62,6 +68,7 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
      //   list.add(new Activity_dataClass_cm("title 3","status","1/1/1","1/1/1"));
        // list.add(new Activity_dataClass_cm("title 4","status","1/1/1","1/1/1"));
        // list.add(new Activity_dataClass_cm("title 5","status","1/1/1","1/1/1"));
+        final String projId=prefrences.getProjectId();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, HTTP_JSON_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -70,10 +77,11 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
                     JSONArray array = jsonObject.getJSONArray("projects");
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
-                        Activity_dataClass_cm adc = new Activity_dataClass_cm(object.getString("act_name"), object.getString("p_act_start_date"), object.getString("p_act_end_date"), object.getInt("act_id"));
+                        Activity_dataClass_cm adc = new Activity_dataClass_cm(object.getString("act_name"), object.getString("proj_status"), object.getString("p_act_start_date"), object.getString("p_act_end_date"));
                         list.add(adc);
                     }
                     recyclerView.setAdapter(adapter_cm);
+                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     Toast.makeText(All_Activities_of_cm.this, "" +e.toString(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
@@ -86,7 +94,14 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
 
 
             }
-        });
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params=new HashMap<>();
+                params.put("proj_id",projId);
+                return params;
+            }
+        };
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
