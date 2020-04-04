@@ -35,7 +35,7 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
     Activity_Adapter_cm adapter_cm;
     List<Activity_dataClass_cm> list;
     RequestQueue requestQueue;
-    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/getActivityList.php";
+    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/CM/getProjectActList.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

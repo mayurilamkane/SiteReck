@@ -82,7 +82,7 @@
                         android:gravity="left"
                         android:paddingLeft="90dp"
                         android:paddingTop="0dp"
-                        android:text="shdghjgfhjadf"
+                        android:text=""
                         android:textColor="@color/grey_10"
                         android:textSize="15dp"
                         android:textStyle="normal" />
@@ -143,7 +143,7 @@
                             android:layout_marginTop="160dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="20-2-2018"
+                            android:text=""
                             android:paddingLeft="20dp" />
                     </LinearLayout>
                     <LinearLayout
@@ -168,7 +168,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey_10"
-                            android:text="20-2-2019"
+                            android:text=""
                             android:paddingLeft="20dp">
 
                         </TextView>
@@ -235,7 +235,8 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="40dp"
                                 android:textStyle="bold"
-                                android:text="12">
+                                android:text=""
+                                android:textColor="#333333">
                             </TextView>
                         </LinearLayout>
                     </LinearLayout>
@@ -270,7 +271,8 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="55dp"
                                 android:textStyle="bold"
-                                android:text="11">
+                                android:textColor="#333333"
+                                android:text="">
                             </TextView>
                         </LinearLayout>
                     </LinearLayout>
@@ -305,7 +307,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="57dp"
                                 android:textStyle="bold"
-                                android:text="11">
+                                android:text="">
                             </TextView>
                         </LinearLayout>
                     </LinearLayout>

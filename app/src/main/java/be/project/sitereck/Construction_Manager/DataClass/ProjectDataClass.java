@@ -2,7 +2,7 @@ package be.project.sitereck.Construction_Manager.DataClass;
 
 public class ProjectDataClass {
 
-    String Title ,StartDate,EndDate,Id;
+    String Title ,StartDate,EndDate,Id,CompleteWork,OngoingWork;
     String lat,lon;
     int image;
 
@@ -13,7 +13,9 @@ public class ProjectDataClass {
         //this.Id = Id;
     }
 
-
+    public ProjectDataClass( String completedWork){
+        CompleteWork= completedWork;
+    }
 
     public ProjectDataClass(String title, String startDate, String endDate) {
         Title = title;
@@ -50,6 +52,12 @@ public class ProjectDataClass {
         return StartDate;
     }
 
+
+
+    public  String getCompleteWork() {
+        return CompleteWork;
+    }
+
     public String getEndDate() {
         return EndDate;
     }
@@ -72,5 +80,9 @@ public class ProjectDataClass {
     }
     public void setEndDate(String endDate) {
         EndDate = endDate;
+    }
+
+    public void setCompleteWork(String completeWork) {
+        CompleteWork = completeWork;
     }
 }

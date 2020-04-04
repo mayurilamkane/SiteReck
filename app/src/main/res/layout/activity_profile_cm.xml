@@ -24,11 +24,12 @@
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
+                android:id="@+id/profile_name"
                 android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Shweta Hiremath"
+                android:text=""
                 android:textColor="#FDFAFA"
                 android:textSize="30dp"
                 android:textStyle="italic">
@@ -58,11 +59,12 @@
                     android:src="@drawable/ic_email_black_24dp">
                 </ImageView>
                 <TextView
+                    android:id="@+id/name"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
-                    android:text="shwetahiremath9220@gmail.com"
+                    android:text=""
                     android:textColor="@color/grey_10"
                     android:textSize="16dp">
                 </TextView>
@@ -80,11 +82,12 @@
                     android:src="@drawable/ic_phone_android_black_24dp">
                 </ImageView>
                 <TextView
+                    android:id="@+id/email"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
-                    android:text="9975092571"
+                    android:text=""
                     android:textSize="16dp">
                 </TextView>
             </LinearLayout>
@@ -100,11 +103,12 @@
                     android:src="@drawable/ic_videocam_black_24dp">
                 </ImageView>
                 <TextView
+                    android:id="@+id/contact"
                     android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
-                    android:text="9975092571"
+                    android:text=""
                     android:textSize="16dp">
                 </TextView>
             </LinearLayout>
