@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="be.project.sitereck" >
+    package="be.project.sitereck">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,9 +13,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ProjectManager.Activities.PmProjectList" >
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".ProjectManager.Activities.MapActivity"></activity>
+        <activity android:name=".ProjectManager.Activities.PmProjectList"></activity>
         <activity android:name=".ProjectManager.Activities.ProjCMList" />
         <activity android:name=".ProjectManager.Activities.ProjectDash" />
         <activity android:name=".ProjectManager.Activities.CMProjList" />
@@ -34,7 +34,7 @@
         <activity android:name=".Construction_Manager.Activities.request_dashboard_cm" />
         <activity android:name=".Construction_Manager.Activities.update_activity" />
         <activity android:name=".GeneralActivities.LoginActivity" />
-        <activity android:name=".GeneralActivities.MainActivity" >
+        <activity android:name=".GeneralActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,12 @@
 package be.project.sitereck.ProjectManager.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +21,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -42,6 +47,9 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
     ActivityMangerAdapter adapter;
     SwipeRefreshLayout swipeRefreshLayout;
     String pid = null;
+    TextView errormsg ;
+    FloatingActionButton fab_addActivity;
+    Dialog dialog;
     Intent intent;
     SetSharedPrefrences preferences = new SetSharedPrefrences(this);
     RequestQueue requestQueue;
@@ -71,6 +79,9 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
                 sendRequest();
             }
         });
+
+        //
+
     }
 
     private void sendRequest() {
@@ -84,13 +95,18 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
                     JSONObject object = new JSONObject(response);
                     if (object.getString("status").equals("0")){
                         Toast.makeText(ActivityManager_PM.this, "No Activities Found !!", Toast.LENGTH_LONG).show();
+                        errormsg.setVisibility(View.VISIBLE);
                     }else if (object.getString("status").equals("1")) {
+                        errormsg.setVisibility(View.GONE);
                         JSONArray jsonArray = object.getJSONArray("activity");
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject object1 = jsonArray.getJSONObject(i);
-                            ActivityManagerClass_PM amc = new ActivityManagerClass_PM(object1.getString("act_name"),
+                            ActivityManagerClass_PM amc = new ActivityManagerClass_PM(object1.getString("proj_status"),
+                                    object1.getString("act_name"),
                                     object1.getString("p_act_start_date"),
-                                    object1.getString("p_act_end_date"));
+                                    object1.getString("p_act_end_date"),
+                                    object1.getString("p_status_date"),
+                                    object1.getString("p_act_id"));
                             data.add(amc);
                         }
                         recyclerView.setAdapter(adapter);
@@ -122,6 +138,8 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
 
     private void initData() {
         recyclerView = findViewById(R.id.rcv_activitylist);
+        fab_addActivity = findViewById(R.id.fab_addactivity);
+        errormsg = findViewById(R.id.textemptyactivitylist);
        Intent  intent = getIntent();
          pid = intent.getStringExtra("pid");
 
@@ -134,12 +152,85 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
 
     @Override
     public void onClick(View v) {
+        if (v.getId()  == R.id.fab_addactivity){
 
+        }
     }
 
 
     @Override
-    public void onClick(View view, int position) {
+    public void onClick(View view, final int position) {
+        dialog = new Dialog(ActivityManager_PM.this);
+        dialog.setContentView(R.layout.dialog_remove_activity);
 
+        TextView dtitle,dstartdate,denddate,dstatus;
+        Button btncancel, btnremove;
+        dtitle = dialog.findViewById(R.id.tvc_activity_title);
+        dstatus = dialog.findViewById(R.id.tvc_status);
+        dstartdate = dialog.findViewById(R.id.tvc_startdate);
+        denddate = dialog.findViewById(R.id.tvc_enddate);
+        btncancel = dialog.findViewById(R.id.dra_btn_cancel);
+        btnremove = dialog.findViewById(R.id.dra_btn_remove);
+
+        dtitle.setText(data.get(position).getTitle());
+        dstatus.setText(data.get(position).getStatus());
+        dstartdate.setText(data.get(position).getStartDate());
+        denddate.setText(data.get(position).getEndDate());
+
+        dialog.show();
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnremove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ActivityManager_PM.this, "remove", Toast.LENGTH_SHORT).show();
+                RemoveActivity(data.get(position).getID(),position);
+            }
+        });
     }
+
+    private void RemoveActivity(final String id , final int position) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallProjremact(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.i("tagconvertstr", "["+response+"]");
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("status").equals("1")){
+                        dialog.dismiss();
+                        Toast.makeText(ActivityManager_PM.this, "Activity Removed From Project. Refreshing List.", Toast.LENGTH_LONG).show();
+                        onRefresh();
+                    }else{
+                        dialog.dismiss();
+                        Toast.makeText(ActivityManager_PM.this, "Sometthing went wrong. Try Refreshing list and Try again. ", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    dialog.dismiss();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.toString());
+                dialog.dismiss();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("p_act_id",id);
+                return params;
+            }
+        };
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 }

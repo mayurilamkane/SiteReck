@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +45,8 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
     RecyclerView recyclerView;
     ProjectListAdapterPm adapter;
     ProjectData data ;
+    TextView errormsg;
+    FloatingActionButton fabAddProject;
     List<ProjectData> listItems = new ArrayList<>();
     RequestQueue rq ;
     String u_id = null;
@@ -52,23 +56,35 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pm_project_list);
 
+        errormsg = findViewById(R.id.textemptyprojectlist);
         recyclerView = findViewById(R.id.rec_projList);
+        fabAddProject = findViewById(R.id.fab_addproject);
         swipeRefreshLayout = findViewById(R.id.container_projList);
         swipeRefreshLayout.setOnRefreshListener(this);
 
+        //swipeRefresh color scheme
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,
                 android.R.color.holo_blue_dark);
-
+        //define adapter for list
         adapter = new ProjectListAdapterPm(listItems,this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        //swiperefresh post method
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
                 JSON_DATA_WEB_CALL();
+            }
+        });
+
+        //fab clicklistner
+        fabAddProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addProjectIntent  = new Intent(PmProjectList.this,AddNewProjectPM.class);
+                startActivity(addProjectIntent);
             }
         });
     }
@@ -83,6 +99,7 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
                     Log.i("tagconvertstr", "["+response+"]");
                     JSONObject jsonObject = new JSONObject(response);
                     if(jsonObject.getString("found").equals("1")){
+                        errormsg.setVisibility(View.GONE);
                         JSONArray array= jsonObject.getJSONArray("projects");
                         for (int i =0 ; i<array.length(); i++){
                          JSONObject object = array.getJSONObject(i);
@@ -101,6 +118,7 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
                         recyclerView.setAdapter(adapter);
                     }else if (jsonObject.getString("found").equals("0")){
                         Toast.makeText(PmProjectList.this, "SORRY YOU DONT HAVE ANY PROJECTS YET !", Toast.LENGTH_LONG).show();
+                        errormsg.setVisibility(View.VISIBLE);
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -135,8 +153,13 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
 
     @Override
     public void onClick(View v, int adapterPosition) {
-        Intent intent = new Intent (PmProjectList.this,ProjectDash.class);
-        intent.putExtra("ProjectData", (Serializable) listItems.get(adapterPosition));
-        startActivity(intent);
+        try {
+            Intent intent = new Intent (PmProjectList.this,ProjectDash.class);
+            intent.putExtra("ProjectData", (Serializable) listItems.get(adapterPosition));
+            startActivity(intent);
+        }catch (Exception e){
+            System.out.println("Exception -> "+ e);
+            Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();
+        }
     }
 }

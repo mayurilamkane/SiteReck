@@ -22,16 +22,43 @@
         android:textSize="20sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 </androidx.cardview.widget.CardView>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textemptyprojectlist"
+        android:layout_below="@id/card_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:background="@color/grey_10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:text="  You Dont Have Any Projects Yet!!! Try Creating One"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/container_projList"
         android:layout_marginTop="2dp"
         android:layout_below="@id/card_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView
             android:padding="@dimen/spacing_medium"
             android:id="@+id/rec_projList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_addproject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_add_black_48dp"
+        app:backgroundTint="#2979FF" />
 </RelativeLayout>

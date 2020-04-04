@@ -10,12 +10,19 @@ public class URL_STRINGS {
     private static final String CALL_CMPRO = DOMAIN + "PM/getCMPROJECT.php";
     private static final String CALL_MATREQ = DOMAIN + "PM/getALLMATREQ.php";
 
-    private static final String CALL_PROJCMLIST = DOMAIN + "PM/getPROJCMLIST.php";
-
     private static final String CALL_RCM = DOMAIN + "PM/removeCm.php";
+
     private static final String CALL_PROJLIST = DOMAIN +"Project/getProjectList.php";
     private static final String CALL_PROJACTLIST = DOMAIN +"Project/getProjectActList.php";
+    private static final String CALL_PROJCMLIST = DOMAIN + "Project/getProjectCm.php";
 
+    private static final String CALL_ADDPROJ = DOMAIN +"Project/AddProject.php";
+
+    public static String getCallProjremact() {  return CALL_PROJREMACT; }
+
+    private static final String CALL_PROJREMACT = DOMAIN +"Project/RemActProject.php";
+
+    public static String getCallAddproj() { return CALL_ADDPROJ;    }
     public static String getCallProjactlist() { return CALL_PROJACTLIST;    }
     public static String getCallRcm() { return CALL_RCM;    }
     public static String getCallAddcmtopro() {
@@ -33,7 +40,7 @@ public class URL_STRINGS {
     final String ALLPROJECTS = "getProjectList.php";
     final String ProjectConstructorNotAssigned = "getProjectsNotAssignedToConstructor.php";
     final String INSERTNEWACTIVITY ="insertNewActivity.php";
-//    public String getLOGINURL(){
+    //    public String getLOGINURL(){
 //        return DOMAIN+LOGIN;
 //    }
     final String getConstructors = "getAllConstructionManager.php";
@@ -42,16 +49,16 @@ public class URL_STRINGS {
     final String insertProject ="insertNewProject.php";
     final String MaterialRequestProjectWise = "getMaterialRequestProjectWise.php";
 
-////
+    ////
     public static  final String CALL_ACTIVITYLIST_PM = DOMAIN +"getActivityList.php";
 
     public static String getCallActivitylistPm() {
         return CALL_ACTIVITYLIST_PM;
     }
-////
-public String getMaterialRequestProjectWise() {
-    return DOMAIN+MaterialRequestProjectWise;
-}
+    ////
+    public String getMaterialRequestProjectWise() {
+        return DOMAIN+MaterialRequestProjectWise;
+    }
 
     public String getGetGanttChartDetails() {
         return DOMAIN+getGanttChartDetails;

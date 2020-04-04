@@ -68,8 +68,8 @@ public class AllProjectPm extends AppCompatActivity implements AsyncResult, View
 
     private void initElements() {
         recyclerView = (RecyclerView)findViewById(R.id.rv_project);
-   //     btn_map = (Button)findViewById(R.id.btn_view_on_map);
-    //    btn_map.setOnClickListener(this);
+        //     btn_map = (Button)findViewById(R.id.btn_view_on_map);
+        //    btn_map.setOnClickListener(this);
 
 
     }
@@ -78,17 +78,17 @@ public class AllProjectPm extends AppCompatActivity implements AsyncResult, View
 //        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         try {
             JSONObject jsonObject = new JSONObject(result);
-            System.out.println(jsonObject);
             int found = jsonObject.getInt("found");
             if (found == 1){
                 JSONArray projects = jsonObject.getJSONArray("projects");
                 for (int i = 0 ; i< projects.length() ; i++){
                     JSONObject project = projects.getJSONObject(i);
-                    list.add(new DataForCardProject(project.getString("proj_name"),project.getString("proj_address"),"",project.getString("proj_start_date"),project.getString("proj_end_date")));
+//                    proj_id
+                    list.add(new DataForCardProject(project.getString("proj_name"),project.getString("proj_address"),"",project.getString("proj_start_date"),project.getString("proj_end_date"),project.getString("proj_id")));
 
                 }
             }else{
-                list.add(new DataForCardProject("NO PROJECTS YET CREATED","","","",""));
+                list.add(new DataForCardProject("NO PROJECTS YET CREATED","","","","",""));
 
             }
         } catch (JSONException e) {
@@ -115,7 +115,7 @@ public class AllProjectPm extends AppCompatActivity implements AsyncResult, View
     }
 
     @Override
-   public void onClick(View v) {
+    public void onClick(View v) {
 
     }
 }

@@ -22,13 +22,23 @@
             android:textSize="20sp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
     </androidx.cardview.widget.CardView>
-
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textemptyactivitylist"
+        android:layout_below="@id/cd_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:background="@color/grey_10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:text="  Project Don't Have Any Activiy Yet!!! Try Creating One"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         app:cardElevation="3dp"
-        android:layout_below="@id/cd_header">
+        android:layout_below="@id/textemptyactivitylist">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/container_activity_manager"
             android:layout_marginTop="2dp"
