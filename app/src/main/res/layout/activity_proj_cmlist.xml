@@ -1,40 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProjectManager.Activities.ProjCMList"
-    android:orientation="vertical">
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:cardElevation="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center"
+            android:text="Consruction Managers"
+            android:textColor="#FF000000"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textemptycmlist"
+        android:layout_below="@id/cd_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:background="@color/grey_10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:text="No Construction Manager Is Assigned Yet!!! Assign One"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:padding="5dp">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:cardElevation="3dp"
+        android:layout_below="@id/textemptycmlist">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/container_cmlist"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/card_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <TextView
+            android:layout_height="wrap_content">
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:text="@string/construction_manager_list_header"
-                android:textColor="#000"
-                android:textSize="17sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec_CM_LIST"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/rec_CM_LIST"/>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </ScrollView>
-</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_addcm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_add_black_48dp"
+        app:backgroundTint="#2979FF" />
+
+</RelativeLayout>

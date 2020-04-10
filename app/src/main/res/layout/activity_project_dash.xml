@@ -7,28 +7,19 @@
     tools:context=".ProjectManager.Activities.ProjectDash">
     <androidx.cardview.widget.CardView
         android:id="@+id/cutom_toolbar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:orientation="vertical"
-        android:elevation="15dp"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#fff">
-        <RelativeLayout
+        app:cardElevation="15dp">
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_marginLeft="10dp"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:text="Project Info"
-                android:textColor="#FF000000"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-        </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center"
+            android:text="Project Info"
+            android:textColor="#FF000000"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
     </androidx.cardview.widget.CardView>
     <ScrollView
         android:id="@+id/sv_pinfo"

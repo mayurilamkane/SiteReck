@@ -15,12 +15,25 @@ public class URL_STRINGS {
     private static final String CALL_PROJLIST = DOMAIN +"Project/getProjectList.php";
     private static final String CALL_PROJACTLIST = DOMAIN +"Project/getProjectActList.php";
     private static final String CALL_PROJCMLIST = DOMAIN + "Project/getProjectCm.php";
+    private static final String CALL_PROJNONCMLIST = DOMAIN + "Project/getProjectNonCm.php";
+    private static final String CALL_ALLACTLIST = DOMAIN +"Project/AllActivityList.php";
 
     private static final String CALL_ADDPROJ = DOMAIN +"Project/AddProject.php";
+    private static final String CALL_ADDCMPROJ = DOMAIN +"Project/addCmProject.php";
+    private static final String CALL_ADDACTPROJ = DOMAIN +"Project/addActProj.php";
+    private static final String CALL_CNACTPROJ = DOMAIN +"Project/createNAddAct.php";
 
+    public static String getCallCnactproj() {   return CALL_CNACTPROJ;  }
+    public static String getCallAddactproj() {  return CALL_ADDACTPROJ; }
+    public static String getCallAllactlist() {  return CALL_ALLACTLIST; }
+    public static String getCallAddcmproj() {   return CALL_ADDCMPROJ;  }
+    public static String getCallProjnoncmlist() {   return CALL_PROJNONCMLIST;  }
     public static String getCallProjremact() {  return CALL_PROJREMACT; }
+    public static String getCallProjremcm() {   return CALL_PROJREMCM;  }
+
 
     private static final String CALL_PROJREMACT = DOMAIN +"Project/RemActProject.php";
+    private static final String CALL_PROJREMCM = DOMAIN +"Project/RemCmProject.php";
 
     public static String getCallAddproj() { return CALL_ADDPROJ;    }
     public static String getCallProjactlist() { return CALL_PROJACTLIST;    }

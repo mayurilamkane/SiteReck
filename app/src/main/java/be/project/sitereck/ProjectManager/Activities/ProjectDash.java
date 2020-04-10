@@ -60,6 +60,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
 
             case R.id.btCm:
                  intent = new Intent(this,ProjCMList.class);
+                intent.putExtra("pid",data.getProject_id());
                 startActivity(intent);
                 break;
 
