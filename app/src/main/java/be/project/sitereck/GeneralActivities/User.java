@@ -4,6 +4,7 @@ public class  User {
     private int id,posi;
     private String name,password,email,contact;
 
+
     public int getId() {
         return id;
     }

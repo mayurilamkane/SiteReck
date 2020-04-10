@@ -3,6 +3,9 @@ package be.project.sitereck.GeneralClasses;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
+import be.project.sitereck.GeneralActivities.User;
+
 public class SetSharedPrefrences {
     Context context;
 
@@ -16,6 +19,16 @@ public class SetSharedPrefrences {
     static final String var_User_email = "user_email";
     static final String var_User_contact = "user_contact";
     static final String var_User_position = "user_position";
+
+    private  static be.project.sitereck.GeneralClasses.SetSharedPrefrences mInstance;
+
+
+    public static synchronized be.project.sitereck.GeneralClasses.SetSharedPrefrences getInstance(Context context){
+        if(mInstance==null){
+            mInstance=new be.project.sitereck.GeneralClasses.SetSharedPrefrences(context);
+        }
+        return mInstance;
+    }
 
     public void clearPrefrences(){
         SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
@@ -103,6 +116,18 @@ public class SetSharedPrefrences {
     public int getSharedUserId(){
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         return sp.getInt(var_User_id,-1);
+    }
+
+    public User getprojectinfo(){
+        SharedPreferences sharedPreferences=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        return  new User(
+                sharedPreferences.getInt( var_User_id, -1),
+                sharedPreferences.getInt( var_User_position,-1 ),
+                sharedPreferences.getString(var_User_name,null),
+                sharedPreferences.getString(var_User_email,null),
+                sharedPreferences.getString(var_User_contact,null)
+
+        );
     }
 
 

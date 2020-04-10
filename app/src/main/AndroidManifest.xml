@@ -27,7 +27,9 @@
         <activity android:name=".Construction_Manager.Activities.Edit_profile_cm" />
         <activity android:name=".Construction_Manager.Activities.material_Request_CM" />
         <activity android:name=".Construction_Manager.Activities.MaterialRequestListCM" />
-        <activity android:name=".Construction_Manager.Activities.particular_project" />
+        <activity android:name=".Construction_Manager.Activities.particular_project">
+
+        </activity>
         <activity android:name=".Construction_Manager.Activities.profile_cm" />
         <activity android:name=".Construction_Manager.Activities.ProjectList_cm" />
         <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM" />
