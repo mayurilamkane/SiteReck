@@ -7,31 +7,51 @@
     app:cardCornerRadius="3dp"
     android:elevation="3dp"
     android:layout_margin="3dp">
+
     <LinearLayout
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:layout_gravity="center"
-        android:padding="5dp">
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_cmname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Construction Manager"
+            android:textColor="#FF000000"
+            android:textSize="17sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#37474F"/>
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:text="Email - "
+            android:textColor="#010"
+            android:layout_margin="5dp"
+            />
 
-            <TextView
-                android:id="@+id/tv_cmname"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:fontFamily="monospace"
-                android:layout_marginStart="3dp"
-                android:text="Name"
-                android:textStyle="bold"/>
-            <Button
-                android:id="@+id/btn_addcm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFF"
-                android:text=""/>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#37474F"/>
+        <TextView
+            android:id="@+id/tv_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:text="Contact - "
+            android:textColor="#010"
+            android:layout_margin="5dp"
+            />
     </LinearLayout>
 
 

@@ -54,6 +54,7 @@
         <activity android:name=".ProjectManager.Activities.ProjectPMActivity" />
         <activity android:name=".ProjectManager.Activities.AddNewProjectPM" />
         <activity android:name=".ProjectManager.Activities.DashboardPMActivity" />
+        <activity android:name=".ProjectManager.Activities.AssignCmToProject_PM" />
     </application>
 
 </manifest>

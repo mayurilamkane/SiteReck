@@ -59,6 +59,7 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
         setContentView(R.layout.activity_manager__pm);
 
         initData();
+        fab_addActivity.setOnClickListener(this);
         swipeRefreshLayout = findViewById(R.id.container_activity_manager);
         swipeRefreshLayout.setOnRefreshListener(this);
 
@@ -79,8 +80,6 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
                 sendRequest();
             }
         });
-
-        //
 
     }
 
@@ -153,13 +152,23 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
     @Override
     public void onClick(View v) {
         if (v.getId()  == R.id.fab_addactivity){
-
+            Intent intent =  new Intent(ActivityManager_PM.this, AddProjectActivityPM.class);
+            intent.putExtra("pid",pid);
+            startActivity(intent);
         }
     }
 
 
     @Override
     public void onClick(View view, final int position) {
+        try {
+            MakeDialog(position);
+        }catch (Exception e){
+            System.out.println("Exception -> "+ e);
+            Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();
+        }
+    }
+    void MakeDialog(final int position){
         dialog = new Dialog(ActivityManager_PM.this);
         dialog.setContentView(R.layout.dialog_remove_activity);
 

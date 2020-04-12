@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/dialog_container_remcm">
+            <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+                tools:ignore="UselessParent">
+            <TextView
+                android:id="@+id/tvc_cmname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Construction Manager"
+                android:textColor="#FF000000"
+                android:textSize="17sp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#37474F"/>
+            <TextView
+                android:id="@+id/tvc_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center_vertical"
+                android:text="Email - "
+                android:textColor="#010"
+                android:layout_margin="5dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#37474F"/>
+            <TextView
+                android:id="@+id/tvc_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center_vertical"
+                android:text="Contact - "
+                android:textColor="#010"
+                android:layout_margin="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:padding="3dp">
+                <Button
+                    android:id="@+id/btncmdialog_cancel"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="Cancel"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAllCaps="false"
+                    android:background="@drawable/custom_ripple_cancel"
+                    android:textColor="#000"
+                    />
+                <Button
+                    android:id="@+id/btncmdialog_remove"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="Remove"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAllCaps="false"
+                    android:background="@drawable/custom_ripple_remove"
+                    android:textColor="#FFF"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+</RelativeLayout>
