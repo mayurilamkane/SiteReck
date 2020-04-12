@@ -67,6 +67,10 @@ public class MaterialRequestListCM extends AppCompatActivity implements ItemClic
                     //Log.i("tagconvertstr", "["+response+"]");
                     System.out.println("response --> "+response);
                     JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("success").equals("0")) {
+                        System.out.println("no data found---->>");
+                        Toast.makeText(MaterialRequestListCM.this, "No Material List Found", Toast.LENGTH_LONG).show();
+                    } else if (jsonObject.getString("success").equals("1")) {
                     JSONArray array = jsonObject.getJSONArray("activities");
                     //System.out.println("array = "+array);
                     for (int i = 0; i < array.length(); i++) {
@@ -76,12 +80,16 @@ public class MaterialRequestListCM extends AppCompatActivity implements ItemClic
 //                        Toast.makeText(MaterialRequestListCM.this, object.getString("req_material"), Toast.LENGTH_SHORT).show();
                       //  System.out.println("list = "+ list.get(i));
                     }
-                    repolist.setAdapter(adapter);
-                    progressDialog.dismiss();
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                repolist.setAdapter(adapter);
+            } catch (JSONException e) {
+                if (progressDialog != null && progressDialog.isShowing())
+                    progressDialog.dismiss();
+                e.printStackTrace();
             }
+        }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

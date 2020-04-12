@@ -20,8 +20,6 @@ import be.project.sitereck.R;
 public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_cm.ActivityViewHolder> {
     private List<Activity_dataClass_cm> list;
     private Context context;
-    //private Activity activity;
-    //private View view;
      ItemClickListener itemClickListener;
 
     public Activity_Adapter_cm(Context context, List<Activity_dataClass_cm> list, ItemClickListener itemClickListener) {
@@ -42,9 +40,6 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
 
     @Override
     public void onBindViewHolder(@NonNull ActivityViewHolder holder, int position) {
-
-
-
         Activity_dataClass_cm activity_dataClass_cm=list.get(position);
        holder.title.setText(activity_dataClass_cm.getTitle());
        holder.startDate.setText(activity_dataClass_cm.getStartDate());

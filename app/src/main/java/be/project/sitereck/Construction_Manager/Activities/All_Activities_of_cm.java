@@ -54,36 +54,31 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
         recyclerView=(RecyclerView)findViewById(R.id.recy_ptimeline);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter_cm = new Activity_Adapter_cm(this,list,this);
-        //recyclerView.setHasFixedSize(true);
-
-        //recyclerView.setAdapter(adapter_cm);
-
-
-    }
+}
 
     private void JSON_DATA_WEB_CALL() {
-      //  recyclerView=(RecyclerView)findViewById(R.id.recy_ptimeline);
-       // list.add(new Activity_dataClass_cm("title 1","status","1/1/1","1/1/1"));
-      //  list.add(new Activity_dataClass_cm("title 2","status","1/1/1","1/1/1"));
-     //   list.add(new Activity_dataClass_cm("title 3","status","1/1/1","1/1/1"));
-       // list.add(new Activity_dataClass_cm("title 4","status","1/1/1","1/1/1"));
-       // list.add(new Activity_dataClass_cm("title 5","status","1/1/1","1/1/1"));
         final String projId=prefrences.getProjectId();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, HTTP_JSON_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("projects");
-                    for (int i = 0; i < array.length(); i++) {
-                        JSONObject object = array.getJSONObject(i);
-                        Activity_dataClass_cm adc = new Activity_dataClass_cm(object.getString("act_name"), object.getString("proj_status"), object.getString("p_act_start_date"), object.getString("p_act_end_date"));
-                        list.add(adc);
+                    if (jsonObject.getString("found").equals("0")) {
+                        Toast.makeText(All_Activities_of_cm.this, "No Activity List is found", Toast.LENGTH_LONG).show();
+                    } else if (jsonObject.getString("found").equals("1")) {
+                        JSONArray array = jsonObject.getJSONArray("projects");
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject object = array.getJSONObject(i);
+                            Activity_dataClass_cm adc = new Activity_dataClass_cm(object.getString("act_name"), object.getString("proj_status"), object.getString("p_act_start_date"), object.getString("p_act_end_date"));
+                            list.add(adc);
+                        }
                     }
+                    if (progressDialog != null && progressDialog.isShowing())
+                        progressDialog.dismiss();
                     recyclerView.setAdapter(adapter_cm);
-                    progressDialog.dismiss();
                 } catch (JSONException e) {
-                    Toast.makeText(All_Activities_of_cm.this, "" +e.toString(), Toast.LENGTH_SHORT).show();
+                    if (progressDialog != null && progressDialog.isShowing())
+                        progressDialog.dismiss();
                     e.printStackTrace();
                 }
             }

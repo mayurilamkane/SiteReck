@@ -42,6 +42,19 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
         holder.tv_startdate.setText(projectDataClass.getStartDate());
         holder.tv_enddate.setText(projectDataClass.getEndDate());
         holder.textViewDesc.setText(projectDataClass.getAssignBy());
+
+        if(projectDataClass.getStatus().equals("1"))
+        {
+            holder.project_status.setText("Completed");
+        }
+        else if(projectDataClass.getStatus().equals("0"))
+        {
+            holder.project_status.setText("Started");
+        }
+        else
+        {
+            holder.project_status.setText("error");
+        }
     }
 
     @Override
@@ -50,7 +63,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView textViewHead;
+        public TextView textViewHead,project_status;
         public TextView textViewDesc ,tv_startdate,tv_enddate;
         public ItemClickListener itemClickListener;
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +77,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
             textViewDesc=(TextView)itemView.findViewById(R.id.textviewDesc);
             tv_startdate=(TextView)itemView.findViewById(R.id.tv_startdate);
             tv_enddate=(TextView)itemView.findViewById(R.id.tv_enddate);
+            project_status=(TextView)itemView.findViewById(R.id.project_status);
 
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);

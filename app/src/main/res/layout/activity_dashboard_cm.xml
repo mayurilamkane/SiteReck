@@ -11,16 +11,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:background="@drawable/bkg"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="SITERECK"
-            android:textSize="35dp"
+            android:textSize="20sp"
             android:gravity="center"
-            android:textStyle="bold"
+            android:textStyle="bold|italic"
             android:textColor="#F5F8F5">
 
         </TextView>

@@ -72,15 +72,23 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
                     Log.i("tagconvertstr", "["+response+"]");
                     System.out.println("response --> "+response);
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("projects");
-                        for(int i =0 ;i<array.length() ; i++){
+                    if(jsonObject.getString("found").equals("0")){
+                        Toast.makeText(ProjectList_cm.this, "No Project List is found", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(jsonObject.getString("found").equals("1")) {
+                        JSONArray array = jsonObject.getJSONArray("projects");
+                        for (int i = 0; i < array.length(); i++) {
                             JSONObject object = array.getJSONObject(i);
-                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"),object.getString("user_name"));
+                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"), object.getString("proj_start_date"), object.getString("proj_end_date"), object.getString("proj_id"), object.getString("user_name"),object.getString("proj_status"));
                             listItems.add(pd);
                         }
-                        recyclerView.setAdapter(adapter);
+                    }
+                    if (progressDialog != null && progressDialog.isShowing())
                         progressDialog.dismiss();
+                    recyclerView.setAdapter(adapter);
                 } catch (JSONException e) {
+                    if (progressDialog != null && progressDialog.isShowing())
+                        progressDialog.dismiss();
                     e.printStackTrace();
                 }
             }
