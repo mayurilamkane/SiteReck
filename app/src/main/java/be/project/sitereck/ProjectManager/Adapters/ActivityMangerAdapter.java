@@ -47,14 +47,14 @@ public class ActivityMangerAdapter extends RecyclerView.Adapter<ActivityMangerAd
         holder.title.setText(managerClass_pm.getTitle());
         holder.enddate.setText(managerClass_pm.getEndDate());
         holder.startdate.setText(managerClass_pm.getStartDate());
-        holder.stat = managerClass_pm.getStatus();
 
 
-        if( holder.stat == "0"){
+
+        if( managerClass_pm.getStatus().equals("0")){
             holder.status.setText("NOT STARTED");
-        }else if( holder.stat =="1"){
+        }else if(managerClass_pm.getStatus().equals("1")){
             holder.status.setText("ONGOING ");
-        }else if( holder.stat  == "2")
+        }else if( managerClass_pm.getStatus().equals("2"))
             holder.status.setText("COMPLETED");
     }
 

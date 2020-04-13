@@ -35,7 +35,21 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         address.setText(data.getProject_Address());
         sdate.setText(data.getProject_Start_date());
         edate.setText(data.getProject_End_date());
-        status.setText(data.getProject_status());
+        //status.setText(data.getProject_status());
+        if(data.getProject_status().equals("1"))
+        {
+            status.setText("Completed");
+        }
+        else if(data.getProject_status().equals("2"))
+        {
+            status.setText("Started");
+        }
+        else
+        {
+            status.setText("Not Started");
+        }
+
+
         proj_id = data.getProject_id();
 
         btnActivity = findViewById(R.id.btAct);
