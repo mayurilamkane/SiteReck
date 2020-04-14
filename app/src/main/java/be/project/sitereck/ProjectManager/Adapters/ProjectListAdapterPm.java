@@ -42,17 +42,17 @@ public class ProjectListAdapterPm extends RecyclerView.Adapter<ProjectListAdapte
         holder.endDate.setText(data.getProject_End_date());
         holder.status.setText(data.getProject_status());
 
-        if(data.getProject_status().equals("1"))
+        if(data.getProject_status().equals("0"))
         {
-            holder.status.setText("Completed");
+            holder.status.setText("NOT STARTED");
         }
-        else if(data.getProject_status().equals("2"))
+        else if(data.getProject_status().equals("1"))
         {
-            holder.status.setText("Started");
+            holder.status.setText("COMPLETED");
         }
         else
         {
-            holder.status.setText("Not Started");
+            holder.status.setText("ONGOING");
         }
 
     }

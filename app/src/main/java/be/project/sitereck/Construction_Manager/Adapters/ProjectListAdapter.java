@@ -45,15 +45,15 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
 
         if(projectDataClass.getStatus().equals("1"))
         {
-            holder.project_status.setText("Completed");
+            holder.project_status.setText("COMPLETED");
         }
         else if(projectDataClass.getStatus().equals("0"))
         {
-            holder.project_status.setText("Started");
+            holder.project_status.setText("NOT STARTED");
         }
         else
         {
-            holder.project_status.setText("error");
+            holder.project_status.setText("ONGOING");
         }
     }
 

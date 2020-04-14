@@ -46,11 +46,11 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
        holder.endDate.setText(activity_dataClass_cm.getEndDate());
 
         if(activity_dataClass_cm.getStatus().equals("0")){
-            holder.status.setText("Not Started ");
+            holder.status.setText("NOT STARTED ");
         } else if(activity_dataClass_cm.getStatus().equals("1")){
-            holder.status.setText(" Started ");
+            holder.status.setText(" COMPLETED");
         }else {
-            holder.status.setText(" Completed ");
+            holder.status.setText("ONGOING");
         }
     }
 

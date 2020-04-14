@@ -53,9 +53,9 @@ public class ActivityMangerAdapter extends RecyclerView.Adapter<ActivityMangerAd
         if( managerClass_pm.getStatus().equals("0")){
             holder.status.setText("NOT STARTED");
         }else if(managerClass_pm.getStatus().equals("1")){
-            holder.status.setText("ONGOING ");
-        }else if( managerClass_pm.getStatus().equals("2"))
             holder.status.setText("COMPLETED");
+        }else if( managerClass_pm.getStatus().equals("2"))
+            holder.status.setText("ONGOING");
     }
 
     @Override
