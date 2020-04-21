@@ -18,11 +18,14 @@ public class ReportGeneration extends AppCompatActivity {
     String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/ReportGenerator/GenerateReport1.php";
     Button btn;
     AlertDialog.Builder alertDialog;
-
+    Intent intent;
+    String pid ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_generation);
+        intent = getIntent();
+        pid = intent.getStringExtra("proj_id");
         btn=(Button)findViewById(R.id.button);
         alertDialog=new AlertDialog.Builder(this);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +38,7 @@ public class ReportGeneration extends AppCompatActivity {
                         Intent i = new Intent(Intent.ACTION_VIEW);
                         String uri = Uri.parse(HTTP_JSON_URL)
                                 .buildUpon()
-                                .appendQueryParameter("proj_id", "2")
+                                .appendQueryParameter("proj_id", pid)
                                 .build().toString();
                         i.setData(Uri.parse(uri));
 

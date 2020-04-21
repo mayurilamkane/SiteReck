@@ -114,6 +114,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
                 listItems.get(adapterPosition);
                 createSharedPreference(adapterPosition);
                 Intent intent = new Intent(ProjectList_cm.this, dashboard_cm.class);
+                intent.putExtra("proj_id",listItems.get(adapterPosition).getId());
                 startActivity(intent);
     }
 

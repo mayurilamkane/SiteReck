@@ -7,11 +7,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import be.project.sitereck.GeneralActivities.MainActivity;
 import be.project.sitereck.R;
 
 public class dashboard_cm extends AppCompatActivity implements View.OnClickListener {
 CardView cv_project,cv_request,cv_activity,cv_report;
+    Intent intent;
+    String proj_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,8 @@ CardView cv_project,cv_request,cv_activity,cv_report;
         cv_request=(CardView)findViewById(R.id.cd_request);
         cv_activity=(CardView)findViewById(R.id.cd_activity);
         cv_report=(CardView)findViewById(R.id.cd_report);
+          intent = getIntent();
+        proj_id = intent.getStringExtra("proj_id");
 
         cv_project.setOnClickListener(this);
         cv_request.setOnClickListener(this);
@@ -42,7 +45,7 @@ CardView cv_project,cv_request,cv_activity,cv_report;
                 startActivity(new Intent(dashboard_cm.this,All_Activities_of_cm.class));
                 break;
             case R.id.cd_report:
-                startActivity(new Intent(dashboard_cm.this,ReportGeneration.class));
+                startActivity(new Intent(dashboard_cm.this,ReportGeneration.class).putExtra("proj_id",proj_id));
                 break;
         }
     }
