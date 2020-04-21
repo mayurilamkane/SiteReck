@@ -42,7 +42,7 @@ CardView cv_project,cv_request,cv_activity,cv_report;
                 startActivity(new Intent(dashboard_cm.this,All_Activities_of_cm.class));
                 break;
             case R.id.cd_report:
-                startActivity(new Intent(dashboard_cm.this,MainActivity.class));
+                startActivity(new Intent(dashboard_cm.this,ReportGeneration.class));
                 break;
         }
     }
