@@ -1,8 +1,5 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,11 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import be.project.sitereck.R;
 
 public class ReportGeneration extends AppCompatActivity {
 
-    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/ReportGenerator/GenerateReport.php";
+    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/ReportGenerator/GenerateReport1.php";
     Button btn;
     AlertDialog.Builder alertDialog;
 
@@ -33,7 +33,12 @@ public class ReportGeneration extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(HTTP_JSON_URL));
+                        String uri = Uri.parse(HTTP_JSON_URL)
+                                .buildUpon()
+                                .appendQueryParameter("proj_id", "2")
+                                .build().toString();
+                        i.setData(Uri.parse(uri));
+
                         startActivity(i);
                         Toast.makeText(ReportGeneration.this, "You choose yes action for alertbox", Toast.LENGTH_SHORT).show();
                     }
