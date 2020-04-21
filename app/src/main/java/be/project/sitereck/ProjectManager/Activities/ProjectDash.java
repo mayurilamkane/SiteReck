@@ -1,13 +1,18 @@
 package be.project.sitereck.ProjectManager.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.POJO.ProjectData;
 import be.project.sitereck.R;
 
@@ -18,6 +23,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
     Intent intent;
     ProjectData data;
     String proj_id;
+    AlertDialog.Builder alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +90,38 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent);
                 break;
             case R.id.btReport:
+                DownloadReport();
                 break;
 
         }
 
+    }
+
+    private void DownloadReport() {
+        alertDialog=new AlertDialog.Builder(this);
+        alertDialog.setMessage("Do you want to download this report? ").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                String uri = Uri.parse(URL_STRINGS.getCallDwnldreport())
+                        .buildUpon()
+                        .appendQueryParameter("proj_id", data.getProject_id())
+                        .build().toString();
+                i.setData(Uri.parse(uri));
+
+                startActivity(i);
+                Toast.makeText(ProjectDash.this, "You choose yes action for alertbox", Toast.LENGTH_SHORT).show();
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                Toast.makeText(ProjectDash.this, "You choose no action for alertbox", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog alert=alertDialog.create();
+        alert.setTitle("Download");
+        alert.show();
     }
 }

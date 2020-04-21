@@ -3,7 +3,6 @@ package be.project.sitereck.GeneralClasses;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 import be.project.sitereck.GeneralActivities.User;
 
 public class SetSharedPrefrences {
@@ -51,15 +50,18 @@ public class SetSharedPrefrences {
     }
 
     public String getVar_User_name() {
-        return var_User_name;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_name,null);
     }
 
     public String getVar_User_email() {
-        return var_User_email;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_email,null);
     }
 
     public String getVar_User_contact() {
-        return var_User_contact;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_contact,null);
     }
 
     public int getVar_User_position() {
