@@ -127,6 +127,11 @@ public class CMInfo extends AppCompatActivity implements ItemClickListener {
     }
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
 
     }

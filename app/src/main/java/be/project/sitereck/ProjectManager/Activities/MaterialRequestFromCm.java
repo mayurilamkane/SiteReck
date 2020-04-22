@@ -159,6 +159,11 @@ public class MaterialRequestFromCm extends AppCompatActivity implements ItemClic
     }
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
 
     }

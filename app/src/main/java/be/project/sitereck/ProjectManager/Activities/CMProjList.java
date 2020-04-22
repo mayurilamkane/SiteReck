@@ -173,6 +173,11 @@ public class CMProjList extends AppCompatActivity implements ItemClickListener {
     }
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
         list.get(adapterPosition);
         Toast.makeText(this, list.get(adapterPosition).getPname(), Toast.LENGTH_SHORT).show();

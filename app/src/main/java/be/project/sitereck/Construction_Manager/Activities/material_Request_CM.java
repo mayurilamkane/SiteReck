@@ -81,14 +81,9 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String TITLE="";
-
-                    TITLE = "Material Required Date :  ";
-                    sdate = datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth();
-
-
-                edate.setText(TITLE + datePicker.getDayOfMonth() + " / "+(datePicker.getMonth() + 1)+" / "+datePicker.getYear());
-
-
+                TITLE = "Material Required Date :  ";
+                    sdate = datePicker.getYear()+"-"+(datePicker.getMonth() + 1)+"-"+datePicker.getDayOfMonth();
+                    edate.setText(TITLE + datePicker.getDayOfMonth() + " / "+(datePicker.getMonth() + 1)+" / "+datePicker.getYear());
             }
 
         });
@@ -131,13 +126,14 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(material_Request_CM.this,error.toString(),Toast.LENGTH_LONG).show();
+
                     }
                 }){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("proj_id",projId);
-                params.put("req_required_date",date);
+                params.put("req_required_date",sdate);
                 params.put("req_material",material);
                 return params;
             }

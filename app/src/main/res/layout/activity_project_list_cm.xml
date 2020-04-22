@@ -37,11 +37,22 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/icon_constructor"/>
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/container_projList"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/card_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="5dp"
@@ -49,5 +60,6 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
 
-
+    </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

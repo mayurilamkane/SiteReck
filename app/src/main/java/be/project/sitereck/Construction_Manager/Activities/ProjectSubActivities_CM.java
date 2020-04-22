@@ -72,6 +72,11 @@ public class ProjectSubActivities_CM extends AppCompatActivity implements View.O
     }
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
         data.get(adapterPosition);
     }

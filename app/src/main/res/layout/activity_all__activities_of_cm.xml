@@ -44,6 +44,13 @@
         app:cardElevation="10dp"
         >
 
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/container_projList"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/card_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -53,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </ScrollView>
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.cardview.widget.CardView>
 
 
