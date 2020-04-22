@@ -29,9 +29,9 @@ TextView tv_ongoing, tv_completed, tv_blocked;
     private void setOnClickListener() {
         cd_project.setOnClickListener(this);
         cd_activity.setOnClickListener(this);
-        cd_progress.setOnClickListener(this);
+//        cd_progress.setOnClickListener(this);
         cd_request.setOnClickListener(this);
-        cd_CM.setOnClickListener(this);
+//        cd_CM.setOnClickListener(this);
         cd_profile.setOnClickListener(this);
     }
 

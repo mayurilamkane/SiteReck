@@ -35,7 +35,6 @@ import java.util.Map;
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
-
 import be.project.sitereck.ProjectManager.Adapters.ActivityMangerAdapter;
 import be.project.sitereck.ProjectManager.POJO.ActivityManagerClass_PM;
 import be.project.sitereck.R;
@@ -162,7 +161,11 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
     @Override
     public void onClick(View view, final int position) {
         try {
-            MakeDialog(position);
+            if (data.get(position).getStatus().equals("1")){
+                Toast.makeText(this, "This Activity is Completed. Cannot edit or remove it.", Toast.LENGTH_SHORT).show();
+            }
+            else{
+            MakeDialog(position);}
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
             Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();

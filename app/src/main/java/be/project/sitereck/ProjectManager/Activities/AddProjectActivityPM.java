@@ -274,11 +274,11 @@ public class AddProjectActivityPM extends AppCompatActivity implements View.OnCl
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 String TITLE="";
                 if(btn.getId() == R.id.btn_startDate){
-                    TITLE = "Start Date of Project:  ";
+                    TITLE = "Start Date A:  ";
                     sdate = datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth();
                 }
                 else {
-                    TITLE = "COMPLETION DATE OF PROJECT :  ";
+                    TITLE = "Expected Date :  ";
                     edate = datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth();
                 }
                 btn.setText(TITLE + datePicker.getDayOfMonth() + " / "+(datePicker.getMonth() + 1)+" / "+datePicker.getYear());

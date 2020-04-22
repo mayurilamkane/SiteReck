@@ -260,13 +260,14 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="22dp"
                 app:cardElevation="10dp"
-                android:id="@+id/cd_progress">
+                android:id="@+id/cd_profile">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -276,8 +277,8 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/icon_progress"
-                        android:layout_marginTop="20dp"
+                        android:src="@drawable/icon_profile"
+                        android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
                         />
 
@@ -286,7 +287,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
-                        android:text="PROGRESS"
+                        android:text="PROFILE"
                         android:textColor="#000"
                         android:layout_marginBottom="20dp"
                         android:textStyle="bold"
@@ -296,10 +297,10 @@
 
             </androidx.cardview.widget.CardView>
 
-
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -340,13 +341,14 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="5dp"
                 app:cardCornerRadius="22dp"
                 app:cardElevation="10dp"
-                android:id="@+id/cd_profile">
+                android:id="@+id/cd_progress">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -356,8 +358,8 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/icon_profile"
-                        android:layout_marginTop="10dp"
+                        android:src="@drawable/icon_progress"
+                        android:layout_marginTop="20dp"
                         android:layout_gravity="center_horizontal"
                         />
 
@@ -366,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
-                        android:text="PROFILE"
+                        android:text="PROGRESS"
                         android:textColor="#000"
                         android:layout_marginBottom="20dp"
                         android:textStyle="bold"
