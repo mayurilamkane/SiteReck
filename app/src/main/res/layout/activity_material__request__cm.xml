@@ -70,14 +70,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="Required Date - yy/mm/dd">
+                android:textColor="#333"
+                >
 
-               <EditText
+               <Button
                    android:id="@+id/etdate"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
+                   android:hint="Required Date - yy/mm/dd"
+                   android:textSize="20sp"
+                   android:textColor="#F6F4F4"
                    android:drawablePadding="5dp"
-                   android:layout_weight="1"/>
+                   android:background="@drawable/custom_ripple_cancel"
+                   android:layout_weight="1"
+                   style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                   android:textAllCaps="false"
+                   />
+
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
