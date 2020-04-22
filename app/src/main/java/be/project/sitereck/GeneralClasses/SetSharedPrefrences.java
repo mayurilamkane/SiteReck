@@ -30,13 +30,22 @@ public class SetSharedPrefrences {
     }
 
     public void clearPrefrences(){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.remove("var_login");
-        sp.remove("var_User_id");
-        sp.remove("var_User_name");
-        sp.remove("var_User_email");
-        sp.remove("var_User_contact");
-        sp.remove("var_User_position");
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(SP_NAME,
+                    Context.MODE_PRIVATE);
+            SharedPreferences.Editor sp = prefs.edit();
+            sp.remove(var_login);
+            sp.remove(var_User_id);
+            sp.remove(var_User_name);
+            sp.remove(var_User_email);
+            sp.remove(var_User_contact);
+            sp.remove(var_User_position);
+            sp.commit();
+            sp.clear();
+        }catch (Exception e ){
+            System.out.println(e);
+
+        }
 
     }
     public int getVar_login() {

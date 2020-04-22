@@ -50,6 +50,7 @@ public class Profile_PM extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
+                                finish();
 
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -59,7 +60,7 @@ public class Profile_PM extends AppCompatActivity {
                     }
                 });
                 AlertDialog alert=alertDialog.create();
-                alert.setTitle("Log OUt");
+                alert.setTitle("Log Out");
                 alert.show();
             }
         });
