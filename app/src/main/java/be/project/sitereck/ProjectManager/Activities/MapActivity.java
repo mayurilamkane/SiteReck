@@ -1,8 +1,5 @@
 package be.project.sitereck.ProjectManager.Activities;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
+/*
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MotionEvent;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -130,3 +130,4 @@ public class MapActivity extends AppCompatActivity {
 //        return false;
 //    }
 }
+*/

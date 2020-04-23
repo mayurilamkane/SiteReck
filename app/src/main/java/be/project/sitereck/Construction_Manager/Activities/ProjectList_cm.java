@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +46,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
     RequestQueue requestQueue;
     be.project.sitereck.GeneralClasses.SetSharedPrefrences prefrences = new be.project.sitereck.GeneralClasses.SetSharedPrefrences(this);
     ProgressDialog progressDialog;
+    Button button;
     String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/CM/getProjectList.php";
 
     @Override
@@ -53,6 +55,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         setContentView(R.layout.activity_project_list_cm);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         circleImageView=(CircleImageView)findViewById(R.id.img);
+
         System.out.println("user id ----> "+prefrences.getVar_User_id());
         JSON_DATA_WEB_CALL();
         progressDialog=ProgressDialog.show(ProjectList_cm.this,"Please Wait","Loading List",true,false);

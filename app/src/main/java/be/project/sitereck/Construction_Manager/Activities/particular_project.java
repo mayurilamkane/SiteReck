@@ -33,7 +33,7 @@ import be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences;
 import be.project.sitereck.R;
 
 
-public class particular_project extends AppCompatActivity implements View.OnClickListener{
+public class particular_project extends AppCompatActivity {
     TextView title, start_date, end_date, completed_work, ongoing_work, blocked_work;
     Button btn_location;
     RequestQueue requestQueue;
@@ -41,6 +41,8 @@ public class particular_project extends AppCompatActivity implements View.OnClic
     String ongoing;
     private String JSON_URL="https://sitereck-1.000webhostapp.com/API/status.php";
     private String JSON_URL2="https://sitereck-1.000webhostapp.com/API/ongoingActivityStatus.php";
+
+    be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences setSharedPprefrences = new be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences(this);
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +52,11 @@ public class particular_project extends AppCompatActivity implements View.OnClic
         title = (TextView) findViewById(R.id.text_title);
         start_date = (TextView) findViewById(R.id.text_startdate);
         end_date = (TextView) findViewById(R.id.text_enddate);
-        btn_location = (Button) findViewById(R.id.btn_location);
+       // btn_location = (Button) findViewById(R.id.btn_location);
         completed_work = (TextView) findViewById(R.id.complete_text);
         ongoing_work = (TextView) findViewById(R.id.ongoing_text);
         blocked_work = (TextView) findViewById(R.id.blocked_text);
-        btn_location.setOnClickListener((View.OnClickListener) this);
+        //btn_location.setOnClickListener((View.OnClickListener) this);
 
         try {
             ProjectDataClass projectDataClass = SetSharedPrefrences.getInstance(this).getprojectinfo();
@@ -70,16 +72,17 @@ public class particular_project extends AppCompatActivity implements View.OnClic
         JSON_Ongoing();
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_location:
                 Intent intent = new Intent(particular_project.this, profile_cm.class);
                 startActivity(intent);
         }
-    }
+    }*/
 
     public void JSON_Ongoing(){
+        final String proj_id = setSharedPprefrences.getProjectId();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, JSON_URL2, new Response.Listener<String>() {
 
             @Override
@@ -100,7 +103,17 @@ public class particular_project extends AppCompatActivity implements View.OnClic
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(particular_project.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
-        });
+        }){
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("proj_id",proj_id);
+                return params;
+
+
+            }
+        };
 
 
         requestQueue= Volley.newRequestQueue(this);
@@ -108,7 +121,7 @@ public class particular_project extends AppCompatActivity implements View.OnClic
     }
 
     public void JSON_Completed(){
-
+        final String proj_id = setSharedPprefrences.getProjectId();
        StringRequest stringRequest = new StringRequest(Request.Method.POST, JSON_URL, new Response.Listener<String>() {
 
            @Override
@@ -129,7 +142,14 @@ public class particular_project extends AppCompatActivity implements View.OnClic
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(particular_project.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
-        });
+        }){
+           @Override
+           protected Map<String, String> getParams() throws AuthFailureError {
+               Map<String, String> params = new HashMap<>();
+               params.put("proj_id",proj_id);
+               return params;
+           }
+       };
 
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);

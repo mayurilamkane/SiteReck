@@ -48,7 +48,7 @@ public class SubActivityAdapter_CM extends RecyclerView.Adapter<SubActivityAdapt
         public SubActHolder(@NonNull View itemView, ItemClickListener itemClickListener)
         {
             super(itemView);
-            Title=(CheckBox)itemView.findViewById(R.id.cd_sub_activity);
+            Title=(CheckBox)itemView.findViewById(R.id.checkbox_sub_activity);
             this.itemClickListener=mitemClickListener;
             itemView.setOnClickListener(this);
         }

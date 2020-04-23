@@ -23,7 +23,7 @@ import be.project.sitereck.R;
 
 import static android.view.View.OnClickListener;
 
-public class profile_cm extends AppCompatActivity implements OnClickListener {
+public class profile_cm extends AppCompatActivity  {
 
     ImageView image;
     Button btn_edit;
@@ -36,12 +36,12 @@ Uri imageUri;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_cm);
         image=(ImageView)findViewById(R.id.profile_image);
-        btn_edit=( Button)findViewById(R.id.edit_btn);
+        //btn_edit=( Button)findViewById(R.id.edit_btn);
         name=(TextView) findViewById( R.id.name );
         email=(TextView) findViewById( R.id.email );
         contact=(TextView) findViewById( R.id.contact );
         Name1=(TextView) findViewById( R.id.profile_name );
-        btn_edit.setOnClickListener((View.OnClickListener) this);
+       // btn_edit.setOnClickListener((View.OnClickListener) this);
         try {
             User user = SetSharedPrefrences.getInstance(this).getprojectinfo();
             name.setText(String.valueOf(user.getName()));
@@ -56,13 +56,13 @@ Uri imageUri;
 
     }
 
-    @Override
+   /* @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.edit_btn:
                 Intent intent = new Intent(profile_cm.this, Edit_profile_cm.class);
                 startActivity(intent);
         }
-    }
+    }*/
 }
 

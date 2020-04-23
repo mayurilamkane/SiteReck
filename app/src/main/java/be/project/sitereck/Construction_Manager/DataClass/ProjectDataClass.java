@@ -5,6 +5,7 @@ public class ProjectDataClass {
     String Title ,StartDate,EndDate,Id,AssignBy;
     String lat,lon;
     int image;
+    private String isSelected;
 
     public ProjectDataClass(){
         Title = Title;
@@ -26,7 +27,7 @@ public class ProjectDataClass {
         Title = proj_name;
         StartDate = proj_start_date;
         EndDate = proj_end_date;
-        this.Id = proj_id;
+        Id = proj_id;
         AssignBy=user_name;
 
     }
@@ -45,6 +46,10 @@ public class ProjectDataClass {
 
     public String getTitle() {
         return Title;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getStartDate() {
@@ -68,11 +73,19 @@ public class ProjectDataClass {
     public void setTitle(String title) {
         Title = title;
     }
-public void setAssignBy(String assignBy){AssignBy=assignBy;}
+   public void setAssignBy(String assignBy){AssignBy=assignBy;}
     public void setStartDate(String startDate) {
         StartDate = startDate;
     }
     public void setEndDate(String endDate) {
         EndDate = endDate;
+    }
+
+    public String getSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(String selected) {
+        isSelected = selected;
     }
 }

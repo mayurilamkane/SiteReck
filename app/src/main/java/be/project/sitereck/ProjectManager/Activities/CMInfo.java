@@ -64,7 +64,6 @@ public class CMInfo extends AppCompatActivity implements ItemClickListener {
                 Intent intent  = new Intent(CMInfo.this,CMProjList.class);
                 intent.putExtra("id",cmId);
                 startActivity(intent);
-
             }
         });
 

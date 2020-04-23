@@ -69,10 +69,11 @@
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:id="@+id/cd_sub_activity"
+                        android:id="@+id/checkbox_sub_activity"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
+                        android:textColor="@color/purple"
                          />
 
                 </LinearLayout>

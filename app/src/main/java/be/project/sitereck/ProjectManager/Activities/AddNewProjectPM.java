@@ -96,7 +96,7 @@ public class AddNewProjectPM extends AppCompatActivity implements View.OnClickLi
 //                dataAddProject.setPROJECT_LATITUDE("0");
 //                dataAddProject.setPROJECT_LONGITUDE("0");
 //                startActivity(new Intent(AddNewProjectPM.this,AddProjectActivityPM.class));
-                startActivityForResult(new Intent(AddNewProjectPM.this,MapActivity.class),2);
+               // startActivityForResult(new Intent(AddNewProjectPM.this,MapActivity.class),2);
                 break;
             case  R.id.btn_save:
 //                Toast.makeText(this, "Call save API here", Toast.LENGTH_SHORT).show();

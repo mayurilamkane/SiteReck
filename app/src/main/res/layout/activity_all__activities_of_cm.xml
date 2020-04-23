@@ -43,7 +43,7 @@
         >
 
         <ScrollView
-            android:layout_width="match_parent"
+            android:layout_width="385dp"
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -51,6 +51,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </ScrollView>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="220dp">
+            <Button
+                android:id="@+id/checkbox_submit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#fff"
+                android:layout_weight="1"
+                android:background="@drawable/linback_cm"
+
+                android:text="SUBMIT"/>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
