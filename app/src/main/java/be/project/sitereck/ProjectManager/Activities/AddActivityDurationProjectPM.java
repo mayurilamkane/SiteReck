@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import be.project.sitereck.ProjectManager.Adapters.CustomAdapterForActivityDuration;
 import be.project.sitereck.ProjectManager.POJO.DataActivityDuration;
 import be.project.sitereck.R;
@@ -29,7 +28,7 @@ public class AddActivityDurationProjectPM extends AppCompatActivity {
         Intent i = getIntent();
         arrayList = i.getIntegerArrayListExtra("SELECT_LIST_ID");
         for (int v:arrayList
-             ) {
+        ) {
             list.add(new DataActivityDuration("ACT "+String.valueOf(v),String.valueOf(v)));
         }
         customAdapterForActivityDuration = new CustomAdapterForActivityDuration(AddActivityDurationProjectPM.this,list,AddActivityDurationProjectPM.this);

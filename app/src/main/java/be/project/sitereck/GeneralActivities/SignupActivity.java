@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,10 +31,10 @@ import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.R;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
-//TODO: Complete Signup Remove NUll Pointer exception
-     EditText name, email, password,contact,pass,rpass;
-     RadioGroup radioGroup;
-     RadioButton radiobutton;
+    //TODO: Complete Signup Remove NUll Pointer exception
+    EditText name, email, password,contact,pass,rpass;
+    RadioGroup radioGroup;
+    RadioButton radiobutton;
     private Button button;
     ProgressDialog pd;
     RequestQueue requestQueue;

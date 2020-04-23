@@ -74,41 +74,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void btn_login_click() {
 //        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-       if (!(et_email.getText().toString().isEmpty()) && !(et_password.getText().toString().isEmpty())){
-           final String email = et_email.getText().toString().trim();
-           final String pass = et_password.getText().toString().trim();
+        if (!(et_email.getText().toString().isEmpty()) && !(et_password.getText().toString().isEmpty())){
+            final String email = et_email.getText().toString().trim();
+            final String pass = et_password.getText().toString().trim();
 
             pd = ProgressDialog.show(this,null,"Authenticating");
 
-           StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallLogin(), new Response.Listener<String>() {
-               @Override
-               public void onResponse(String response) {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallLogin(), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
 //                   rQueue.getCache().clear();
-                   Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
-                   parseData(response);
+                    Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
+                    parseData(response);
 
-               }
-           }, new Response.ErrorListener() {
-               @Override
-               public void onErrorResponse(VolleyError error) {
-                   System.out.println(error.toString());
-                   if(pd!=null && pd.isShowing())
-                       pd.dismiss();
-                   Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-               }
-           }){
-               @Override
-               protected Map<String, String> getParams() {
-                   Map<String,String> params = new HashMap<>();
-                   params.put("email",email);
-                   params.put("password",pass);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.println(error.toString());
+                    if(pd!=null && pd.isShowing())
+                        pd.dismiss();
+                    Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }){
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String,String> params = new HashMap<>();
+                    params.put("email",email);
+                    params.put("password",pass);
 
-                   return params;
-               }
-           };
-           rQueue = Volley.newRequestQueue(LoginActivity.this);
-           rQueue.add(stringRequest);
-       }
+                    return params;
+                }
+            };
+            rQueue = Volley.newRequestQueue(LoginActivity.this);
+            rQueue.add(stringRequest);
+        }
 
     }
 
@@ -153,9 +153,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    finish();
                     startActivity(intent);
                 }
-                }
+            }
 
-            } catch (JSONException ex) {
+        } catch (JSONException ex) {
             ex.printStackTrace();
             if(pd!=null && pd.isShowing())
                 pd.dismiss();

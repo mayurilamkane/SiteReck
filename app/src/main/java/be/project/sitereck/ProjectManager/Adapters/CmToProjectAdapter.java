@@ -20,7 +20,7 @@ import be.project.sitereck.ProjectManager.POJO.AssignCmData;
 import be.project.sitereck.R;
 
 public class CmToProjectAdapter extends RecyclerView.Adapter<CmToProjectAdapter.CTPHolder> {
-//TODO: complete adapter and cmlist for project
+    //TODO: complete adapter and cmlist for project
     List<AssignCmData> list;
     Context context;
     ItemClickListener itemClickListener;

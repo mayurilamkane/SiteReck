@@ -83,7 +83,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.btCm:
-                 intent = new Intent(this,ProjCMList.class);
+                intent = new Intent(this,ProjCMList.class);
                 intent.putExtra("pid",data.getProject_id());
                 startActivity(intent);
                 break;
@@ -97,12 +97,12 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
                 DownloadReport();
                 break;
             case R.id.btn_map:
-                {
-                    String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", Float.parseFloat(data.getProject_latitude()),Float.parseFloat(data.getProject_longitude()));
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                    startActivity(intent);
-                }
-                break;
+            {
+                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", Float.parseFloat(data.getProject_latitude()),Float.parseFloat(data.getProject_longitude()));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(intent);
+            }
+            break;
         }
 
     }

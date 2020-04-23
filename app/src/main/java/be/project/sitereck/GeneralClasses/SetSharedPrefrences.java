@@ -18,7 +18,6 @@ public class SetSharedPrefrences {
     static final String var_User_email = "user_email";
     static final String var_User_contact = "user_contact";
     static final String var_User_position = "user_position";
-    static final String p_act_id = "p_act_id";
 
     private  static be.project.sitereck.GeneralClasses.SetSharedPrefrences mInstance;
 
@@ -59,10 +58,6 @@ public class SetSharedPrefrences {
         return String.valueOf(sp.getInt(var_User_id,-1));
     }
 
-    public String getP_act_id() {
-        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
-        return String.valueOf(sp.getInt(p_act_id,-1));
-    }
     public String getVar_User_name() {
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         return sp.getString(var_User_name,null);
@@ -97,13 +92,6 @@ public class SetSharedPrefrences {
         sp.commit();
 
     }
-    public void setP_act_id(String p_act_id){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.putInt(p_act_id, Integer.parseInt( p_act_id ) );
-        sp.commit();
-
-    }
-
     public void setUser_id(int id){
         SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
         sp.putInt(var_User_id,id);

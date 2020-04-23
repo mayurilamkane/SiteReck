@@ -42,11 +42,8 @@ public class ActivityManagerClass_PM {
         return endDate;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
 
-    public ActivityManagerClass_PM(String title, String startDate, String endDate, String status, String id) {
+    public ActivityManagerClass_PM( String title, String startDate, String endDate, String status, String id) {
         this.status = status;
         Title = title;
         this.startDate = startDate;

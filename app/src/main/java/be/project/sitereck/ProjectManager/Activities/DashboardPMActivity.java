@@ -14,9 +14,9 @@ import com.roger.match.library.MatchTextView;
 import be.project.sitereck.R;
 
 public class DashboardPMActivity extends AppCompatActivity implements View.OnClickListener {
-CardView cd_project, cd_activity, cd_request, cd_progress,cd_CM,cd_profile;
-MatchTextView heading;
-TextView tv_ongoing, tv_completed, tv_blocked;
+    CardView cd_project, cd_activity, cd_request, cd_progress,cd_CM,cd_profile;
+    MatchTextView heading;
+    TextView tv_ongoing, tv_completed, tv_blocked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -138,8 +138,8 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
         recyclerView = findViewById(R.id.rcv_activitylist);
         fab_addActivity = findViewById(R.id.fab_addactivity);
         errormsg = findViewById(R.id.textemptyactivitylist);
-       Intent  intent = getIntent();
-         pid = intent.getStringExtra("pid");
+        Intent  intent = getIntent();
+        pid = intent.getStringExtra("pid");
 
     }
     @Override
@@ -165,7 +165,7 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
                 Toast.makeText(this, "This Activity is Completed. Cannot edit or remove it.", Toast.LENGTH_SHORT).show();
             }
             else{
-            MakeDialog(position);}
+                MakeDialog(position);}
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
             Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();

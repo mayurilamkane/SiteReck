@@ -1,16 +1,16 @@
 package be.project.sitereck.ProjectManager.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,12 +31,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
 import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
-import be.project.sitereck.ProjectManager.POJO.ProjectData;
 import be.project.sitereck.ProjectManager.Adapters.ProjectListAdapterPm;
+import be.project.sitereck.ProjectManager.POJO.ProjectData;
 import be.project.sitereck.R;
 
 public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, ItemClickListener {
@@ -102,18 +101,18 @@ public class PmProjectList extends AppCompatActivity implements SwipeRefreshLayo
                         errormsg.setVisibility(View.GONE);
                         JSONArray array= jsonObject.getJSONArray("projects");
                         for (int i =0 ; i<array.length(); i++){
-                         JSONObject object = array.getJSONObject(i);
-                         data = new ProjectData(object.getString("proj_id"),
-                                 object.getString("proj_name"),
-                                 object.getString("proj_desc"),
-                                 object.getString("proj_start_date"),
-                                 object.getString("proj_end_date"),
-                                 object.getString("proj_address"),
-                                 object.getString("proj_lat"),
-                                 object.getString("proj_long"),
-                                 object.getString("proj_status")
-                                 );
-                         listItems.add(data);
+                            JSONObject object = array.getJSONObject(i);
+                            data = new ProjectData(object.getString("proj_id"),
+                                    object.getString("proj_name"),
+                                    object.getString("proj_desc"),
+                                    object.getString("proj_start_date"),
+                                    object.getString("proj_end_date"),
+                                    object.getString("proj_address"),
+                                    object.getString("proj_lat"),
+                                    object.getString("proj_long"),
+                                    object.getString("proj_status")
+                            );
+                            listItems.add(data);
                         }
                         recyclerView.setAdapter(adapter);
                     }else if (jsonObject.getString("found").equals("0")){
