@@ -153,6 +153,11 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
 
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, final int adapterPosition) {
         list.get( adapterPosition );
         Activity_dataClass_cm activity_dataClass_cm=list.get(adapterPosition);

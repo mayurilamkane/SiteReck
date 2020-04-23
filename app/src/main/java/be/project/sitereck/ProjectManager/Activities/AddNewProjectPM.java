@@ -183,14 +183,14 @@ public class AddNewProjectPM extends AppCompatActivity implements View.OnClickLi
                 if(btn.getId() == R.id.btn_startDate){
                     TITLE = "Start Date of Project:  ";
                     dataAddProject.setPROJECT_START_DATE((datePicker.getMonth() + 1)+" / "+datePicker.getYear());
-                    sdate = datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth();
+                    sdate = datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth();
                 }
                 else {
                     TITLE = "COMPLETION DATE OF PROJECT :  ";
                     dataAddProject.setPROJECT_END_DATE((datePicker.getMonth() + 1)+" / "+datePicker.getYear());
                 }
                 btn.setText(TITLE + datePicker.getDayOfMonth() + " / "+(datePicker.getMonth() + 1)+" / "+datePicker.getYear());
-                edate = datePicker.getYear()+"-"+datePicker.getMonth()+"-"+datePicker.getDayOfMonth();
+                edate = datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth();
 
             }
 

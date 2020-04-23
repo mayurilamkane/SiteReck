@@ -4,4 +4,5 @@
     <string name="construction_manager">Construction Manager</string>
     <string name="projects_count_xxx">Projects Count - XXX</string>
     <string name="material_request">Material Request</string>
+    <string name="logout">Logout</string>
 </resources>

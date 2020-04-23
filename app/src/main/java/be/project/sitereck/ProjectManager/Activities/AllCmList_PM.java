@@ -92,6 +92,11 @@ public class AllCmList_PM extends AppCompatActivity implements ItemClickListener
     }
 
     @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
         listItems.get(adapterPosition);
         Toast.makeText(this, "CM- "+ listItems.get(adapterPosition).getCMName(), Toast.LENGTH_SHORT).show();

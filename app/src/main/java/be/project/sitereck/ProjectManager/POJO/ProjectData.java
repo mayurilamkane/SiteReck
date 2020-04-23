@@ -12,7 +12,7 @@ public class ProjectData  implements Serializable {
     public String Project_Address;
     public String Project_latitude;
     public String Project_longitude;
-    public String project_status;
+    public String Project_status;
 
     public ProjectData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status) {
         Project_id = project_id;
@@ -23,7 +23,7 @@ public class ProjectData  implements Serializable {
         Project_Address = project_Address;
         Project_latitude = project_latitude;
         Project_longitude = project_longitude;
-        this.project_status = project_status;
+        Project_status = project_status;
     }
 
     public String getProject_id() {
@@ -59,6 +59,10 @@ public class ProjectData  implements Serializable {
     }
 
     public String getProject_status() {
-        return project_status;
+        return Project_status;
+    }
+
+    public void setProject_status(String project_status) {
+        this.Project_status = project_status;
     }
 }

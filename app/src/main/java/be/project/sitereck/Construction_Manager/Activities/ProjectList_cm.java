@@ -78,7 +78,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
                     JSONArray array = jsonObject.getJSONArray("projects");
                         for(int i =0 ;i<array.length() ; i++){
                             JSONObject object = array.getJSONObject(i);
-                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"),object.getString("user_name"));
+                            ProjectDataClass pd = new ProjectDataClass(object.getString("proj_name"),object.getString("proj_start_date"),object.getString("proj_end_date"),object.getString("proj_id"),object.getString("user_name"),object.getString( "proj_status" ));
                             listItems.add(pd);
                         }
                         recyclerView.setAdapter(adapter);
@@ -103,7 +103,13 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-  @Override
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    @Override
     public void onClick(View v, int adapterPosition) {
 
                 listItems.get(adapterPosition);

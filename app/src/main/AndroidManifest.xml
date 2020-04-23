@@ -14,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProjectManager.Activities.MapActivity"></activity>
-        <activity android:name=".ProjectManager.Activities.PmProjectList"></activity>
+        <activity android:name=".ProjectManager.Activities.Profile_PM" />
+        <activity android:name=".Construction_Manager.Activities.ReportGeneration" />
+        <activity android:name=".ProjectManager.Activities.MapActivity" />
+        <activity android:name=".ProjectManager.Activities.PmProjectList" />
         <activity android:name=".ProjectManager.Activities.ProjCMList" />
         <activity android:name=".ProjectManager.Activities.ProjectDash" />
         <activity android:name=".ProjectManager.Activities.CMProjList" />
@@ -27,9 +29,7 @@
         <activity android:name=".Construction_Manager.Activities.Edit_profile_cm" />
         <activity android:name=".Construction_Manager.Activities.material_Request_CM" />
         <activity android:name=".Construction_Manager.Activities.MaterialRequestListCM" />
-        <activity android:name=".Construction_Manager.Activities.particular_project">
-
-        </activity>
+        <activity android:name=".Construction_Manager.Activities.particular_project" />
         <activity android:name=".Construction_Manager.Activities.profile_cm" />
         <activity android:name=".Construction_Manager.Activities.ProjectList_cm" />
         <activity android:name=".Construction_Manager.Activities.ProjectSubActivities_CM" />
@@ -54,6 +54,11 @@
         <activity android:name=".ProjectManager.Activities.ProjectPMActivity" />
         <activity android:name=".ProjectManager.Activities.AddNewProjectPM" />
         <activity android:name=".ProjectManager.Activities.DashboardPMActivity" />
+        <activity android:name=".ProjectManager.Activities.AssignCmToProject_PM" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

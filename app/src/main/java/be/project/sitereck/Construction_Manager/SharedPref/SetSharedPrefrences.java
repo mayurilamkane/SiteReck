@@ -92,6 +92,13 @@ public class SetSharedPrefrences {
         sp.commit();
     }
 
+
+    public void setProjectStatus(String status){
+        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
+        sp.putString(proj_status, status);
+        sp.commit();
+    }
+
     public ProjectDataClass getprojectinfo(){
         SharedPreferences sharedPreferences=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
         return  new ProjectDataClass(
@@ -99,10 +106,9 @@ public class SetSharedPrefrences {
                 sharedPreferences.getString(proj_start_date,null),
                 sharedPreferences.getString(proj_end_date,null),
                 sharedPreferences.getString(proj_id,null),
-                sharedPreferences.getString(u_id,null)
-
+                sharedPreferences.getString(u_id,null),
+                sharedPreferences.getString(proj_status,null)
         );
     }
-
 
 }

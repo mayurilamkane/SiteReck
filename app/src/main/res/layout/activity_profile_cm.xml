@@ -10,6 +10,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
         <LinearLayout
             android:background="@drawable/background_profile_cm"
             android:layout_width="match_parent"
@@ -28,6 +30,22 @@
                 android:textStyle="italic">
             </TextView>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imglogoutcm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="5dp"
+            android:contentDescription="@string/logout"
+            android:src="@drawable/ic_exit_to_app_white_24dp"
+                     />
+
+
         <androidx.cardview.widget.CardView
             android:layout_width="330dp"
             android:layout_height="300dp"

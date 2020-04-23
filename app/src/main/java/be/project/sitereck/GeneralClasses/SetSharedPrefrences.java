@@ -3,7 +3,6 @@ package be.project.sitereck.GeneralClasses;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import be.project.sitereck.Construction_Manager.DataClass.ProjectDataClass;
 import be.project.sitereck.GeneralActivities.User;
 
 public class SetSharedPrefrences {
@@ -32,13 +31,22 @@ public class SetSharedPrefrences {
     }
 
     public void clearPrefrences(){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.remove("var_login");
-        sp.remove("var_User_id");
-        sp.remove("var_User_name");
-        sp.remove("var_User_email");
-        sp.remove("var_User_contact");
-        sp.remove("var_User_position");
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(SP_NAME,
+                    Context.MODE_PRIVATE);
+            SharedPreferences.Editor sp = prefs.edit();
+            sp.remove(var_login);
+            sp.remove(var_User_id);
+            sp.remove(var_User_name);
+            sp.remove(var_User_email);
+            sp.remove(var_User_contact);
+            sp.remove(var_User_position);
+            sp.commit();
+            sp.clear();
+        }catch (Exception e ){
+            System.out.println(e);
+
+        }
 
     }
     public int getVar_login() {
@@ -56,15 +64,18 @@ public class SetSharedPrefrences {
         return String.valueOf(sp.getInt(p_act_id,-1));
     }
     public String getVar_User_name() {
-        return var_User_name;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_name,null);
     }
 
     public String getVar_User_email() {
-        return var_User_email;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_email,null);
     }
 
     public String getVar_User_contact() {
-        return var_User_contact;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_contact,null);
     }
 
     public int getVar_User_position() {

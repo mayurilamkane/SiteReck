@@ -68,6 +68,27 @@
         android:textColor="#010"
         android:layout_weight="2"
         android:text=""/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#010"
+        android:text="Status - "
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:id="@+id/project_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#010"
+        android:layout_weight="2"
+        android:text=""
+        />
 
 </LinearLayout>
 
@@ -76,12 +97,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#010"
                 android:text="Start Date - "
                 android:layout_marginLeft="5dp"/>
+
             <TextView
                 android:id="@+id/tv_startdate"
                 android:layout_width="wrap_content"
@@ -95,6 +116,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="#010"
                 android:text="End Date - "/>
+
+
+
             <TextView
                 android:id="@+id/tv_enddate"
                 android:layout_width="wrap_content"
@@ -106,7 +130,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#77111111"
+            android:background="#E062F6"
             android:layout_marginTop="2dp"
             />
 

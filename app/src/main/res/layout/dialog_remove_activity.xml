@@ -42,14 +42,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#010"
-                android:text="Start Date - "/>
+                android:text="Start Date -"/>
             <TextView
                 android:id="@+id/tvc_startdate"
                 android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#010"
-                android:text="End Date - "/>
+                android:text="End Date -"/>
             <TextView
                 android:id="@+id/tvc_enddate"
                 android:layout_width="wrap_content"
