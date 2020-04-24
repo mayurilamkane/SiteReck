@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ import be.project.sitereck.R;
 
 public class Profile_PM extends AppCompatActivity {
 
-    ImageView imgLogout;
+    Button btnLogout;
     TextView name,  email, contact;
     AlertDialog.Builder alertDialog;
     SetSharedPrefrences prefrences = new SetSharedPrefrences(this);
@@ -29,7 +30,7 @@ public class Profile_PM extends AppCompatActivity {
         name = findViewById(R.id.pm_name);
         email = findViewById(R.id.pm_email);
         contact = findViewById(R.id.pm_contact);
-        imgLogout = findViewById(R.id.imglogout);
+        btnLogout = findViewById(R.id.btn_logout);
 
         name.setText(prefrences.getVar_User_name());
         email.setText(prefrences.getVar_User_email());
@@ -37,7 +38,7 @@ public class Profile_PM extends AppCompatActivity {
 
         alertDialog=new AlertDialog.Builder(this);
 
-        imgLogout.setOnClickListener(new View.OnClickListener() {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.setMessage("Do you want to logout?").

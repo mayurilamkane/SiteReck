@@ -185,7 +185,13 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
         btnremove = dialog.findViewById(R.id.dra_btn_remove);
 
         dtitle.setText(data.get(position).getTitle());
-        dstatus.setText(data.get(position).getStatus());
+        if(data.get(position).getStatus().equals("0")){
+            dstatus.setText("NOT STARTED");
+        }else if(data.get(position).getStatus().equals("1")){
+            dstatus.setText("COMPLETED");
+        }else if(data.get(position).getStatus().equals("2"))
+            dstatus.setText("ONGOING");
+//        dstatus.setText(data.get(position).getStatus());
         dstartdate.setText(data.get(position).getStartDate());
         denddate.setText(data.get(position).getEndDate());
 
@@ -238,6 +244,7 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("p_act_id",id);
+                params.put("pid",pid);
                 return params;
             }
         };
