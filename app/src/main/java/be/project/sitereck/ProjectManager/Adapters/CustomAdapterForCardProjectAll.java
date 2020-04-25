@@ -139,8 +139,8 @@ public class CustomAdapterForCardProjectAll extends RecyclerView.Adapter<CustomA
         public void onClick(View arg0) {
 
 
-         //   OngoingProjectPm sct = (OngoingProjectPm) activity;
-         //   sct.onItemClick(mPosition);
+            //   OngoingProjectPm sct = (OngoingProjectPm) activity;
+            //   sct.onItemClick(mPosition);
         }
     }
 }

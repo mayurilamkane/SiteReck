@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView;
 import be.project.sitereck.R;
 
 public class ProjectPMActivity extends AppCompatActivity implements View.OnClickListener{
-    CardView cd_addProject,cd_ongoing_project , cd_constructor,cd_all_project;
+    CardView cd_addProject,cd_ongoing_project , cd_constructor,cd_all_project,cd_update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class ProjectPMActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void setClickListener() {
+        cd_update.setOnClickListener(this);
         cd_addProject.setOnClickListener(this);
         cd_ongoing_project.setOnClickListener(this);
         cd_constructor.setOnClickListener(this);
@@ -33,6 +34,7 @@ public class ProjectPMActivity extends AppCompatActivity implements View.OnClick
         cd_ongoing_project=(CardView)findViewById(R.id.cv_ongoing);
         cd_constructor=(CardView)findViewById(R.id.cv_constructor);
         cd_all_project=(CardView)findViewById(R.id.cv_all_Projects);
+        cd_update = findViewById(R.id.cv_update);
     }
 
     @Override
@@ -51,7 +53,14 @@ public class ProjectPMActivity extends AppCompatActivity implements View.OnClick
                     Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case R.id.cv_update :
+                try {
+                    startActivity(new Intent(ProjectPMActivity.this, PmProjectList.class));
+                }catch (Exception e){
+                    Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
-        
+
     }
 }

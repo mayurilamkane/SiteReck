@@ -3,6 +3,8 @@ package be.project.sitereck.GeneralClasses;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import be.project.sitereck.GeneralActivities.User;
+
 public class SetSharedPrefrences {
     Context context;
 
@@ -10,21 +12,40 @@ public class SetSharedPrefrences {
     final String SP_NAME = "SITERECK_PM";
 
 
-    final String var_login = "isLogin";
-    final String var_User_id = "user_id";
-    final String var_User_name  = "user_name";
-    final String var_User_email = "user_email";
-    final String var_User_contact = "user_contact";
-    final String var_User_position = "user_position";
+    static final String var_login = "isLogin";
+    static final String var_User_id = "user_id";
+    static final String var_User_name  = "user_name";
+    static final String var_User_email = "user_email";
+    static final String var_User_contact = "user_contact";
+    static final String var_User_position = "user_position";
+
+    private  static be.project.sitereck.GeneralClasses.SetSharedPrefrences mInstance;
+
+
+    public static synchronized be.project.sitereck.GeneralClasses.SetSharedPrefrences getInstance(Context context){
+        if(mInstance==null){
+            mInstance=new be.project.sitereck.GeneralClasses.SetSharedPrefrences(context);
+        }
+        return mInstance;
+    }
 
     public void clearPrefrences(){
-        SharedPreferences.Editor sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit();
-        sp.remove("var_login");
-        sp.remove("var_User_id");
-        sp.remove("var_User_name");
-        sp.remove("var_User_email");
-        sp.remove("var_User_contact");
-        sp.remove("var_User_position");
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(SP_NAME,
+                    Context.MODE_PRIVATE);
+            SharedPreferences.Editor sp = prefs.edit();
+            sp.remove(var_login);
+            sp.remove(var_User_id);
+            sp.remove(var_User_name);
+            sp.remove(var_User_email);
+            sp.remove(var_User_contact);
+            sp.remove(var_User_position);
+            sp.commit();
+            sp.clear();
+        }catch (Exception e ){
+            System.out.println(e);
+
+        }
 
     }
     public int getVar_login() {
@@ -33,19 +54,23 @@ public class SetSharedPrefrences {
     }
 
     public String getVar_User_id() {
-        return var_User_id;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return String.valueOf(sp.getInt(var_User_id,-1));
     }
 
     public String getVar_User_name() {
-        return var_User_name;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_name,null);
     }
 
     public String getVar_User_email() {
-        return var_User_email;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_email,null);
     }
 
     public String getVar_User_contact() {
-        return var_User_contact;
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(var_User_contact,null);
     }
 
     public int getVar_User_position() {
@@ -102,6 +127,18 @@ public class SetSharedPrefrences {
     public int getSharedUserId(){
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         return sp.getInt(var_User_id,-1);
+    }
+
+    public User getprojectinfo(){
+        SharedPreferences sharedPreferences=context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        return  new User(
+                sharedPreferences.getInt( var_User_id, -1),
+                sharedPreferences.getInt( var_User_position,-1 ),
+                sharedPreferences.getString(var_User_name,null),
+                sharedPreferences.getString(var_User_email,null),
+                sharedPreferences.getString(var_User_contact,null)
+
+        );
     }
 
 

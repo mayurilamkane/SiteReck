@@ -1,12 +1,16 @@
 package be.project.sitereck.Construction_Manager.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -16,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,9 +28,12 @@ import be.project.sitereck.R;
 
 public class material_Request_CM extends AppCompatActivity implements View.OnClickListener {
 
-    public EditText edmaterial, edate;
+    public EditText edmaterial;
+    Button edate;
     Button btSubmit, btshowAll;
+    String sdate = "";
     RequestQueue requestQueue;
+    be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences prefrences=new be.project.sitereck.Construction_Manager.SharedPref.SetSharedPrefrences(this);
     String HTTP_JSON_URL="https://sitereck-1.000webhostapp.com/API/getMaterial.php";
 
     @Override
@@ -38,6 +46,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
         btSubmit=findViewById(R.id.btsubmit);
         btSubmit.setOnClickListener(this);
         btshowAll.setOnClickListener(this);
+       edate.setOnClickListener(this);
     }
 
     @Override
@@ -54,14 +63,55 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
                 makeRequest();
             }
             break;
+            case R.id.etdate:{
+                showCalender(edate);
+            }
+            break;
         }
+
+    }
+
+    private void showCalender(final Button edate) {
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View calenderView = inflater.inflate(R.layout.tab_calender,null);
+        final DatePicker datePicker = calenderView.findViewById(R.id.date_pick);
+        Calendar calendar = Calendar.getInstance();
+        datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                String TITLE="";
+                TITLE = "Material Required Date :  ";
+                    sdate = datePicker.getYear()+"-"+(datePicker.getMonth() + 1)+"-"+datePicker.getDayOfMonth();
+                    edate.setText(TITLE + datePicker.getDayOfMonth() + " / "+(datePicker.getMonth() + 1)+" / "+datePicker.getYear());
+            }
+
+        });
+        dialog.setCancelable(true);
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                dialogInterface.dismiss();
+            }
+        });
+//                Pref.putString("event_date",event_date.getText().toString());
+        dialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.setView(calenderView
+        );
+        dialog.show();
 
     }
 
     private void makeRequest() {
         final String material = edmaterial.getText().toString().trim();
         final String date = edate.getText().toString().trim();
-
+        final String projId=prefrences.getProjectId();
         StringRequest stringRequest = new StringRequest(Request.Method.POST,HTTP_JSON_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -76,15 +126,15 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(material_Request_CM.this,error.toString(),Toast.LENGTH_LONG).show();
+
                     }
                 }){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("proj_id","1") ;
-                params.put("req_required_date",date);
+                params.put("proj_id",projId);
+                params.put("req_required_date",sdate);
                 params.put("req_material",material);
-
                 return params;
             }
 

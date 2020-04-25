@@ -12,7 +12,7 @@ public class DataAddProject {
     String PROJECT_LATITUDE;
     String PROJECT_LONGITUDE;
     String PROJECT_ADDRESS;
-   public static List<DataActivityDuration> data_activity = new ArrayList<>();
+    public static List<DataActivityDuration> data_activity = new ArrayList<>();
     public static List<DataActivityDuration> data_sub_activity = new ArrayList<>();
 
     public String getPROJECT_NAME() {

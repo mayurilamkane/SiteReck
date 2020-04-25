@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Calendar;
 import java.util.List;
 
-
 import be.project.sitereck.GeneralInterfaces.ItemClickListener;
 import be.project.sitereck.ProjectManager.POJO.DataActivityDuration;
 import be.project.sitereck.R;
@@ -89,7 +88,7 @@ public class CustomAdapterForActivityDuration extends RecyclerView.Adapter<Custo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
         TextView tv_activity;
-//        TextView is_subActivity;
+        //        TextView is_subActivity;
         Button btn_start,btn_end;
         public ItemClickListener itemClickListener;
         LinearLayout cardView;

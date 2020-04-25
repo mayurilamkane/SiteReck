@@ -7,40 +7,44 @@
 
     tools:context=".ProjectManager.Activities.ActivityManager_PM">
     <androidx.cardview.widget.CardView
-        android:layout_alignParentTop="true"
+        android:id="@+id/cd_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:cardElevation="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center"
+            android:text="Activity Manager"
+            android:textColor="#FF000000"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textemptyactivitylist"
+        android:layout_below="@id/cd_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="3dp"
-        android:id="@+id/cd_header">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Activity Manager"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:gravity="center"/>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:background="@color/grey_10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:text="  Project Don't Have Any Activiy Yet!!! Try Creating One"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         app:cardElevation="3dp"
-        android:layout_below="@id/cd_header">
-        <LinearLayout
+        android:layout_below="@id/textemptyactivitylist">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/container_activity_manager"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/card_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="5dp">
+            android:layout_height="wrap_content">
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -49,7 +53,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/rcv_activitylist"/>
             </ScrollView>
-        </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -64,6 +68,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/ic_add_black_48dp"
-        app:backgroundTint="#7C4DFF" />
+        app:backgroundTint="#2979FF" />
 
 </RelativeLayout>

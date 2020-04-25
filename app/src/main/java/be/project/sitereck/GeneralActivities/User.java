@@ -4,6 +4,7 @@ public class  User {
     private int id,posi;
     private String name,password,email,contact;
 
+
     public int getId() {
         return id;
     }
@@ -56,9 +57,12 @@ public class  User {
 
     public User(int id, int posi, String name, String email, String contact) {
         this.id = id;
-        this.posi = posi;
         this.name = name;
-        this.email = email;
         this.contact = contact;
+        this.email = email;
+        this.posi = posi;
+
+
+
     }
 }

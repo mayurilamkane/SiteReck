@@ -8,6 +8,10 @@ import be.project.sitereck.R;
 
 public class update_activity extends AppCompatActivity {
 
+    public update_activity(int p_act_id, int adapterPosition) {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

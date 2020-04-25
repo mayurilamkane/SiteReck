@@ -14,9 +14,9 @@ import com.roger.match.library.MatchTextView;
 import be.project.sitereck.R;
 
 public class DashboardPMActivity extends AppCompatActivity implements View.OnClickListener {
-CardView cd_project, cd_activity, cd_request, cd_progress,cd_CM;
-MatchTextView heading;
-TextView tv_ongoing, tv_completed, tv_blocked;
+    CardView cd_project, cd_activity, cd_request, cd_progress,cd_CM,cd_profile;
+    MatchTextView heading;
+    TextView tv_ongoing, tv_completed, tv_blocked;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,10 @@ TextView tv_ongoing, tv_completed, tv_blocked;
     private void setOnClickListener() {
         cd_project.setOnClickListener(this);
         cd_activity.setOnClickListener(this);
-        cd_progress.setOnClickListener(this);
+//        cd_progress.setOnClickListener(this);
         cd_request.setOnClickListener(this);
-        cd_CM.setOnClickListener(this);
+//        cd_CM.setOnClickListener(this);
+        cd_profile.setOnClickListener(this);
     }
 
     private void initElements() {
@@ -40,6 +41,7 @@ TextView tv_ongoing, tv_completed, tv_blocked;
         cd_request = (CardView)findViewById(R.id.cd_request);
         cd_progress = (CardView)findViewById(R.id.cd_progress);
         cd_CM = (CardView)findViewById(R.id.cd_manager);
+        cd_profile = findViewById(R.id.cd_profile);
 
         tv_ongoing = (TextView)findViewById(R.id.tv_ongoing);
         tv_blocked= (TextView)findViewById(R.id.tv_blocked);
@@ -65,6 +67,16 @@ TextView tv_ongoing, tv_completed, tv_blocked;
             case R.id.cd_activity:
                 startActivity(new Intent(DashboardPMActivity.this,ActivityPm.class));
                 break;
+            case R.id.cd_manager:
+                startActivity(new Intent(DashboardPMActivity.this,AllCmList_PM.class));
+                break;
+            case R.id.cd_request:
+                startActivity(new Intent(DashboardPMActivity.this,MaterialRequestFromCm.class));
+                break;
+            case R.id.cd_profile:
+                startActivity(new Intent(DashboardPMActivity.this,Profile_PM.class));
+                break;
+
         }
 
     }

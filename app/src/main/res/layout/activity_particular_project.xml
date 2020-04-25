@@ -11,18 +11,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="70dp"
         android:background="@drawable/upperbgcolor">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SITERECK"
+            android:text="Project Description"
             android:gravity="center"
-            android:textSize="30dp"
+            android:textSize="20sp"
             android:textStyle="bold|italic"
             android:textColor="#ffffff"
-            android:padding="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:layout_alignParentTop="true"
             />
     </RelativeLayout>
     <ScrollView
@@ -82,9 +82,9 @@
                         android:gravity="left"
                         android:paddingLeft="90dp"
                         android:paddingTop="0dp"
-                        android:text="shdghjgfhjadf"
-                        android:textColor="@color/grey_10"
-                        android:textSize="15dp"
+                        android:text=""
+                        android:textColor="#333333"
+                        android:textSize="18dp"
                         android:textStyle="normal" />
 
                     <View
@@ -133,7 +133,7 @@
                             android:gravity="start"
                             android:paddingLeft="90dp"
                             android:paddingTop="0dp"
-                            android:text="START DATE :"
+                            android:text="Start Date :"
                             android:textColor="#333333"
                             android:textSize="15dp"
                             android:textStyle="normal" />
@@ -143,8 +143,9 @@
                             android:layout_marginTop="160dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="20-2-2018"
-                            android:paddingLeft="20dp" />
+                            android:text=""
+                            android:paddingLeft="20dp"
+                            android:textColor="#333333"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -157,7 +158,7 @@
                         android:gravity="start"
                         android:paddingLeft="90dp"
                         android:paddingTop="0dp"
-                        android:text="End DATE      :"
+                        android:text="End Date      :"
                         android:textColor="#333333"
                         android:textSize="15dp"
                         android:textStyle="normal">
@@ -167,8 +168,8 @@
                             android:layout_marginTop="190dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/grey_10"
-                            android:text="20-2-2019"
+                            android:textColor="#333333"
+                            android:text=""
                             android:paddingLeft="20dp">
 
                         </TextView>
@@ -235,7 +236,8 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="40dp"
                                 android:textStyle="bold"
-                                android:text="12">
+                                android:text=""
+                                android:textColor="#333333">
                             </TextView>
                         </LinearLayout>
                     </LinearLayout>
@@ -270,57 +272,14 @@
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="55dp"
                                 android:textStyle="bold"
-                                android:text="11">
-                            </TextView>
-                        </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingLeft="50dp"
-                        android:paddingTop="180dp">
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/icon_blocked_dashboard">
-                        </ImageView>
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingLeft="20dp"
-                                android:text="blocked Work"
                                 android:textColor="#333333"
-                                android:textSize="15dp"
-                                android:textStyle="normal" />
-                            <TextView
-                                android:id="@+id/blocked_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingLeft="57dp"
-                                android:textStyle="bold"
-                                android:text="11">
+                                android:text="">
                             </TextView>
                         </LinearLayout>
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
-                <Button
-                    android:id="@+id/btn_location"
-                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/linback_cm"
-                    android:text="project location"
-                    android:textColor="@color/grey_10"
-                    android:textStyle="bold" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
