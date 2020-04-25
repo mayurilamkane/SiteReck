@@ -9,23 +9,25 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_projecttitle_cm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_alignParentTop="true"
         android:elevation="10dp">
 
      <LinearLayout
          android:layout_width="match_parent"
-         android:layout_height="wrap_content">
+         android:layout_height="wrap_content"
+         android:background="@drawable/bkg">
 
          <TextView
              android:id="@+id/tv_projecttitle"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:text="SITERECK"
+             android:text="Activity List"
              android:gravity="center"
              android:layout_margin="20dp"
-             android:textSize="30sp"
-             android:textStyle="bold"
+             android:textColor="#FDFBFB"
+             android:textSize="20sp"
+             android:textStyle="bold|italic"
              android:layout_alignParentTop="true"
              />
 

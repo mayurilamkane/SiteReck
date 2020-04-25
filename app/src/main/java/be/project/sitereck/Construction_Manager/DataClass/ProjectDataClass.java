@@ -6,12 +6,12 @@ public class ProjectDataClass {
     String lat,lon;
     int image;
 
-    public ProjectDataClass(){
-        Title = Title;
-        StartDate = StartDate;
-        EndDate = EndDate;
+   // public ProjectDataClass(String string, String sharedPreferencesString, String preferencesString, String s, String string1, String sharedPreferencesString1){
+     //   Title = Title;
+       // StartDate = StartDate;
+        //EndDate = EndDate;
         //this.Id = Id;
-    }
+    //}
 
 
 

@@ -11,18 +11,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="70dp"
         android:background="@drawable/upperbgcolor">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SITERECK"
+            android:text="Project Description"
             android:gravity="center"
-            android:textSize="30dp"
+            android:textSize="20sp"
             android:textStyle="bold|italic"
             android:textColor="#ffffff"
-            android:padding="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:layout_alignParentTop="true"
             />
     </RelativeLayout>
     <ScrollView

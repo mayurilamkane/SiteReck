@@ -195,7 +195,6 @@ public class All_Activities_of_cm extends AppCompatActivity implements View.OnCl
                             JSON_DATA_update( Activity_Adapter_cm.list.get( i ).getP_act_id() );
 
                             // Toast.makeText(All_Activities_of_cm.this, Activity_Adapter_cm.list.get( i ).getP_act_id()+ " proj_activity_id", Toast.LENGTH_SHORT).show();
-
                         }
 
 
