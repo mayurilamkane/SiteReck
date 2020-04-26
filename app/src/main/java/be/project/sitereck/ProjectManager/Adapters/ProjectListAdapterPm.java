@@ -38,21 +38,46 @@ public class ProjectListAdapterPm extends RecyclerView.Adapter<ProjectListAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ProjectData data = listItems.get(position);
         holder.projectName.setText(data.getProject_name());
-        holder.startDate.setText(data.getProject_Start_date());
-        holder.endDate.setText(data.getProject_End_date());
-        holder.status.setText(data.getProject_status());
+//        holder.remainingday.setText(data.getProject_Start_date());
+        holder.Address.setText(data.getProject_Address());
+//        holder.status.setText(data.getProject_status());
 
         if(data.getProject_status().equals("0"))
         {
-            holder.status.setText("NOT STARTED");
+            if ( (Integer.valueOf(data.getDiff()) >= 0 )){
+                holder.status.setText("NOT STARTED");
+                holder.remainingday.setText(data.getDiff());
+            }else{
+                holder.status.setText("NOT STARTED ");
+                holder.status.setTextColor(context.getResources().getColor(R.color.red));
+                holder.remainingday.setText(Integer.valueOf(data.getDiff())*-1 + "days");
+                holder.tvremday.setText("Lagging By -");
+                holder.remainingday.setTextColor(context.getResources().getColor(R.color.red));
+            }
+
         }
         else if(data.getProject_status().equals("1"))
         {
             holder.status.setText("COMPLETED");
+            holder.status.setTextColor(context.getResources().getColor(R.color.blue_300));
+            holder.remainingday.setText(data.getProject_status_date());
+            holder.tvremday.setText("completed On -");
+            holder.remainingday.setTextColor(context.getResources().getColor(R.color.blue_300));
         }
         else
         {
-            holder.status.setText("ONGOING");
+            if ( (Integer.valueOf(data.getDiff()) >= 0 )){
+                holder.status.setText("On Going");
+                holder.status.setTextColor(context.getResources().getColor(R.color.blue_300));
+                holder.remainingday.setText(data.getDiff());
+                holder.remainingday.setTextColor(context.getResources().getColor(R.color.blue_300));
+            }else{
+                holder.status.setText("On Going");
+                holder.status.setTextColor(context.getResources().getColor(R.color.primegreen));
+                holder.remainingday.setText(Integer.valueOf(data.getDiff())*-1 + "days");
+                holder.tvremday.setText("Lagging By -");
+                holder.remainingday.setTextColor(context.getResources().getColor(R.color.red));
+            }
         }
 
     }
@@ -61,7 +86,7 @@ public class ProjectListAdapterPm extends RecyclerView.Adapter<ProjectListAdapte
     public int getItemCount() { return listItems.size();    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView projectName, startDate,endDate,status;
+        public TextView projectName, remainingday,Address,status, tvremday;
         public ItemClickListener itemClickListener;
 
         public ViewHolder(@NonNull View itemView) { super(itemView);    }
@@ -69,8 +94,9 @@ public class ProjectListAdapterPm extends RecyclerView.Adapter<ProjectListAdapte
         public ViewHolder(View view, ItemClickListener itemClickListener) {
             super(view);
             projectName = view.findViewById(R.id.tv_protitle);
-            startDate = view.findViewById(R.id.tv_startdate);
-            endDate = view.findViewById(R.id.tv_enddate);
+            remainingday = view.findViewById(R.id.remainingday);
+            Address = view.findViewById(R.id.tv_address);
+            tvremday = view.findViewById(R.id.tv_remday);
             status = view.findViewById(R.id.tv_status);
             this.itemClickListener = itemClickListener;
             view.setOnClickListener(this);

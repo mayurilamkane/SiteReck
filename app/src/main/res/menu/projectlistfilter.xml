@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/i1"
+        android:title="All Projects"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/i2"
+        android:title="OnGoing Projects"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/i3"
+        android:title="Completed Projects"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/i4"
+        android:title="Not Started Projects"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

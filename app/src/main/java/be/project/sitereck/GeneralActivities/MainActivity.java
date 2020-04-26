@@ -10,6 +10,7 @@ import android.widget.Toast;
 import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.ProjectManager.Activities.DashboardPMActivity;
+import be.project.sitereck.ProjectManager.Better.PM_ProjectList;
 import be.project.sitereck.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("inside pm ");
                 Toast.makeText(this, "Logging IN PM", Toast.LENGTH_SHORT).show();
                 //IF PM SEND TO DashBoardPMActivity.java
-                Intent intent = new Intent(MainActivity.this, DashboardPMActivity.class);
+                Intent intent = new Intent(MainActivity.this, PM_ProjectList.class);
                 startActivity(intent);
                 finish();
 

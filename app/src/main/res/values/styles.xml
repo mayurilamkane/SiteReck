@@ -13,9 +13,9 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="EditText.Grey" parent="@style/AppTheme">
-        <item name="colorControlActivated">#666666</item>
-        <item name="colorControlHighlight">#666666</item>
-        <item name="colorControlNormal">#999999</item>
+        <item name="colorControlActivated">#37474F</item>
+        <item name="colorControlHighlight">#37474F</item>
+        <item name="colorControlNormal">#37474F</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

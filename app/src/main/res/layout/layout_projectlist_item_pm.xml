@@ -4,8 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="3dp"
-    app:cardElevation="2dp">
+    android:paddingBottom="3dp"
+    app:cardElevation="2dp"
+    android:layout_margin="1dp">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,70 +23,74 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="#000"
             />
+    <LinearLayout
+        android:layout_marginStart="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingBottom="2dp"
+        android:orientation="horizontal">
+        <TextView
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#2E6380"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Address - "/>
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:text=""/>
+
+    </LinearLayout>
 
         <LinearLayout
+            android:layout_marginStart="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:paddingStart="5dp"
+            android:paddingBottom="2dp"
             android:orientation="horizontal">
             <TextView
-
+                android:id="@+id/tv_remday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="Start Date - "/>
+
+                android:text="Remaining Days - "/>
             <TextView
-                android:id="@+id/tv_startdate"
+                android:id="@+id/remainingday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:fontFamily="monospace"
+
                 android:text=""/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="End Date - "/>
-            <TextView
-                android:id="@+id/tv_enddate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:layout_weight="2"
-                />
         </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2E6380"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"/>
+
             <LinearLayout
+                android:layout_marginStart="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingStart="5dp"
+                android:paddingBottom="2dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
                     android:text="Status - "/>
                 <TextView
                     android:id="@+id/tv_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:fontFamily="monospace"
                     android:text=""/>
-                    />
+
             </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="#DA010004"/>
 </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -29,6 +29,7 @@
                 android:layout_height="@dimen/spacing_large" />
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_medium"
@@ -70,7 +71,7 @@
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#90A4AE"
+                android:textColor="#37474F"
                 android:theme="@style/EditText.Grey" />
 
             <View
@@ -97,7 +98,7 @@
                 android:maxLength="50"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#90A4AE"
+                android:textColor="#37474F"
                 android:theme="@style/EditText.Grey" />
 
             <View
@@ -112,10 +113,8 @@
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:clickable="true"
                 android:text="Forgot Password?"
-
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:textColor="#78909C"
-                android:textStyle="bold"
+                android:textColor="#56656C"
                 tools:ignore="RtlCompat" />
 
             <View
@@ -150,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:text="New user? "
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                    android:textColor="#90A4AE" />
+                    android:textColor="#56656C" />
 
                 <TextView
                     android:id="@+id/tv_sign_up"
@@ -160,7 +159,7 @@
                     android:text="Sign Up"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                     android:textColor="#D500F9"
-                    android:textStyle="bold" />
+                     />
 
             </LinearLayout>
 

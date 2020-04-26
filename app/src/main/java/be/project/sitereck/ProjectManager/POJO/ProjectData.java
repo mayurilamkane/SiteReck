@@ -13,6 +13,8 @@ public class ProjectData  implements Serializable {
     public String Project_latitude;
     public String Project_longitude;
     public String Project_status;
+    public String Project_status_date;
+    public String Diff;
 
     public ProjectData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status) {
         Project_id = project_id;
@@ -25,6 +27,22 @@ public class ProjectData  implements Serializable {
         Project_longitude = project_longitude;
         Project_status = project_status;
     }
+    public ProjectData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status,String project_status_date,String diff) {
+        Project_id = project_id;
+        Project_name = project_name;
+        Project_description = project_description;
+        Project_Start_date = project_Start_date;
+        Project_End_date = project_End_date;
+        Project_Address = project_Address;
+        Project_latitude = project_latitude;
+        Project_longitude = project_longitude;
+        Project_status = project_status;
+        Project_status_date = project_status_date;
+        Diff = diff;
+    }
+    public String getProject_status_date() {   return Project_status_date;    }
+
+    public String getDiff() {   return Diff;    }
 
     public String getProject_id() {
         return Project_id;

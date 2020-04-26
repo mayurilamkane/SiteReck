@@ -28,6 +28,7 @@ import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.Activities.DashboardPMActivity;
+import be.project.sitereck.ProjectManager.Better.PM_ProjectList;
 import be.project.sitereck.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -141,7 +142,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(this, "Logging IN PM", Toast.LENGTH_SHORT).show();
                     if(pd!=null && pd.isShowing())
                         pd.dismiss();
-                    Intent intent = new Intent(LoginActivity.this, DashboardPMActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, PM_ProjectList.class);
 //                    finish();
                     startActivity(intent);
 
