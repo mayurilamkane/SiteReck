@@ -1,17 +1,25 @@
-package be.project.sitereck.ProjectManager.Better;
+package be.project.sitereck.ProjectManager.Better.Activities;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -41,11 +49,18 @@ import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.Activities.AddNewProjectPM;
 import be.project.sitereck.ProjectManager.Activities.ProjectDash;
 import be.project.sitereck.ProjectManager.Adapters.ProjectListAdapterPm;
+import be.project.sitereck.ProjectManager.Better.CustomMenu.SlideMenu;
+import be.project.sitereck.ProjectManager.DialogGenerator;
 import be.project.sitereck.ProjectManager.POJO.ProjectData;
 import be.project.sitereck.R;
 
 public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, ItemClickListener{
 
+    Toolbar toolbar;
+    ImageView burgerimg;
+    TextView toptitle;
+
+    //
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
     ProjectListAdapterPm adapter;
@@ -64,10 +79,18 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
     List<ProjectData>    nonsList= new ArrayList<>();
     List<ProjectData>    listToAdapter= new ArrayList<>();
     int currentList = 1;
+
+    DialogGenerator dialogGenerator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pmprojectlist);
+
+        toolbar = findViewById(R.id.toolbar);
+        toptitle = findViewById(R.id.title_top);    toptitle.setText("Project List");
+        burgerimg = findViewById(R.id.menu_icon);
+
+        dialogGenerator = new DialogGenerator(this);
 
         errormsg = findViewById(R.id.textemptyprojectlist);
         recyclerView = findViewById(R.id.rec_projList);
@@ -106,12 +129,40 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
         filterMenuLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                showMenu(v);
                 MakeDialog();
+//                dialogGenerator.Generatedialog();
             }
         });
-    }
 
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PM_ProjectList.this, "burger", Toast.LENGTH_SHORT).show();
+//                FullDialog(PM_ProjectList.this,PM_ProjectList.this);
+                SlideMenu slideMenu = new SlideMenu();
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                slideMenu.FullDialog(PM_ProjectList.this,PM_ProjectList.this,viewGroup);
+            }
+        });
+
+    }
+    public String getActivityName(){
+        return "PM_ProjectList";
+    }
+    private void FullDialog(Activity activity,Context mcontext){
+        Rect  disRect = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(disRect);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(mcontext,R.style.CustomAlertDialog);
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.slide_menu, viewGroup, false);
+        dialogView.setMinimumWidth((int)(disRect.width() * 1f));
+        dialogView.setMinimumHeight((int)(disRect.height() * 1f));
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.setCancelable(true);
+    }
     private void MakeDialog() {
         dialog = new Dialog(PM_ProjectList.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

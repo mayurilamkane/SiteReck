@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".ProjectManager.Better.PM_ProjectList"
-    >
+    tools:context=".ProjectManager.Better.Activities.PM_ProjectList">
 
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_toolbar"
@@ -20,17 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:gravity="left|center"
-                android:text="Project List"
-                android:textColor="#FF000000"
-                android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-
+        <include layout="@layout/custom_toolbar"/>
 
             <RelativeLayout
                 android:id="@+id/lay_filterlist"
@@ -39,12 +34,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp">
+                android:layout_marginStart="5dp">
             <TextView
                 android:id="@+id/text_listfilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left|center"
+                android:gravity="start|center"
                 android:text="All Project"
                 android:textColor="#FF212121"
                 android:textSize="14sp"
@@ -56,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_arrow_drop_down_black_24dp" />
+                    android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                    android:contentDescription="ic_arrowdropdown" />
             </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -92,7 +88,7 @@
         android:id="@+id/fab_addproject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -101,3 +97,5 @@
         android:src="@drawable/ic_add_black_48dp"
         app:backgroundTint="#2979FF" />
 </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

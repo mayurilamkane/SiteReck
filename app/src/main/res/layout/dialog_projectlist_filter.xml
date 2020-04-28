@@ -2,7 +2,8 @@
 <LinearLayout
     android:id="@+id/ll"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="1dp"
     android:orientation="vertical">
 
     <TextView
@@ -30,6 +31,7 @@
         android:textColor="#FF212121"
         android:textSize="17sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
         />
     <TextView
         android:id="@+id/item_onngoing"
@@ -41,6 +43,7 @@
         android:textColor="#FF212121"
         android:textSize="17sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
         />
     <TextView
         android:id="@+id/item_notstarted"
@@ -52,18 +55,21 @@
         android:textColor="#FF212121"
         android:textSize="17sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
         />
 
     <TextView
         android:id="@+id/item_completed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:gravity="center"
         android:padding="4dp"
         android:text="Completed Projects"
         android:textColor="#FF212121"
         android:textSize="17sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
         />
 
 

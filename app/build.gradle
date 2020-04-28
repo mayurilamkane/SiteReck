@@ -35,4 +35,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.roger.match.library:library:1.0.1'
     implementation 'org.osmdroid:osmdroid-android:6.1.6'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

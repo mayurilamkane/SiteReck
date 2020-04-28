@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import be.project.sitereck.Construction_Manager.Activities.ProjectList_cm;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
-import be.project.sitereck.ProjectManager.Activities.DashboardPMActivity;
-import be.project.sitereck.ProjectManager.Better.PM_ProjectList;
+import be.project.sitereck.ProjectManager.Better.Activities.PM_ProjectList;
 import be.project.sitereck.R;
 
 public class MainActivity extends AppCompatActivity {

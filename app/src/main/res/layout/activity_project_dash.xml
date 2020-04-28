@@ -9,16 +9,18 @@
         android:id="@+id/cutom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        app:cardElevation="15dp">
+        app:cardElevation="15dp"
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:padding="15dp"
             android:gravity="left|center"
             android:text="Project Info"
-            android:textColor="#FF000000"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
+            android:background="#2962FF"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
     </androidx.cardview.widget.CardView>
     <ScrollView
@@ -53,23 +55,26 @@
                         android:textSize="17sp"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         />
-
                     <TextView
+                        android:id="@+id/tv_desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Address -"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:text="Description -"
                         android:textColor="#191818"
-                        android:textSize="15sp"
+                        android:textSize="17sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                         />
+
                     <TextView
                         android:id="@+id/tv_paddr"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginEnd="5dp"
-                        android:text="Address -" />
+                        android:text="Address -"
+                        android:textColor="#191818"
+                        android:textSize="15sp"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
