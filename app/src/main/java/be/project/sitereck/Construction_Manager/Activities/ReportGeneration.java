@@ -15,7 +15,7 @@ import be.project.sitereck.R;
 
 public class ReportGeneration extends AppCompatActivity {
 
-    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/ReportGenerator/GenerateReport1.php";
+    String HTTP_JSON_URL = "https://sitereck-1.000webhostapp.com/API/ReportGenerator/GenerateReport.php";
     Button btn;
     AlertDialog.Builder alertDialog;
     Intent intent;
