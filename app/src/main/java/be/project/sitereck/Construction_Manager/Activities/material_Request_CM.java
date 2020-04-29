@@ -28,7 +28,7 @@ import be.project.sitereck.R;
 
 public class material_Request_CM extends AppCompatActivity implements View.OnClickListener {
 
-    public EditText edmaterial;
+    public EditText edmaterial,ednote;
     Button edate;
     Button btSubmit, btshowAll;
     String sdate = "";
@@ -42,6 +42,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_material__request__cm);
         edmaterial=findViewById(R.id.etmaterial);
         edate=findViewById(R.id.etdate);
+        ednote=findViewById(R.id.etnote);
         btshowAll=findViewById(R.id.btn_show_request);
         btSubmit=findViewById(R.id.btsubmit);
         btSubmit.setOnClickListener(this);
@@ -111,6 +112,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
     private void makeRequest() {
         final String material = edmaterial.getText().toString().trim();
         final String date = edate.getText().toString().trim();
+        final String note=ednote.getText().toString().trim();
         final String projId=prefrences.getProjectId();
         StringRequest stringRequest = new StringRequest(Request.Method.POST,HTTP_JSON_URL,
                 new Response.Listener<String>() {
@@ -135,6 +137,7 @@ public class material_Request_CM extends AppCompatActivity implements View.OnCli
                 params.put("proj_id",projId);
                 params.put("req_required_date",sdate);
                 params.put("req_material",material);
+                params.put("note",note);
                 return params;
             }
 

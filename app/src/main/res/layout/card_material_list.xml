@@ -38,6 +38,19 @@
                 android:textColor="#333"
                 android:text=" "/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#2D001100"/>
+            <TextView
+                android:id="@+id/req_status"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333"
+                android:text=" "/>
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -34,45 +34,57 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_margin="20dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp">
+        app:cardElevation="10dp"
+        android:paddingStart="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:hint="Material Name">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Material Name - "
+                android:textSize="20sp"
+                    android:textColor="#3C3A3A"/>
 
                 <EditText
                     android:id="@+id/etmaterial"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawablePadding="5dp"
-                    android:layout_weight="1" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_height="wrap_content"
+                     />
+        </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="#333"
-                >
+                android:orientation="horizontal"
+                android:paddingBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Note - "
+                    android:textSize="20sp"
+                    android:textColor="#3C3A3A"/>
 
+                <EditText
+                    android:id="@+id/etnote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
                <Button
                    android:id="@+id/etdate"
                    android:layout_width="match_parent"
@@ -86,9 +98,6 @@
                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
                    android:textAllCaps="false"
                    />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
