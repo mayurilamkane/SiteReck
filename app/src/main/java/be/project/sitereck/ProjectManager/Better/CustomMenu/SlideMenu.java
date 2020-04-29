@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.ProjectManager.Activities.Profile_PM;
+import be.project.sitereck.ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq;
 import be.project.sitereck.ProjectManager.Better.Activities.PM_ProjectList;
 import be.project.sitereck.R;
 
@@ -100,7 +101,13 @@ public class SlideMenu extends AppCompatActivity {
         requests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (!mactivity.getLocalClassName().equals("ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq")) {
+                    Intent intent = new Intent(mactivity, PM_AllMatReq.class);
+                    alertDialog.dismiss();
+                    mactivity.startActivity(intent);
+                }else {
+                    alertDialog.dismiss();
+                }
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {

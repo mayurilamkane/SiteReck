@@ -22,11 +22,13 @@ public class URL_STRINGS {
     private static final String CALL_ADDCMPROJ = DOMAIN +"Project/addCmProject.php";
     private static final String CALL_ADDACTPROJ = DOMAIN +"Project/addActProj.php";
     private static final String CALL_CNACTPROJ = DOMAIN +"Project/createNAddAct.php";
-
+    private static final String CALL_AllMatReq = DOMAIN +"Project/getALLMATREQ.php";
+    private static final String CALL_AMatReq = DOMAIN +"Project/getAllmMatReq.php";
     private static final String CALL_DWNLDREPORT = DOMAIN +"ReportGenerator/GenerateReport1.php";
 
-    public static String getCallDwnldreport() { return CALL_DWNLDREPORT;    }
 
+    public static String getCallDwnldreport() { return CALL_DWNLDREPORT;    }
+    public static String getCALL_AllMatReq() {  return CALL_AllMatReq;  }
     public static String getCallCnactproj() {   return CALL_CNACTPROJ;  }
     public static String getCallAddactproj() {  return CALL_ADDACTPROJ; }
     public static String getCallAllactlist() {  return CALL_ALLACTLIST; }

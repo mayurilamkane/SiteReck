@@ -51,8 +51,13 @@ import be.project.sitereck.ProjectManager.Activities.ProjectDash;
 import be.project.sitereck.ProjectManager.Adapters.ProjectListAdapterPm;
 import be.project.sitereck.ProjectManager.Better.CustomMenu.SlideMenu;
 import be.project.sitereck.ProjectManager.DialogGenerator;
+import be.project.sitereck.ProjectManager.POJO.PmMiscData;
 import be.project.sitereck.ProjectManager.POJO.ProjectData;
 import be.project.sitereck.R;
+
+import static be.project.sitereck.ProjectManager.POJO.PmMiscData.clearProjectlist;
+import static be.project.sitereck.ProjectManager.POJO.PmMiscData.getProjectlist;
+import static be.project.sitereck.ProjectManager.POJO.PmMiscData.setProjectlist;
 
 public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, ItemClickListener{
 
@@ -78,6 +83,8 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
     List<ProjectData>    ongList = new ArrayList<>();
     List<ProjectData>    nonsList= new ArrayList<>();
     List<ProjectData>    listToAdapter= new ArrayList<>();
+    HashMap<String,String> prlist = new HashMap<>();
+//    PmMiscData pmscdata = new PmMiscData();
     int currentList = 1;
 
     DialogGenerator dialogGenerator;
@@ -146,9 +153,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
         });
 
     }
-    public String getActivityName(){
-        return "PM_ProjectList";
-    }
+
     private void FullDialog(Activity activity,Context mcontext){
         Rect  disRect = new Rect();
         Window window = activity.getWindow();
@@ -236,7 +241,11 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
                             listItems.add(data);
                             listToAdapter.add(data);
                             GenerateFilterList(data);
+                            //hashmap for PMMiscdata
+                            prlist.put(object.getString("proj_id"),object.getString("proj_name"));
                         }
+                        setProjectlist(prlist);
+//                        System.out.println(getProjectlist().values().toArray(new String[0]).length);
                         SetFilterList(currentList);
                     }else if (jsonObject.getString("found").equals("0")){
                         Toast.makeText(PM_ProjectList.this, "SORRY YOU DONT HAVE ANY PROJECTS YET !", Toast.LENGTH_LONG).show();
@@ -270,6 +279,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
 
     @Override
     public void onRefresh() {
+        clearProjectlist();
         listToAdapter.clear();
         listItems.clear();
         ongList.clear();
@@ -284,7 +294,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
     public void onClick(View v, int adapterPosition) {
         try {
             Intent intent = new Intent (PM_ProjectList.this, ProjectDash.class);
-            intent.putExtra("ProjectData", (Serializable) listItems.get(adapterPosition));
+            intent.putExtra("ProjectData", listItems.get(adapterPosition));
             startActivity(intent);
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
