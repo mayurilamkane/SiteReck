@@ -93,7 +93,7 @@ public class MaterialRequestListCM extends AppCompatActivity implements ItemClic
                     //System.out.println("array = "+array);
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
-                        RequestitemClass_CM r = new RequestitemClass_CM(object.getString("req_material"), object.getString("req_required_date"));
+                        RequestitemClass_CM r = new RequestitemClass_CM(object.getString("req_material"), object.getString("req_required_date"), object.getString("req_status"));
                         list.add(r);
 //                        Toast.makeText(MaterialRequestListCM.this, object.getString("req_material"), Toast.LENGTH_SHORT).show();
                       //  System.out.println("list = "+ list.get(i));

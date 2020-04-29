@@ -38,6 +38,14 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
             RequestitemClass_CM r=list.get(position);
             holder.material_name.setText(r.getSmaterial());
             holder.req_date.setText(r.getMdate());
+            if(r.getStatus().equals("0"))
+            {
+                holder.req_status.setText("Material Request is pending");
+            }
+            else
+            {
+                holder.req_status.setText("Material Request is approved");
+            }
     }
 
     @Override
@@ -46,13 +54,14 @@ public class MaterialListAdapter extends RecyclerView.Adapter<MaterialListAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView  material_name,req_date;
+        public TextView  material_name,req_date, req_status;
         public ItemClickListener itemClickListener;
 
         public ViewHolder(@NonNull View itemView, ItemClickListener itemClickListener) {
             super(itemView);
             material_name=(TextView)itemView.findViewById(R.id.material_name);
             req_date=(TextView)itemView.findViewById(R.id.req_date);
+            req_status=(TextView)itemView.findViewById(R.id.req_status);
             this.itemClickListener=itemClickListener;
             itemView.setOnClickListener(this);
         }
