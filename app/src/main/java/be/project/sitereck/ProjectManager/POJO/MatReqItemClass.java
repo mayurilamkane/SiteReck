@@ -50,4 +50,9 @@ public class MatReqItemClass {
     public void setMdate(String mdate) {
         this.mdate = mdate;
     }
+
+    public  String getAll() {
+        return "id = "+RId +" pid  "+PId+" matName "+smaterialName ;
+    }
+
 }

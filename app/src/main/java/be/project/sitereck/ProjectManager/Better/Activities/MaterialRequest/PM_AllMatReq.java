@@ -2,6 +2,7 @@ package be.project.sitereck.ProjectManager.Better.Activities.MaterialRequest;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -36,6 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import be.project.sitereck.Construction_Manager.interfaces.ItemClickListener;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.ProjectManager.Better.CustomMenu.SlideMenu;
@@ -44,11 +46,11 @@ import be.project.sitereck.ProjectManager.POJO.PmMiscData;
 import static be.project.sitereck.ProjectManager.POJO.PmMiscData.getProjectlist;
 import be.project.sitereck.R;
 
-public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener{
+public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, ItemClickListener {
 
     //UI declaration
     RelativeLayout lay_reqfilter;
-    ImageView burgerimg;
+    ImageView burgerimg, filterimg;
     TextView toptitle, errormsg;
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
@@ -57,36 +59,44 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
     Dialog dialog;
     //nested list data
     List<MatReqItemClass> allitemlist = new ArrayList<>();
-    HashMap<String, List<MatReqItemClass>> mapfornesteddata = new HashMap<>();
+    List<MatReqItemClass> titemlist = new ArrayList<>();
+    HashMap <String , List<MatReqItemClass> > mapfordata  = new HashMap<>();
 
     //    sharedpreferences
     SetSharedPrefrences prefrences = new SetSharedPrefrences(this);
     private String u_id = null;
 
-    //Nested List
-    NestedListData nestedListData;
-    HashMap<String, String> TProjectlist = new HashMap<>();
-    List<MatReqItemClass> matlist = new ArrayList<>();
     //Volley
     MatReqItemClass data;
     RequestQueue rq;
+
+    //recyclerviewadapter
+    MatReqAdapter adapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pmallmatreq);
 
+        //HashMap create
+        for (Map.Entry<String, String> prlist : getProjectlist().entrySet()){
+            mapfordata.put(prlist.getKey(), allitemlist);
+        }
+        System.out.println(mapfordata);
         //UI declaration
+        filterimg = findViewById(R.id.filterimg); filterimg.setVisibility(View.INVISIBLE);
         lay_reqfilter = findViewById(R.id.lay_req_filterlist);
         toptitle = findViewById(R.id.title_top);    toptitle.setText("Material Requests");
         burgerimg = findViewById(R.id.menu_icon);
 
-        TProjectlist = getProjectlist();
 
         errormsg = findViewById(R.id.textemptymatreq);
         swipeRefreshLayout = findViewById(R.id.container_reqList);
         swipeRefreshLayout.setOnRefreshListener(this);
         recyclerView = findViewById(R.id.rec_matreq);
+        //set recyclerview and adapter
+        adapter = new MatReqAdapter(allitemlist,this,this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //swipeRefresh color scheme
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
                 android.R.color.holo_green_dark,
@@ -101,7 +111,6 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
             }
         });
 
-        //
 
 
         //UI clicklistners
@@ -140,10 +149,8 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
                                     object.getString("note")
                             );
                             allitemlist.add(data);
-                            FilterNestedData(data);
-//                            System.out.println("data -"+data);
                         }
-
+                        recyclerView.setAdapter(adapter);
                     }else if(jsonObject.getString("success").equals("0")){
                         Toast.makeText(PM_AllMatReq.this, "There Are No Requests YET !", Toast.LENGTH_LONG).show();
                         errormsg.setVisibility(View.VISIBLE);
@@ -172,16 +179,39 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         rq.add(stringRequest);
     }
 
-    private void FilterNestedData(MatReqItemClass data) {
-        matlist.add(data);
-        mapfornesteddata.put(data.getPId(),matlist);
+    private void getallmap() {
+        for (Map.Entry<String, List<MatReqItemClass> > prlist : mapfordata.entrySet()){
+            System.out.println("printing map = "+ prlist.getKey());
+            System.out.println(" map size = "+ prlist.getValue().size());
+//            System.out.println("printing map = "+ prlist.getValue().get());
+            for (int i = 0 ; i<prlist.getValue().size(); i++){
+//                System.out.println(" list = "+req.getPId()+" "+req.getSmaterialName());
+                System.out.println(prlist.getValue().get(i).getAll());
+            }
+        }
     }
+
+    private void FilterDataForMap(MatReqItemClass data) {
+        System.out.println(data.getPId());
+        List<MatReqItemClass> tlist  = mapfordata.get(data.getPId());
+        tlist.add(data);
+        mapfordata.put(data.getPId(),tlist);
+//        titemlist.clear();
+//        titemlist = (mapfordata.get(data.getPId()));
+//        titemlist.add(data);
+
+//        mapfordata.get(data.getPId()).add(data);
+//        System.out.println("pid ="+titemlist.get(0).getPId());
+//        mapfordata.get(data.getPId()).add(data);
+//        System.out.println("key = "+data.getPId()+" --> value =  "+data.getPId());
+    }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.lay_req_filterlist:
-                MakeFilterDialog();
+//                MakeFilterDialog();
                 break;
 
         }
@@ -218,6 +248,14 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
 
     @Override
     public void onRefresh() {
+        allitemlist.clear();
+        JSON_DATA_WEB_CALL();
+    }
 
+    @Override
+    public void onClick(View v, int adapterPosition) {
+        MatReqDialog  makeDialog = new MatReqDialog();
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        makeDialog.FullMatReqDialog(PM_AllMatReq.this, PM_AllMatReq.this,viewGroup,allitemlist.get(adapterPosition), adapterPosition);
     }
 }
