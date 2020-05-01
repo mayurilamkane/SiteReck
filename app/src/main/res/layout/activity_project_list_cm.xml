@@ -1,63 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context=".Construction_Manager.Activities.ProjectList_cm">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        >
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardToolbar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bkg">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/img"
-                android:text="Project List"
-                android:layout_centerInParent="true"
-                android:textColor="#F6F0F0"
-                android:gravity="center"
-                android:textStyle="bold|italic"
-                android:textSize="20sp"
-                />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/icon_constructor" />
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/container_projList"
-        android:layout_marginTop="2dp"
-        android:layout_below="@id/card_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ScrollView
-            android:layout_width="match_parent"
+            app:cardElevation="10dp"
             android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_margin="5dp"
-                android:id="@+id/recyclerView"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <include layout="@layout/custom_toolbar"/>
 
-        </ScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-</LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/layFilterlist"
+                    android:padding="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textListFilter"
+                        android:gravity="start|center"
+                        android:text="All Project"
+                        android:textColor="#FF212121"
+                        android:textSize="14sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:contentDescription="ic_arrowdropdown"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textEmptyProjList"
+            android:visibility="gone"
+            android:layout_below="@id/cardToolbar"
+            android:padding="5dp"
+            android:gravity="center"
+            android:background="@color/grey_10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+            android:text=" You Dont Have Any Projects Yet!!! Try Creating One "/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/containerProjList"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/cardToolbar"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/recProjList"
+                    />
+            </ScrollView>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

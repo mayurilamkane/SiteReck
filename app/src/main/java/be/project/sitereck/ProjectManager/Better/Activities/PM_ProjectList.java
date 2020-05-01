@@ -94,7 +94,8 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
         setContentView(R.layout.activity_pmprojectlist);
 
         toolbar = findViewById(R.id.toolbar);
-        toptitle = findViewById(R.id.title_top);    toptitle.setText("Project List");
+        toptitle = findViewById(R.id.title_top);
+        toptitle.setText("Project List");
         burgerimg = findViewById(R.id.menu_icon);
 
         dialogGenerator = new DialogGenerator(this);
