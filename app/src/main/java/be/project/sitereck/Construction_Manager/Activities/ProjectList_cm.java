@@ -133,7 +133,6 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
             }
         });
 
-
     }
 
     private void MakeDialog() {
