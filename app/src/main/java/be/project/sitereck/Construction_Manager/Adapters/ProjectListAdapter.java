@@ -46,14 +46,18 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
         if(projectDataClass.getStatus().equals("1"))
         {
             holder.project_status.setText("COMPLETED");
+            holder.project_status.setTextColor(context.getResources().getColor(R.color.blue_300));
+
         }
         else if(projectDataClass.getStatus().equals("0"))
         {
             holder.project_status.setText("NOT STARTED");
+            holder.project_status.setTextColor(context.getResources().getColor(R.color.red));
         }
         else
         {
             holder.project_status.setText("ONGOING");
+            holder.project_status.setTextColor(context.getResources().getColor(R.color.primegreen));
         }
     }
 
@@ -78,7 +82,6 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectListAdapter.
             tv_startdate=(TextView)itemView.findViewById(R.id.tv_startdate);
             tv_enddate=(TextView)itemView.findViewById(R.id.tv_enddate);
             project_status=(TextView)itemView.findViewById(R.id.project_status);
-
             this.itemClickListener = itemClickListener;
             itemView.setOnClickListener(this);
         }

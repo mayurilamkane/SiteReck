@@ -89,10 +89,13 @@ public class Activity_Adapter_cm extends RecyclerView.Adapter<Activity_Adapter_c
 
         if(activity_dataClass_cm.getStatus().equals("0")){
             holder.status.setText("Not Started ");
+            holder.status.setTextColor(context.getResources().getColor(R.color.red));
         } else if(activity_dataClass_cm.getStatus().equals("1")){
             holder.status.setText(" completed ");
+            holder.status.setTextColor(context.getResources().getColor(R.color.blue_300));
         }else {
             holder.status.setText(" Completed ");
+            holder.status.setTextColor(context.getResources().getColor(R.color.blue_300));
         }
     }
     @Override
