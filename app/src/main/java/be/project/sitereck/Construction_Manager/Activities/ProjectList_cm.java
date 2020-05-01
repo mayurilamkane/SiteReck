@@ -84,6 +84,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
         toptitle = findViewById(R.id.title_top);
         toptitle.setText("Project List");
         burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.profile));
         filterMenuLayout = findViewById(R.id.layFilterlist);
         listfiltertext  = findViewById(R.id.textListFilter);
         dialogGenerator = new DialogGenerator(this);
@@ -102,7 +103,7 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,
                 android.R.color.holo_blue_dark);
-        adapter = new ProjectListAdapter(listItems,this,this);
+        adapter = new ProjectListAdapter(listToAdapter,this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         swipeRefreshLayout.post(new Runnable() {
@@ -125,11 +126,8 @@ public class ProjectList_cm extends AppCompatActivity implements ItemClickListen
             @Override
             public void onClick(View v) {
                 Toast.makeText(ProjectList_cm.this, "burger", Toast.LENGTH_SHORT).show();
-//                FullDialog(PM_ProjectList.this,PM_ProjectList.this);
-                SlideMenu slideMenu = new SlideMenu();
-                ViewGroup viewGroup = findViewById(android.R.id.content);
-                //slideMenu.FullDialog(ProjectList_cm.this,ProjectList_cm.this,viewGroup);
-
+            Intent intent = new Intent(ProjectList_cm.this, profile_cm.class);
+            startActivity(intent);
             }
         });
 
