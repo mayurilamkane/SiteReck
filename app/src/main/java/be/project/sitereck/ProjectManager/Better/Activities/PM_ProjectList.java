@@ -295,7 +295,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
     public void onClick(View v, int adapterPosition) {
         try {
             Intent intent = new Intent (PM_ProjectList.this, ProjectDash.class);
-            intent.putExtra("ProjectData", listItems.get(adapterPosition));
+            intent.putExtra("ProjectData", listToAdapter.get(adapterPosition));
             startActivity(intent);
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
