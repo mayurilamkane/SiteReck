@@ -30,7 +30,7 @@ import java.util.Map;
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
 import be.project.sitereck.R;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
+public class  SignupActivity extends AppCompatActivity implements View.OnClickListener{
     //TODO: Complete Signup Remove NUll Pointer exception
     EditText name, email, password,contact,pass,rpass;
     RadioGroup radioGroup;
@@ -121,7 +121,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("name",name);
-                params.put("email",email);
+                params.put("email",email.toLowerCase());
                 params.put("password",password);
                 params.put("contact",contact);
                 params.put("position",String.valueOf(position));

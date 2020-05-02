@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq"></activity>
+        <activity android:name=".ProjectManager.Activities.EditProfileInfo_PM"></activity>
+        <activity android:name=".ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq" />
         <activity android:name=".ProjectManager.Better.Activities.PM_ProjectList" />
         <activity android:name=".ProjectManager.Activities.Profile_PM" />
         <activity android:name=".Construction_Manager.Activities.ReportGeneration" />

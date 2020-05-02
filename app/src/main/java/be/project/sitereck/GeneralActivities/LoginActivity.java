@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String,String> params = new HashMap<>();
-                    params.put("email",email);
+                    params.put("email",email.toLowerCase());
                     params.put("password",pass);
 
                     return params;
@@ -153,6 +153,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    finish();
                     startActivity(intent);
                 }
+            }else{
+                if(pd!=null && pd.isShowing())
+                    pd.dismiss();
             }
 
         } catch (JSONException ex) {

@@ -4,204 +4,240 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".ProjectManager.Activities.ProjectDash">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cutom_toolbar"
+
+    <LinearLayout
+        android:id="@+id/card_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:cardElevation="15dp"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:padding="15dp"
-            android:gravity="left|center"
-            android:text="Project Info"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:background="#2962FF"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-    </androidx.cardview.widget.CardView>
+        android:layout_height="wrap_content">
+        <include android:id="@+id/cutom_toolbar"
+             layout="@layout/custom_toolbar"/>
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/sv_pinfo"
-        android:layout_below="@id/cutom_toolbar"
+        android:layout_below="@id/card_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="@dimen/spacing_medium">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="3dp"
-                android:padding="3dp"
+                android:layout_margin="@dimen/spacing_middle"
+                android:elevation="@dimen/spacing_middle"
+                app:cardCornerRadius="@dimen/spacing_medium">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="5dp">
+                    android:orientation="horizontal"
+                    android:weightSum="4">
                     <TextView
-                        android:id="@+id/tv_pname"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="3dp"
-                        android:text="Project Name -"
+                        android:text="Project Info"
                         android:textColor="#191818"
-                        android:textSize="17sp"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        android:textSize="21sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         />
                     <TextView
-                        android:id="@+id/tv_desc"
-                        android:layout_width="match_parent"
+                        android:id="@+id/tv_projeditinfo"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:layout_marginStart="5dp"
                         android:layout_marginBottom="3dp"
-                        android:text="Description -"
+                        android:text="Edit"
                         android:textColor="#191818"
-                        android:textSize="17sp"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        android:textSize="20sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:background="@drawable/custom_ripple_cancel_borderless"
                         />
-
-                    <TextView
-                        android:id="@+id/tv_paddr"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="Address -"
-                        android:textColor="#191818"
-                        android:textSize="15sp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Start Date -"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="#191818"
-                            android:textSize="15sp" />
-                        <TextView
-                            android:id="@+id/tv_psdate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Start Date -"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="#191818"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="End Date   -"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="#191818"
-                            android:textSize="15sp" />
-                        <TextView
-                            android:id="@+id/tv_pedate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="End Date  -"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="#191818"
-                            android:textSize="15sp" />
                 </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F7304FFE"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"/>
+                <TextView
+                    android:id="@+id/tv_pname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Project Name -"
+                    android:textColor="#191818"
+                    android:textSize="20sp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    />
+                <TextView
+                    android:id="@+id/tv_pdesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Project Info-"
+                    android:textColor="#191818"
+                    android:textSize="16sp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_paddr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address -"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#191818"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/tv_proj_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start Date -"
+
+                        android:textColor="#191818"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tv_psdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Status"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginEnd="5dp"
+                        android:text="Start Date -"
+                        android:layout_marginStart="5dp"
                         android:textColor="#191818"
                         android:textSize="15sp" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Due Date   -"
+                        android:textColor="#191818"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tv_pedate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Due Date  -"
+                        android:layout_marginStart="5dp"
+                        android:textColor="#191818"
+                        android:textSize="15sp" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_proj_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="#191818"
+                    android:textSize="15sp" />
+            </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:id="@+id/lay_btmbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/btAct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Activities"
+                    android:textAllCaps="false"
+                    />
+                <Button
+                    android:id="@+id/btCm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Construction Managers"
+                    android:textAllCaps="false"
+                    />
 
-    <LinearLayout
-        android:id="@+id/lay_btmbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@id/sv_pinfo"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/btAct"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="3dp"
-            android:background="@drawable/bkg_btn_actsdate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="Activities"
-            android:textAllCaps="false"
-            />
-        <Button
-            android:id="@+id/btCm"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="3dp"
-            android:background="@drawable/bkg_btn_actsdate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="Construction Managers"
-            android:textAllCaps="false"
-            />
+                <Button
+                    android:id="@+id/btReq"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/material_request"
+                    android:textAllCaps="false"
+                    />
 
-        <Button
-            android:id="@+id/btReq"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="3dp"
-            android:background="@drawable/bkg_btn_actsdate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/material_request"
-            android:textAllCaps="false"
-            />
-
-        <Button
-            android:id="@+id/btReport"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="3dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="Report"
-            android:background="@drawable/bkg_btn_actsdate"
-            android:textAllCaps="false"
-            />
-        <Button
-            android:id="@+id/btn_map"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bkg_btn_actsdate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="View Location"
-            android:textAllCaps="false"
-            />
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Report"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:textAllCaps="false"
+                    />
+                <Button
+                    android:id="@+id/btn_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="View Location"
+                    android:textAllCaps="false"
+                    />
+            </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>
