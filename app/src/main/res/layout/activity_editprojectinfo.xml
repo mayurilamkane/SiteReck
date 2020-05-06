@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProjectManager.Activities.Edit_ProjectInfo"
+    android:background="#FFF"
+    android:orientation="vertical">
+    <include layout="@layout/custom_toolbar"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/spacing_medium">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_middle"
+                android:elevation="@dimen/spacing_middle"
+                app:cardCornerRadius="@dimen/spacing_medium"
+                app:cardElevation="@dimen/spacing_middle">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edit Project Info "
+                android:paddingTop="@dimen/spacing_medium"
+                android:textColor="#191818"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textStyle="bold"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F7304FFE"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_proj_name"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_proj_desc"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_middle"
+                android:elevation="@dimen/spacing_middle"
+                app:cardCornerRadius="@dimen/spacing_medium"
+
+                app:cardElevation="@dimen/spacing_middle">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Project Due Date "
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:textColor="#191818"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textStyle="bold"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F7304FFE"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+
+                android:orientation="horizontal">
+                <TextView android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:drawableStart="@drawable/ic_event_note_rp_24dp"
+                    android:text=" Start Date - "
+                    android:drawablePadding="3dp"
+                    android:textColor="#191818"
+                    />
+                <TextView
+                    android:id="@+id/tve_sdate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="2020-04-003"
+                    android:drawablePadding="3dp"
+                    android:textColor="#191818"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:drawableStart="@drawable/ic_event_note_rp_24dp"
+                    android:text=" End Date -  "
+                    android:drawablePadding="3dp"
+                    android:textColor="#191818"
+                    />
+                <TextView
+                    android:id="@+id/tve_edate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="2020-04-003"
+                    android:drawablePadding="3dp"
+                    android:textColor="#191818"
+                    />
+            </LinearLayout>
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_middle"
+                android:elevation="@dimen/spacing_middle"
+                app:cardCornerRadius="@dimen/spacing_medium"
+                app:cardElevation="@dimen/spacing_middle">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Project Location "
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:textColor="#191818"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                    android:textStyle="bold"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F7304FFE"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address - "
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:textColor="#191818"
+                    android:layout_marginStart="@dimen/spacing_middle"
+                    android:layout_marginEnd="@dimen/spacing_middle"
+
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+                <TextView
+                    android:id="@+id/tve_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address - "
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:paddingStart="@dimen/spacing_medium"
+                    android:textColor="#191818"
+                    android:layout_marginStart="@dimen/spacing_middle"
+                    android:layout_marginEnd="@dimen/spacing_middle"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead" />
+                <Button
+                    android:id="@+id/btchlocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bkg_btn_actsdate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text=" Change Location "
+                    android:textAllCaps="false"
+                    />
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_editproject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_done_white_58dp"
+                app:backgroundTint="#2979FF" />
+        </LinearLayout>
+        </ScrollView>
+
+</LinearLayout>

@@ -53,6 +53,7 @@ import be.project.sitereck.ProjectManager.Better.CustomMenu.SlideMenu;
 import be.project.sitereck.ProjectManager.DialogGenerator;
 import be.project.sitereck.ProjectManager.POJO.PmMiscData;
 import be.project.sitereck.ProjectManager.POJO.ProjectData;
+import be.project.sitereck.ProjectManager.POJO.ProjectMiscData;
 import be.project.sitereck.R;
 
 import static be.project.sitereck.ProjectManager.POJO.PmMiscData.clearProjectlist;
@@ -239,6 +240,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
                                     object.getString("status_date"),
                                     object.getString("diff")
                             );
+
                             listItems.add(data);
                             listToAdapter.add(data);
                             GenerateFilterList(data);
@@ -294,6 +296,18 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
     @Override
     public void onClick(View v, int adapterPosition) {
         try {
+            ProjectMiscData.CreateProjectMiscData(listToAdapter.get(adapterPosition).getProject_id(),
+                    listToAdapter.get(adapterPosition).getProject_name(),
+                    listToAdapter.get(adapterPosition).getProject_description(),
+                    listToAdapter.get(adapterPosition).getProject_Start_date(),
+                    listToAdapter.get(adapterPosition).getProject_End_date(),
+                    listToAdapter.get(adapterPosition).getProject_Address(),
+                    listToAdapter.get(adapterPosition).getProject_latitude(),
+                    listToAdapter.get(adapterPosition).getProject_longitude(),
+                    listToAdapter.get(adapterPosition).getProject_status(),
+                    listToAdapter.get(adapterPosition).getProject_status_date(),
+                    listToAdapter.get(adapterPosition).getDiff());
+
             Intent intent = new Intent (PM_ProjectList.this, ProjectDash.class);
             intent.putExtra("ProjectData", listToAdapter.get(adapterPosition));
             startActivity(intent);

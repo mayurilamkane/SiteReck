@@ -55,6 +55,7 @@
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         />
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_projeditinfo"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
