@@ -19,6 +19,7 @@ public class URL_STRINGS {
     private static final String CALL_PROJNONCMLIST = DOMAIN + "Project/getProjectNonCm.php";
     private static final String CALL_ALLACTLIST = DOMAIN +"Project/AllActivityList.php";
 
+    private static final String CALL_MATREQPROJ = DOMAIN +"Project/getMaterial.php";
     private static final String CALL_ADDPROJ = DOMAIN +"Project/AddProject.php";
     private static final String CALL_ADDCMPROJ = DOMAIN +"Project/addCmProject.php";
     private static final String CALL_ADDACTPROJ = DOMAIN +"Project/addActProj.php";
@@ -29,6 +30,8 @@ public class URL_STRINGS {
     private static final String CALL_DWNLDREPORT = DOMAIN +"ReportGenerator/GenerateReport1.php";
 
     public static String getCallEditinfo() {    return CALL_EDITINFO;   }
+
+    public static String getCallMatreqproj() {  return CALL_MATREQPROJ; }
 
     public static String getCALL_ApproveMatReq() {  return CALL_ApproveMatReq;  }
     public static String getCALL_AMatReq() {    return CALL_AMatReq;    }

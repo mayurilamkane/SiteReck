@@ -130,7 +130,11 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
-                JSON_DATA_WEB_CALL();
+                if(pid.equals("-1")){
+                 JSON_DATA_WEB_CALL();
+                }else {
+                    PROJECT_REQ();
+                }
             }
         });
 
@@ -145,6 +149,64 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
                 CreateSlideMenu();
             }
         });
+    }
+
+    private void PROJECT_REQ() {
+        swipeRefreshLayout.setRefreshing(true);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallMatreqproj(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    Log.i("tagconvertstr", "["+response+"]");
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getString("success").equals("1")){
+
+                        errormsg.setVisibility(View.GONE);
+                        JSONArray array= jsonObject.getJSONArray("requests");
+
+                        for (int i = 0 ; i<array.length(); i++){
+                            JSONObject object = array.getJSONObject(i);
+                            data = new MatReqItemClass(object.getString("req_id"),
+                                    object.getString("proj_id"),
+                                    object.getString("req_date"),
+                                    object.getString("req_required_date"),
+                                    object.getString("req_material"),
+                                    object.getString("req_status"),
+                                    object.getString("note")
+                            );
+                            allitemlist.add(data);
+                            listToAdapter.add(data);
+                            GenerateFilterList(data);
+                        }
+                        recyclerView.setAdapter(adapter);
+                    }else if(jsonObject.getString("success").equals("0")){
+//                        Toast.makeText(PM_AllMatReq.this, "There Are No Requests YET !", Toast.LENGTH_LONG).show();
+                        errormsg.setVisibility(View.VISIBLE);
+                        errormsg.setText("There Are No Requests YET !");
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    System.out.println(e.toString());
+                }
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.toString());
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                params.put("proj_id",ProjectMiscData.getProject_id());
+                return params;
+            }
+        };
+        rq = Volley.newRequestQueue(this);
+        rq.add(stringRequest);
     }
 
     private void JSON_DATA_WEB_CALL() {
@@ -172,6 +234,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
                                     object.getString("note")
                             );
                             allitemlist.add(data);
+                            listToAdapter.add(data);
                             GenerateFilterList(data);
                         }
                         recyclerView.setAdapter(adapter);
@@ -312,16 +375,28 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
             filterProname.setText(filterlisthead+" - All Requests");
             listToAdapter.clear();
             listToAdapter.addAll(allitemlist);
+            if (listToAdapter.size() == 0){
+                errormsg.setVisibility(View.VISIBLE);
+                errormsg.setText("There Are No Requests YET !");
+            }
         }else if (i == 2){
             currentList = 2;
             filterProname.setText(filterlisthead+" - Approved Requests");
             listToAdapter.clear();
             listToAdapter.addAll(approveditemlist);
+            if (listToAdapter.size() == 0){
+                errormsg.setVisibility(View.VISIBLE);
+                errormsg.setText("There Are No Approved Requests YET !");
+            }
         }else if (i == 3){
             currentList = 3;
             filterProname.setText(filterlisthead+" - Pending Requests");
             listToAdapter.clear();
             listToAdapter.addAll(pendingitemlist);
+            if (listToAdapter.size() == 0){
+                errormsg.setVisibility(View.VISIBLE);
+                errormsg.setText("There Are No Pending Requests YET !");
+            }
         }
         recyclerView.setAdapter(adapter);
     }
@@ -332,7 +407,11 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         listToAdapter.clear();
         pendingitemlist.clear();
         approveditemlist.clear();
-        JSON_DATA_WEB_CALL();
+        if(pid.equals("-1")){
+            JSON_DATA_WEB_CALL();
+        }else {
+            PROJECT_REQ();
+        }
     }
 
     @Override
