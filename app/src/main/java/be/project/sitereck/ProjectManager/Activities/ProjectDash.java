@@ -6,11 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.Locale;
 
@@ -22,6 +24,11 @@ import be.project.sitereck.R;
 
 
 public class ProjectDash extends AppCompatActivity implements View.OnClickListener{
+
+    Toolbar toolbar;
+    ImageView burgerimg;
+    TextView toptitle;
+
     Button btnActivity,btnCM,btnReq,btreport, btnMap;
     TextView title , address , sdate, edate, status , edit, desc;
     Intent intent;
@@ -32,6 +39,11 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_dash);
+
+        toolbar = findViewById(R.id.toolbar);
+        toptitle = findViewById(R.id.title_top);
+        toptitle.setText("Project Dashboard");
+        burgerimg = findViewById(R.id.menu_icon);
 
         data = (ProjectData) getIntent().getSerializableExtra("ProjectData");
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pronametitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FF000000"
+        android:textSize="20sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F7304FFE"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"/>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_allact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="All Activities"
+        android:textColor="#FF212121"
+        android:textSize="17sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
+        />
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_completedact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Completed Activities"
+        android:textColor="#FF212121"
+        android:textSize="17sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
+        />
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_incompleteact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Incompleted Activities"
+        android:textColor="#FF212121"
+        android:textSize="17sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
+        />
+
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/list_proname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

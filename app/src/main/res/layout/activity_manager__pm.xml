@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@android:color/white"
     tools:context=".ProjectManager.Activities.ActivityManager_PM">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cd_header"
+
+    <RelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:cardElevation="15dp">
-        <TextView
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center"
-            android:text="Activity Manager"
-            android:textColor="#FF000000"
-            android:textSize="20sp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/textemptyactivitylist"
-        android:layout_below="@id/cd_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_medium"
-        android:gravity="center"
-        android:background="@color/grey_10"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
-        android:text="  Project Don't Have Any Activiy Yet!!! Try Creating One"/>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        app:cardElevation="3dp"
-        android:layout_below="@id/textemptyactivitylist">
+            app:cardElevation="10dp"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/custom_toolbar"/>
+
+                <RelativeLayout
+                    android:id="@+id/lay_filterlist"
+                    android:padding="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp">
+                    <TextView
+                        android:id="@+id/text_listfilter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:text="All Activity"
+                        android:textColor="#FF212121"
+                        android:textSize="14sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:contentDescription="ic_arrowdropdown" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/textemptyactivitylist"
+            android:layout_below="@id/card_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_medium"
+            android:gravity="center"
+            android:background="@color/grey_10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+            android:text="  Project Don't Have Any Activiy Yet!!! Try Creating One"/>
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/container_activity_manager"
             android:layout_marginTop="2dp"
@@ -49,25 +79,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.recyclerview.widget.RecyclerView
+                    android:padding="@dimen/spacing_medium"
+                    android:id="@+id/rcv_activitylist"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/rcv_activitylist"/>
+                    android:layout_height="wrap_content"/>
             </ScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_addactivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_add_black_48dp"
+            app:backgroundTint="#2979FF" />
+    </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_addactivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_add_black_48dp"
-        app:backgroundTint="#2979FF" />
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
