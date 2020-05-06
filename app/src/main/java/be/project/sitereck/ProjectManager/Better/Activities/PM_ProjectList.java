@@ -334,21 +334,38 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
             listfiltertext.setText("All Projects");
             listToAdapter.clear();
             listToAdapter.addAll(listItems);
+            if (listToAdapter.size() == 0 ){
+                Toast.makeText(PM_ProjectList.this, "SORRY YOU DONT HAVE ANY PROJECTS YET !", Toast.LENGTH_LONG).show();
+                errormsg.setVisibility(View.VISIBLE);
+            }
+
         }else if (i == 2){
             currentList = 2;
             listfiltertext.setText("OnGoing Projects");
             listToAdapter.clear();
             listToAdapter.addAll(ongList);
+             if (listToAdapter.size() == 0 ){
+                 Toast.makeText(PM_ProjectList.this, "NO ONGOING PROJECTS YET !", Toast.LENGTH_LONG).show();
+                 errormsg.setVisibility(View.VISIBLE);
+             }
         }else if (i == 3){
             currentList = 3;
             listfiltertext.setText("completed Projects");
             listToAdapter.clear();
             listToAdapter.addAll(compList);
+             if (listToAdapter.size() == 0 ){
+                 Toast.makeText(PM_ProjectList.this, "NO COMPLETED PROJECTS YET !", Toast.LENGTH_LONG).show();
+                 errormsg.setVisibility(View.VISIBLE);
+             }
         }else if (i == 4){
             currentList = 4;
             listfiltertext.setText("Not Started Projects");
             listToAdapter.clear();
             listToAdapter.addAll(nonsList);
+             if (listToAdapter.size() == 0 ){
+                 Toast.makeText(PM_ProjectList.this, "NOTHING HERE !", Toast.LENGTH_LONG).show();
+                 errormsg.setVisibility(View.VISIBLE);
+             }
         }
         recyclerView.setAdapter(adapter);
     }
