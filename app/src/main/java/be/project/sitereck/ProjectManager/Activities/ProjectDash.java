@@ -15,13 +15,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 import be.project.sitereck.GeneralClasses.URL_STRINGS;
+import be.project.sitereck.ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq;
 import be.project.sitereck.ProjectManager.POJO.ProjectData;
+import be.project.sitereck.ProjectManager.POJO.ProjectMiscData;
 import be.project.sitereck.R;
 
 
 public class ProjectDash extends AppCompatActivity implements View.OnClickListener{
     Button btnActivity,btnCM,btnReq,btreport, btnMap;
-    TextView title , address , sdate, edate, status ;
+    TextView title , address , sdate, edate, status , edit, desc;
     Intent intent;
     ProjectData data;
     String proj_id;
@@ -34,15 +36,36 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         data = (ProjectData) getIntent().getSerializableExtra("ProjectData");
 
         title = findViewById(R.id.tv_pname);
+        desc = findViewById(R.id.tv_pdesc);
         address = findViewById(R.id.tv_paddr);
         sdate = findViewById(R.id.tv_psdate);
         edate = findViewById(R.id.tv_pedate);
         status = findViewById(R.id.tv_proj_status);
+        edit = findViewById(R.id.tv_projeditinfo);
 
-        title.setText(data.getProject_name());
-        address.setText(data.getProject_Address());
-        sdate.setText(data.getProject_Start_date());
-        edate.setText(data.getProject_End_date());
+//        title.setText(data.getProject_name());
+//        address.setText(data.getProject_Address());
+//        sdate.setText(data.getProject_Start_date());
+//        edate.setText(data.getProject_End_date());
+//        //status.setText(data.getProject_status());
+//        if(data.getProject_status().equals("0"))
+//        {
+//            status.setText("NOT STARTED");
+//        }
+//        else if(data.getProject_status().equals("1"))
+//        {
+//            status.setText("COMPLETED");
+//        }
+//        else
+//        {
+//            status.setText("ONGOING");
+//        }
+
+        title.setText(ProjectMiscData.getProject_name());
+        desc.setText(ProjectMiscData.getProject_description());
+        address.setText(ProjectMiscData.getProject_Address());
+        sdate.setText(ProjectMiscData.getProject_Start_date());
+        edate.setText(ProjectMiscData.getProject_End_date());
         //status.setText(data.getProject_status());
         if(data.getProject_status().equals("0"))
         {
@@ -71,6 +94,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         btnReq.setOnClickListener(this);
         btreport.setOnClickListener(this);
         btnMap.setOnClickListener(this);
+        edit.setOnClickListener(this);
 
     }
     @Override
@@ -89,7 +113,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.btReq:
-                intent=new Intent(this,MaterialRequestFromCm.class);
+                intent=new Intent(this, PM_AllMatReq.class);
                 intent.putExtra("pid",data.getProject_id());
                 startActivity(intent);
                 break;
@@ -100,6 +124,12 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
             {
                 String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?q=loc:%f,%f", Float.parseFloat(data.getProject_latitude()),Float.parseFloat(data.getProject_longitude()));
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(intent);
+            }
+            break;
+            case R.id.tv_projeditinfo:
+            {
+                Intent intent = new Intent(ProjectDash.this, Edit_ProjectInfo.class);
                 startActivity(intent);
             }
             break;

@@ -101,13 +101,14 @@ public class SlideMenu extends AppCompatActivity {
         requests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mactivity.getLocalClassName().equals("ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq")) {
+//                if (!mactivity.getLocalClassName().equals("ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq")) {
                     Intent intent = new Intent(mactivity, PM_AllMatReq.class);
+                    intent.putExtra("pid","-1");
                     alertDialog.dismiss();
                     mactivity.startActivity(intent);
-                }else {
-                    alertDialog.dismiss();
-                }
+//                }else {
+//                    alertDialog.dismiss();
+//                }
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {

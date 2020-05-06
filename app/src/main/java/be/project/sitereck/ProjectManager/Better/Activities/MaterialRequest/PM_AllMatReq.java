@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,8 @@ import be.project.sitereck.ProjectManager.Better.CustomMenu.SlideMenu;
 import be.project.sitereck.ProjectManager.POJO.MatReqItemClass;
 import be.project.sitereck.ProjectManager.POJO.PmMiscData;
 import static be.project.sitereck.ProjectManager.POJO.PmMiscData.getProjectlist;
+
+import be.project.sitereck.ProjectManager.POJO.ProjectMiscData;
 import be.project.sitereck.R;
 
 public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, ItemClickListener {
@@ -51,15 +54,17 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
     //UI declaration
     RelativeLayout lay_reqfilter;
     ImageView burgerimg, filterimg;
-    TextView toptitle, errormsg;
+    TextView toptitle, errormsg, filterProname;
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
 
     //filter dialog
     Dialog dialog;
     //nested list data
+    List<MatReqItemClass> listToAdapter = new ArrayList<>();
     List<MatReqItemClass> allitemlist = new ArrayList<>();
-    List<MatReqItemClass> titemlist = new ArrayList<>();
+    List<MatReqItemClass> approveditemlist = new ArrayList<>();
+    List<MatReqItemClass> pendingitemlist = new ArrayList<>();
     HashMap <String , List<MatReqItemClass> > mapfordata  = new HashMap<>();
 
     //    sharedpreferences
@@ -73,11 +78,17 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
     //recyclerviewadapter
     MatReqAdapter adapter ;
 
+    String pid;
+    int currentList = 1;
+    String filterlisthead;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pmallmatreq);
-
+        Intent i  = getIntent();
+        pid = i.getStringExtra("pid");
         //HashMap create
         for (Map.Entry<String, String> prlist : getProjectlist().entrySet()){
             mapfordata.put(prlist.getKey(), allitemlist);
@@ -86,7 +97,9 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         //UI declaration
         filterimg = findViewById(R.id.filterimg); filterimg.setVisibility(View.INVISIBLE);
         lay_reqfilter = findViewById(R.id.lay_req_filterlist);
+        filterProname  = findViewById(R.id.text_req_listfilter);
         toptitle = findViewById(R.id.title_top);    toptitle.setText("Material Requests");
+
         burgerimg = findViewById(R.id.menu_icon);
 
 
@@ -94,8 +107,18 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         swipeRefreshLayout = findViewById(R.id.container_reqList);
         swipeRefreshLayout.setOnRefreshListener(this);
         recyclerView = findViewById(R.id.rec_matreq);
+
+        //top title
+        if(pid.equals("-1")){
+            filterlisthead = "All Project";
+            filterProname.setText(filterlisthead+" - All Requests");
+        }else {
+            filterlisthead = ProjectMiscData.getProject_name();
+            filterProname.setText(filterlisthead+" - All Requests");
+        }
+
         //set recyclerview and adapter
-        adapter = new MatReqAdapter(allitemlist,this,this);
+        adapter = new MatReqAdapter(listToAdapter,this,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //swipeRefresh color scheme
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
@@ -149,6 +172,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
                                     object.getString("note")
                             );
                             allitemlist.add(data);
+                            GenerateFilterList(data);
                         }
                         recyclerView.setAdapter(adapter);
                     }else if(jsonObject.getString("success").equals("0")){
@@ -177,6 +201,14 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         };
         rq = Volley.newRequestQueue(this);
         rq.add(stringRequest);
+    }
+
+    private void GenerateFilterList(MatReqItemClass data) {
+        if (data.getRStat().equals("0")){
+            pendingitemlist.add(data);
+        }else if (data.getRStat().equals("1")){
+            approveditemlist.add(data);
+        }
     }
 
     private void getallmap() {
@@ -211,7 +243,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.lay_req_filterlist:
-//                MakeFilterDialog();
+                MakeFilterDialog();
                 break;
 
         }
@@ -231,24 +263,75 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         l1.setBackgroundResource(R.drawable.dialog_bg);
         dialog.show();
         dialog.setCancelable(true);
-        TextView all;
-        final ListView listView ;
-        listView = dialog.findViewById(R.id.list_proname);
-        all = dialog.findViewById(R.id.item_allproject);
-        final String[] valuelist  = getProjectlist().values().toArray(new String[0]);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_proname, valuelist);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        TextView proname , all , approved, pending;
+//        final ListView listView ;
+//        listView = dialog.findViewById(R.id.list_proname);
+
+//        final String[] valuelist  = getProjectlist().values().toArray(new String[0]);
+//        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.item_proname, valuelist);
+//        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(PM_AllMatReq.this, "name -"+valuelist[position], Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        proname = dialog.findViewById(R.id.pronametitle);
+        all = dialog.findViewById(R.id.item_allreq);
+        approved = dialog.findViewById(R.id.item_aapprovedreq);
+        pending = dialog.findViewById(R.id.item_pendingreq);
+
+        proname.setText(filterlisthead);
+
+        all.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(PM_AllMatReq.this, "name -"+valuelist[position], Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                SetFilterList(1);
+                dialog.dismiss();
             }
         });
+        approved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetFilterList(2);
+                dialog.dismiss();
+            }
+        });
+        pending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetFilterList(3);
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void SetFilterList(int i) {
+        if (i == 1){
+            currentList = 1;
+            filterProname.setText(filterlisthead+" - All Requests");
+            listToAdapter.clear();
+            listToAdapter.addAll(allitemlist);
+        }else if (i == 2){
+            currentList = 2;
+            filterProname.setText(filterlisthead+" - Approved Requests");
+            listToAdapter.clear();
+            listToAdapter.addAll(approveditemlist);
+        }else if (i == 3){
+            currentList = 3;
+            filterProname.setText(filterlisthead+" - Pending Requests");
+            listToAdapter.clear();
+            listToAdapter.addAll(pendingitemlist);
+        }
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onRefresh() {
         allitemlist.clear();
+        listToAdapter.clear();
+        pendingitemlist.clear();
+        approveditemlist.clear();
         JSON_DATA_WEB_CALL();
     }
 

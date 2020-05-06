@@ -7,11 +7,12 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/pronametitle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Select Project"
+        android:text=""
         android:textColor="#FF000000"
         android:textSize="20sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
@@ -23,12 +24,38 @@
         android:layout_marginEnd="25dp"/>
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/item_allproject"
+        android:id="@+id/item_allreq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="4dp"
-        android:text="All Projects"
+        android:text="All Requests"
+        android:textColor="#FF212121"
+        android:textSize="17sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
+        />
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_aapprovedreq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Approved Requests"
+        android:textColor="#FF212121"
+        android:textSize="17sp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:background="@drawable/custom_ripple"
+        />
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/item_pendingreq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Pending Requests"
         android:textColor="#FF212121"
         android:textSize="17sp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
@@ -36,6 +63,7 @@
         />
 
     <ListView
+        android:visibility="gone"
         android:id="@+id/list_proname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
