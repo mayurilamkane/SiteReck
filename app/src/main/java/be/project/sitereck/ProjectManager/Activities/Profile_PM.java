@@ -11,14 +11,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import be.project.sitereck.GeneralActivities.LoginActivity;
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
 import be.project.sitereck.R;
 
 public class Profile_PM extends AppCompatActivity {
+    Toolbar toolbar;
+    ImageView burgerimg;
+    TextView toptitle;
 
-    Button btnLogout;
+    Button btnLogout , btnedit;
     TextView name,  email, contact;
     AlertDialog.Builder alertDialog;
     SetSharedPrefrences prefrences = new SetSharedPrefrences(this);
@@ -27,10 +31,16 @@ public class Profile_PM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_pm);
 
+
+        toolbar = findViewById(R.id.toolbar);
+        toptitle = findViewById(R.id.title_top);    toptitle.setText("Profile");
+        burgerimg = findViewById(R.id.menu_icon);   burgerimg.setVisibility(View.INVISIBLE);
+
         name = findViewById(R.id.pm_name);
         email = findViewById(R.id.pm_email);
         contact = findViewById(R.id.pm_contact);
         btnLogout = findViewById(R.id.btn_logout);
+        btnedit = findViewById(R.id.btn_edit);
 
         name.setText(prefrences.getVar_User_name());
         email.setText(prefrences.getVar_User_email());
@@ -65,6 +75,12 @@ public class Profile_PM extends AppCompatActivity {
                 alert.show();
             }
         });
-
+        btnedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent  intent = new Intent(Profile_PM.this, EditProfileInfo_PM.class);
+                startActivity(intent);
+            }
+        });
     }
 }
