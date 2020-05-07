@@ -34,7 +34,8 @@ public class Profile_PM extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         toptitle = findViewById(R.id.title_top);    toptitle.setText("Profile");
-        burgerimg = findViewById(R.id.menu_icon);   burgerimg.setVisibility(View.INVISIBLE);
+        burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         name = findViewById(R.id.pm_name);
         email = findViewById(R.id.pm_email);
@@ -80,6 +81,13 @@ public class Profile_PM extends AppCompatActivity {
             public void onClick(View v) {
                 Intent  intent = new Intent(Profile_PM.this, EditProfileInfo_PM.class);
                 startActivity(intent);
+            }
+        });
+
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

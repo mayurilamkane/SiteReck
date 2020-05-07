@@ -44,6 +44,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         toptitle = findViewById(R.id.title_top);
         toptitle.setText("Project Dashboard");
         burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         data = (ProjectData) getIntent().getSerializableExtra("ProjectData");
 
@@ -107,6 +108,13 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         btreport.setOnClickListener(this);
         btnMap.setOnClickListener(this);
         edit.setOnClickListener(this);
+
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
     @Override

@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -77,6 +76,7 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
         toptitle = findViewById(R.id.title_top);
         toptitle.setText("Activity Manager");
         burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         filterMenuLayout = findViewById(R.id.lay_filterlist);
         listfiltertext  = findViewById(R.id.text_listfilter);
@@ -110,6 +110,12 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
             }
         });
 
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void MakeFilterDialog() {

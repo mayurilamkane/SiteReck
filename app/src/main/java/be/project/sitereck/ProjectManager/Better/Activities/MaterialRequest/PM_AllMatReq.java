@@ -102,7 +102,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         toptitle = findViewById(R.id.title_top);    toptitle.setText("Material Requests");
 
         burgerimg = findViewById(R.id.menu_icon);
-
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         errormsg = findViewById(R.id.textemptymatreq);
         swipeRefreshLayout = findViewById(R.id.container_reqList);
@@ -114,6 +114,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
             filterlisthead = "All Project";
             filterProname.setText(filterlisthead+" - All Requests");
         }else {
+
             filterlisthead = ProjectMiscData.getProject_name();
             filterProname.setText(filterlisthead+" - All Requests");
         }
@@ -146,8 +147,9 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
         burgerimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PM_AllMatReq.this, "burger", Toast.LENGTH_SHORT).show();
-                CreateSlideMenu();
+//                Toast.makeText(PM_AllMatReq.this, "burger", Toast.LENGTH_SHORT).show();
+//                CreateSlideMenu();
+                finish();
             }
         });
     }
