@@ -5,29 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProjectManager.Activities.CMInfo">
-
-    <LinearLayout
-        android:layout_above="@id/btn_addproject"
+    <include layout="@layout/custom_toolbar"
+         android:id="@+id/lay_custoolbat"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/lay_custoolbat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp" >
-    <androidx.cardview.widget.CardView
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="3dp"
-        android:padding="10dp" >
+        android:layout_margin="@dimen/spacing_middle"
+        android:elevation="@dimen/spacing_middle"
+        app:cardCornerRadius="@dimen/spacing_medium">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:padding="@dimen/spacing_medium">
             <TextView
                 android:id="@+id/tv_cmname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="monospace"
                 android:textSize="20sp"
                 android:textColor="#0C0B0B"
                 android:text="Construction Manager"/>
@@ -36,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="monospace"
                 android:textSize="15sp"
                 android:textColor="#0C0B0B"
                 android:text="Construction@Manager.com"/>
@@ -45,42 +46,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="monospace"
                 android:textSize="15sp"
                 android:textColor="#0C0B0B"
                 android:text="+91 3456780980"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardElevation="3dp">
-            <ScrollView
+            <LinearLayout
+                android:id="@+id/lay_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:padding="3dp" >
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_prolist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            </ScrollView>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btn_addproject"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:background="#2E6380"
-        android:text="Add Project"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/spacing_medium"
+                android:weightSum="2"
+                android:padding="3dp">
+                <Button
+                    android:visibility="invisible"
+                    android:id="@+id/btn1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAllCaps="false"
+                    />
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAllCaps="false"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fabcallcm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="15dp"
+    android:src="@drawable/ic_call_white_24dp"
+    app:backgroundTint="#2979FF" />
 </RelativeLayout>
