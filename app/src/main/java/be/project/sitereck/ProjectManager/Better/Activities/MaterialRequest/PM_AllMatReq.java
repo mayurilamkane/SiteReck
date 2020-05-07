@@ -65,6 +65,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
     List<MatReqItemClass> allitemlist = new ArrayList<>();
     List<MatReqItemClass> approveditemlist = new ArrayList<>();
     List<MatReqItemClass> pendingitemlist = new ArrayList<>();
+
     HashMap <String , List<MatReqItemClass> > mapfordata  = new HashMap<>();
 
     //    sharedpreferences
@@ -179,6 +180,7 @@ public class PM_AllMatReq extends AppCompatActivity  implements View.OnClickList
                             listToAdapter.add(data);
                             GenerateFilterList(data);
                         }
+                        SetFilterList(currentList);
                         recyclerView.setAdapter(adapter);
                     }else if(jsonObject.getString("success").equals("0")){
 //                        Toast.makeText(PM_AllMatReq.this, "There Are No Requests YET !", Toast.LENGTH_LONG).show();
