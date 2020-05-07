@@ -1,58 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Construction_Manager.Activities.MaterialRequestListCM"
-    >
+    android:background="@android:color/white"
+    tools:context=".Construction_Manager.Activities.MaterialRequestListCM">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@android:color/white">
 
        <androidx.cardview.widget.CardView
            android:id="@+id/card_projecttitle_cm"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_alignParentTop="true"
-           android:elevation="5dp"
+           app:cardElevation="10dp"
            >
               <LinearLayout
-                  android:layout_width="match_parent"
+                  android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:background="#2962FF"
-                  >
+                  android:orientation="vertical">
+                  <include layout="@layout/custom_toolbar"/>
+
+                    <RelativeLayout
+                        android:id="@+id/Filter"
+                        android:padding="2dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp">
+
                      <TextView
                          android:id="@+id/tv_projecttitle"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:text="Material Request List "
-                         android:gravity="center"
-                         android:layout_margin="20dp"
-                         android:textSize="20sp"
-                         android:textColor="#FAF6F6"
-                         android:textStyle="bold|italic"
-                         android:layout_alignParentTop="true"
+                         android:text="All Requests"
+                         android:gravity="start|center"
+                         android:textSize="14sp"
+                         android:textColor="#FF212121"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                          />
+
+                           <ImageView
+                               android:id="@+id/filterimg"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_alignParentEnd="true"
+                               android:layout_marginEnd="10dp"
+                               android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                               android:contentDescription="ic_arrowdropdown"/>
+                    </RelativeLayout>
               </LinearLayout>
        </androidx.cardview.widget.CardView>
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/EmptyMatList"
+             android:visibility="gone"
+             android:layout_below="@id/card_projecttitle_cm"
+             android:padding="5dp"
+             android:gravity="center"
+             android:background="@color/grey_10"
+             android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+             android:text=" You Dont Have Any Request Yet!!! Try Creating One "/>
 
        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
            android:id="@+id/container_projList"
            android:layout_marginTop="2dp"
-           android:layout_below="@id/card_toolbar"
+           android:layout_below="@id/card_projecttitle_cm"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
+
+           <ScrollView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
 
        <androidx.recyclerview.widget.RecyclerView
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:id="@+id/repolist"
-           android:padding="10dp"
-           android:scrollbars="vertical">
+           android:padding="5dp"
+           >
 
 
        </androidx.recyclerview.widget.RecyclerView>
 
-
+           </ScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-</LinearLayout>
+       </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
