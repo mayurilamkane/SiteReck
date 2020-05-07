@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,7 +29,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -231,7 +230,7 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
             }
         }){
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("pid",pid);
                 return params;
@@ -278,10 +277,27 @@ public class ActivityManager_PM extends AppCompatActivity implements SwipeRefres
 
     @Override
     public void onClick(View view, final int position) {
+        try {
+            Intent intent = new Intent(ActivityManager_PM.this, ProjectActInfo.class);
+            intent.putExtra("ActData", listToAdapter.get(position));
+            startActivityForResult(intent, 2);
+        }catch (Exception e){
+            System.out.println("Exception -> "+ e);
+            Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
-//    @Override
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 3){
+            onRefresh();
+        }else if (requestCode == 2){
+//            onRefresh();
+        }
+    }
+    //    @Override
 //    public void onClick(View view, final int position) {
 //        try {
 //            if (data.get(position).getStatus().equals("1")){

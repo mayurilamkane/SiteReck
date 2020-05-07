@@ -1,6 +1,8 @@
 package be.project.sitereck.ProjectManager.POJO;
 
-public class ActivityManagerClass_PM {
+import java.io.Serializable;
+
+public class ActivityManagerClass_PM  implements Serializable {
     private String status;
     private String Title,startDate,endDate, statusDate;
     private String ID ;
