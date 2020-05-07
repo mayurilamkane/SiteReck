@@ -7,33 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".ProjectManager.Activities.AllCmList_PM"
     android:orientation="vertical">
+    <include
+        layout="@layout/custom_toolbar"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textemptycmlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:background="@color/grey_10"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Header"
+        android:text="Nothings Here!!!"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:padding="5dp">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:cardElevation="3dp">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/container_cmlist"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/card_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <TextView
+            android:layout_height="wrap_content">
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="monospace"
-                android:gravity="center"
-                android:text="@string/construction_manager_list_header"
-                android:textColor="#000"
-                android:textSize="17sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec_CM_LIST"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rec_CM_LIST"/>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    </ScrollView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

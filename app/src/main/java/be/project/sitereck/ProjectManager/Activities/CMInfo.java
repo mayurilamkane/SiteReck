@@ -76,6 +76,7 @@ public class CMInfo extends AppCompatActivity implements View.OnClickListener {
         cmcontact = findViewById(R.id.tv_cmno);
         btn2 = findViewById(R.id.btn2);
         fabCall = findViewById(R.id.fabcallcm);
+        lay_btn = findViewById(R.id.lay_btn);
 
         Intent intent = getIntent();
 

@@ -118,7 +118,7 @@ public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("status").equals("0")){
-                        Toast.makeText(ProjCMList.this, "No Activities Found !!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ProjCMList.this, "No Manager Found !!", Toast.LENGTH_LONG).show();
                         errormsg.setVisibility(View.VISIBLE);
                     }else if (jsonObject.getString("status").equals("1")) {
                         errormsg.setVisibility(View.GONE);

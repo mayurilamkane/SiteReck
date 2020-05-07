@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import be.project.sitereck.GeneralClasses.SetSharedPrefrences;
+import be.project.sitereck.ProjectManager.Activities.AllCmList_PM;
 import be.project.sitereck.ProjectManager.Activities.Profile_PM;
 import be.project.sitereck.ProjectManager.Better.Activities.MaterialRequest.PM_AllMatReq;
 import be.project.sitereck.ProjectManager.Better.Activities.PM_ProjectList;
@@ -95,7 +96,9 @@ public class SlideMenu extends AppCompatActivity {
         cm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(mactivity, AllCmList_PM.class);
+                alertDialog.dismiss();
+                mactivity.startActivity(intent);
             }
         });
         requests.setOnClickListener(new View.OnClickListener() {
