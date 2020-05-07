@@ -4,7 +4,7 @@
     package="be.project.sitereck">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <dist:module dist:instant="true" />
 
     <application

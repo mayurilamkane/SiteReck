@@ -1,6 +1,8 @@
 package be.project.sitereck.ProjectManager.POJO;
 
-public class AssignCmData {
+import java.io.Serializable;
+
+public class AssignCmData implements Serializable {
     private String Name ,Id, Email, Contact;
 
     public AssignCmData(String name, String id, String email, String contact) {

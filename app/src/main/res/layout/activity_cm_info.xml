@@ -15,8 +15,8 @@
     <androidx.cardview.widget.CardView
         android:layout_below="@id/lay_custoolbat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/spacing_middle"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_large"
         android:elevation="@dimen/spacing_middle"
         app:cardCornerRadius="@dimen/spacing_medium">
         <LinearLayout
@@ -24,30 +24,41 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="@dimen/spacing_medium"
-            android:padding="@dimen/spacing_medium">
+            >
             <TextView
                 android:id="@+id/tv_cmname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/roboto"
                 android:textSize="20sp"
-                android:textColor="#0C0B0B"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                 android:text="Construction Manager"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F7304FFE"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="5dp"/>
             <TextView
                 android:id="@+id/tv_cmemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:textSize="15sp"
-                android:textColor="#0C0B0B"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="#000"
                 android:text="Construction@Manager.com"/>
             <TextView
                 android:id="@+id/tv_cmno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:textSize="15sp"
-                android:textColor="#0C0B0B"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/roboto"
+                android:textColor="#000"
                 android:text="+91 3456780980"/>
 
             <LinearLayout
@@ -69,6 +80,7 @@
                     android:textAllCaps="false"
                     />
                 <Button
+                    android:visibility="invisible"
                     android:id="@+id/btn2"
                     android:layout_width="0dp"
                     android:layout_weight="1"

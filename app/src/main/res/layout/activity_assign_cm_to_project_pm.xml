@@ -7,22 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".ProjectManager.Activities.AssignCmToProject_PM"
     >
-    <androidx.cardview.widget.CardView
+    <include layout="@layout/custom_toolbar"
         android:id="@+id/cd_header"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:cardElevation="15dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:gravity="left|center"
-            android:text="Consruction Managers"
-            android:textColor="#FF000000"
-            android:textSize="20sp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
-    </androidx.cardview.widget.CardView>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:id="@+id/textemptyacmlist"

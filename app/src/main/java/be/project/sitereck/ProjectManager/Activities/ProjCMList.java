@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -41,6 +43,10 @@ import be.project.sitereck.R;
 
 public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, ItemClickListener {
 
+    Toolbar toolbar;
+    ImageView burgerimg;
+    TextView toptitle;
+
     private RecyclerView recyclerView;
     CmToProjectAdapter adapter;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -56,6 +62,12 @@ public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proj_cmlist);
+
+        toolbar = findViewById(R.id.toolbar);
+        toptitle = findViewById(R.id.title_top);
+        toptitle.setText("Construction Manager");
+        burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         initData();
         swipeRefreshLayout = findViewById(R.id.container_cmlist);
@@ -83,6 +95,12 @@ public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.
             }
         });
 
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initData() {
@@ -162,7 +180,11 @@ public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.
     public void onClick(View v, final int adapterPosition) {
 
         try {
-            MakeDialog(adapterPosition);
+//            MakeDialog(adapterPosition);
+            Intent intent = new Intent(ProjCMList.this, CMInfo.class);
+            intent.putExtra("action","1");
+            intent.putExtra("CmData",listItems.get(adapterPosition));
+            startActivity(intent);
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
             Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();
@@ -170,75 +192,75 @@ public class ProjCMList extends AppCompatActivity implements SwipeRefreshLayout.
 
     }
 
-    void MakeDialog(final int adapterPosition){
-        dialog = new Dialog(ProjCMList.this);
-        dialog.setContentView(R.layout.dialog_rem_cm);
-
-        TextView name , email,contact;
-        Button btncancel, btnremove;
-        name = dialog.findViewById(R.id.tvc_cmname);
-        email = dialog.findViewById(R.id.tvc_email);
-        contact = dialog.findViewById(R.id.tvc_contact);
-        btncancel = dialog.findViewById(R.id.btncmdialog_cancel);
-        btnremove = dialog.findViewById(R.id.btncmdialog_remove);
-
-        name.setText(listItems.get(adapterPosition).getName());
-        email.setText(listItems.get(adapterPosition).getEmail());
-        contact.setText(listItems.get(adapterPosition).getContact());
-
-        dialog.show();
-        btncancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        btnremove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RemoveCM(listItems.get(adapterPosition).getId());
-            }
-        });
-    }
-
-    private void RemoveCM(final String u_id) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallProjremcm(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    Log.i("tagconvertstr", "["+response+"]");
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getString("status").equals("1")){
-                        dialog.dismiss();
-                        Toast.makeText(ProjCMList.this, "Manager Removed From Project. Refreshing List.", Toast.LENGTH_LONG).show();
-                        onRefresh();
-                    }else{
-                        dialog.dismiss();
-                        Toast.makeText(ProjCMList.this, "Sometthing went wrong. Try Refreshing list and Try again. ", Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    dialog.dismiss();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error.toString());
-                dialog.dismiss();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String , String> params = new HashMap<>();
-                params.put("proj_id",pid);
-                params.put("u_id",u_id);
-                return params;
-            }
-        };
-        rq= Volley.newRequestQueue(this);
-        rq.add(stringRequest);
-    }
+//    void MakeDialog(final int adapterPosition){
+//        dialog = new Dialog(ProjCMList.this);
+//        dialog.setContentView(R.layout.dialog_rem_cm);
+//
+//        TextView name , email,contact;
+//        Button btncancel, btnremove;
+//        name = dialog.findViewById(R.id.tvc_cmname);
+//        email = dialog.findViewById(R.id.tvc_email);
+//        contact = dialog.findViewById(R.id.tvc_contact);
+//        btncancel = dialog.findViewById(R.id.btncmdialog_cancel);
+//        btnremove = dialog.findViewById(R.id.btncmdialog_remove);
+//
+//        name.setText(listItems.get(adapterPosition).getName());
+//        email.setText(listItems.get(adapterPosition).getEmail());
+//        contact.setText(listItems.get(adapterPosition).getContact());
+//
+//        dialog.show();
+//        btncancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        btnremove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RemoveCM(listItems.get(adapterPosition).getId());
+//            }
+//        });
+//    }
+//
+//    private void RemoveCM(final String u_id) {
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallProjremcm(), new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    Log.i("tagconvertstr", "["+response+"]");
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getString("status").equals("1")){
+//                        dialog.dismiss();
+//                        Toast.makeText(ProjCMList.this, "Manager Removed From Project. Refreshing List.", Toast.LENGTH_LONG).show();
+//                        onRefresh();
+//                    }else{
+//                        dialog.dismiss();
+//                        Toast.makeText(ProjCMList.this, "Sometthing went wrong. Try Refreshing list and Try again. ", Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    dialog.dismiss();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                System.out.println(error.toString());
+//                dialog.dismiss();
+//            }
+//        }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String , String> params = new HashMap<>();
+//                params.put("proj_id",pid);
+//                params.put("u_id",u_id);
+//                return params;
+//            }
+//        };
+//        rq= Volley.newRequestQueue(this);
+//        rq.add(stringRequest);
+//    }
 }
 

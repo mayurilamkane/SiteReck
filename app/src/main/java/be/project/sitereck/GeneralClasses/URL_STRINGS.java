@@ -6,13 +6,13 @@ public class URL_STRINGS {
 
     private static final String CALL_REGISTER = DOMAIN + "Connection/register.php";
     private static final String CALL_LOGIN = DOMAIN + "Connection/login.php";
-    private static final String CALL_CMLIST = DOMAIN + "PM/getCM.php";   //all CM from user table
     private static final String CALL_CMPRO = DOMAIN + "PM/getCMPROJECT.php";
     private static final String CALL_MATREQ = DOMAIN + "PM/getALLMATREQ.php";
     private static final String CALL_EDITINFO = DOMAIN + "Connection/editinfoPm.php";
 
     private static final String CALL_RCM = DOMAIN + "PM/removeCm.php";
 
+    private static final String CALL_CMLIST = DOMAIN + "Project/getAllCm.php";
     private static final String CALL_PROJLIST = DOMAIN +"Project/getProjectList.php";
     private static final String CALL_PROJACTLIST = DOMAIN +"Project/getProjectActList.php";
     private static final String CALL_PROJCMLIST = DOMAIN + "Project/getProjectCm.php";

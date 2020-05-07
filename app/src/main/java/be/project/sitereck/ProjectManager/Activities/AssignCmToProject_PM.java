@@ -1,6 +1,7 @@
 package be.project.sitereck.ProjectManager.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +42,10 @@ import be.project.sitereck.R;
 
 public class AssignCmToProject_PM extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, ItemClickListener {
 
+    Toolbar toolbar;
+    ImageView burgerimg;
+    TextView toptitle;
+
     private RecyclerView recyclerView;
     CmToProjectAdapter adapter;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -54,6 +60,12 @@ public class AssignCmToProject_PM extends AppCompatActivity implements SwipeRefr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assign_cm_to_project_pm);
+
+        toolbar = findViewById(R.id.toolbar);
+        toptitle = findViewById(R.id.title_top);
+        toptitle.setText("Add Manager");
+        burgerimg = findViewById(R.id.menu_icon);
+        burgerimg.setImageDrawable(this.getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
 
         initData();
         Intent intent=getIntent();
@@ -74,6 +86,13 @@ public class AssignCmToProject_PM extends AppCompatActivity implements SwipeRefr
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
                 JSONCALL();
+            }
+        });
+
+        burgerimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -145,7 +164,11 @@ public class AssignCmToProject_PM extends AppCompatActivity implements SwipeRefr
     public void onClick(View v, int adapterPosition) {
 
         try {
-            MakeDialog(adapterPosition);
+//            MakeDialog(adapterPosition);
+            Intent intent = new Intent(AssignCmToProject_PM.this, CMInfo.class);
+            intent.putExtra("action","2");
+            intent.putExtra("CmData",listItems.get(adapterPosition));
+            startActivity(intent);
         }catch (Exception e){
             System.out.println("Exception -> "+ e);
             Toast.makeText(this, "Wait Your List Is Loading...", Toast.LENGTH_SHORT).show();
@@ -153,74 +176,74 @@ public class AssignCmToProject_PM extends AppCompatActivity implements SwipeRefr
 
     }
 
-    private void MakeDialog(final int adapterPosition) {
-        dialog = new Dialog(AssignCmToProject_PM.this);
-        dialog.setContentView(R.layout.dialog_add_cm);
-
-        TextView name , email,contact;
-        Button btncancel, btnadd;
-        name = dialog.findViewById(R.id.tvc_cmname);
-        email = dialog.findViewById(R.id.tvc_email);
-        contact = dialog.findViewById(R.id.tvc_contact);
-        btncancel = dialog.findViewById(R.id.btncmdialog_cancel);
-        btnadd = dialog.findViewById(R.id.btncmdialog_add);
-
-        name.setText(listItems.get(adapterPosition).getName());
-        email.setText(listItems.get(adapterPosition).getEmail());
-        contact.setText(listItems.get(adapterPosition).getContact());
-
-        dialog.show();
-        btncancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddCm(listItems.get(adapterPosition).getId(), pid);
-            }
-        });
-    }
-
-    private void AddCm(final String id, final String pid) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallAddcmproj(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    Log.i("tagconvertstr", "["+response+"]");
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getString("status").equals("1")){
-                        dialog.dismiss();
-                        Toast.makeText(AssignCmToProject_PM.this, "Construction Manager Added To Project. Refreshing List.", Toast.LENGTH_LONG).show();
-                        onRefresh();
-                    }else{
-                        dialog.dismiss();
-                        Toast.makeText(AssignCmToProject_PM.this, "Sometthing went wrong. Try Refreshing list and Try again. ", Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    dialog.dismiss();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println(error.toString());
-                dialog.dismiss();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String , String> params = new HashMap<>();
-                params.put("proj_id",pid);
-                params.put("u_id",id);
-                return params;
-            }
-        };
-        rq= Volley.newRequestQueue(this);
-        rq.add(stringRequest);
-    }
+//    private void MakeDialog(final int adapterPosition) {
+//        dialog = new Dialog(AssignCmToProject_PM.this);
+//        dialog.setContentView(R.layout.dialog_add_cm);
+//
+//        TextView name , email,contact;
+//        Button btncancel, btnadd;
+//        name = dialog.findViewById(R.id.tvc_cmname);
+//        email = dialog.findViewById(R.id.tvc_email);
+//        contact = dialog.findViewById(R.id.tvc_contact);
+//        btncancel = dialog.findViewById(R.id.btncmdialog_cancel);
+//        btnadd = dialog.findViewById(R.id.btncmdialog_add);
+//
+//        name.setText(listItems.get(adapterPosition).getName());
+//        email.setText(listItems.get(adapterPosition).getEmail());
+//        contact.setText(listItems.get(adapterPosition).getContact());
+//
+//        dialog.show();
+//        btncancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        btnadd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AddCm(listItems.get(adapterPosition).getId(), pid);
+//            }
+//        });
+//    }
+//
+//    private void AddCm(final String id, final String pid) {
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_STRINGS.getCallAddcmproj(), new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    Log.i("tagconvertstr", "["+response+"]");
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getString("status").equals("1")){
+//                        dialog.dismiss();
+//                        Toast.makeText(AssignCmToProject_PM.this, "Construction Manager Added To Project. Refreshing List.", Toast.LENGTH_LONG).show();
+//                        onRefresh();
+//                    }else{
+//                        dialog.dismiss();
+//                        Toast.makeText(AssignCmToProject_PM.this, "Sometthing went wrong. Try Refreshing list and Try again. ", Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    dialog.dismiss();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                System.out.println(error.toString());
+//                dialog.dismiss();
+//            }
+//        }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String , String> params = new HashMap<>();
+//                params.put("proj_id",pid);
+//                params.put("u_id",id);
+//                return params;
+//            }
+//        };
+//        rq= Volley.newRequestQueue(this);
+//        rq.add(stringRequest);
+//    }
 }
