@@ -142,16 +142,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if(pd!=null && pd.isShowing())
                         pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, PM_ProjectList.class);
-//                    finish();
                     startActivity(intent);
+                    finish();
 
                 }else if (prefrences.getVar_User_position() ==  2) {
                     Toast.makeText(this, "Logging in CM", Toast.LENGTH_SHORT).show();
                     if(pd!=null && pd.isShowing())
                         pd.dismiss();
                     Intent intent = new Intent(LoginActivity.this, ProjectList_cm.class);
-//                    finish();
                     startActivity(intent);
+                    finish();
                 }
             }else{
                 if(pd!=null && pd.isShowing())
