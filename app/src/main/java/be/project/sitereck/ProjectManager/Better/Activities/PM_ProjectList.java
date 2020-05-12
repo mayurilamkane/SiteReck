@@ -238,6 +238,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
                                     object.getString("proj_long"),
                                     object.getString("proj_status"),
                                     object.getString("status_date"),
+                                    object.getString("proj_token"),
                                     object.getString("diff")
                             );
 
@@ -306,6 +307,7 @@ public class PM_ProjectList extends AppCompatActivity implements SwipeRefreshLay
                     listToAdapter.get(adapterPosition).getProject_longitude(),
                     listToAdapter.get(adapterPosition).getProject_status(),
                     listToAdapter.get(adapterPosition).getProject_status_date(),
+                    listToAdapter.get(adapterPosition).getProj_token(),
                     listToAdapter.get(adapterPosition).getDiff());
 
             Intent intent = new Intent (PM_ProjectList.this, ProjectDash.class);

@@ -30,7 +30,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
     TextView toptitle;
 
     Button btnActivity,btnCM,btnReq,btreport, btnMap;
-    TextView title , address , sdate, edate, status , edit, desc;
+    TextView title , address , sdate, edate, status , edit, desc, token;
     Intent intent;
     ProjectData data;
     String proj_id;
@@ -55,6 +55,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         edate = findViewById(R.id.tv_pedate);
         status = findViewById(R.id.tv_proj_status);
         edit = findViewById(R.id.tv_projeditinfo);
+        token = findViewById(R.id.tv_projtoken);
 
 //        title.setText(data.getProject_name());
 //        address.setText(data.getProject_Address());
@@ -79,6 +80,7 @@ public class ProjectDash extends AppCompatActivity implements View.OnClickListen
         address.setText(ProjectMiscData.getProject_Address());
         sdate.setText(ProjectMiscData.getProject_Start_date());
         edate.setText(ProjectMiscData.getProject_End_date());
+        token.setText(ProjectMiscData.getProj_token());
         //status.setText(data.getProject_status());
         if(data.getProject_status().equals("0"))
         {

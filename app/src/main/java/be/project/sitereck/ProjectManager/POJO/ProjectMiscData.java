@@ -11,6 +11,7 @@ public class ProjectMiscData {
     private static String Project_longitude;
     private static String Project_status;
     private static String Project_status_date;
+    private static String Proj_token;
     private static String Diff;
 
     public ProjectMiscData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status) {
@@ -37,7 +38,7 @@ public class ProjectMiscData {
         Project_status_date = project_status_date;
         Diff = diff;
     }
-    public static void CreateProjectMiscData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status,String project_status_date,String diff) {
+    public  ProjectMiscData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status,String project_status_date, String proj_token, String diff) {
         Project_id = project_id;
         Project_name = project_name;
         Project_description = project_description;
@@ -48,6 +49,21 @@ public class ProjectMiscData {
         Project_longitude = project_longitude;
         Project_status = project_status;
         Project_status_date = project_status_date;
+        Proj_token = proj_token;
+        Diff = diff;
+    }
+    public static void CreateProjectMiscData(String project_id, String project_name, String project_description, String project_Start_date, String project_End_date, String project_Address, String project_latitude, String project_longitude, String project_status,String project_status_date, String proj_token,String diff) {
+        Project_id = project_id;
+        Project_name = project_name;
+        Project_description = project_description;
+        Project_Start_date = project_Start_date;
+        Project_End_date = project_End_date;
+        Project_Address = project_Address;
+        Project_latitude = project_latitude;
+        Project_longitude = project_longitude;
+        Project_status = project_status;
+        Project_status_date = project_status_date;
+        Proj_token = proj_token;
         Diff = diff;
     }
     public static String getProject_status_date() {   return Project_status_date;    }
@@ -88,6 +104,10 @@ public class ProjectMiscData {
 
     public static String getProject_status() {
         return Project_status;
+    }
+
+    public static String getProj_token() {
+        return Proj_token;
     }
 
     public static void setProject_status(String project_status) {

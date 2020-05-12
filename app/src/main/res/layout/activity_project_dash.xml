@@ -38,6 +38,7 @@
                 android:orientation="vertical"
                 >
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -71,24 +72,41 @@
                         android:background="@drawable/custom_ripple_cancel_borderless"
                         />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/tv_pname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/spacing_medium"
+                        android:layout_marginStart="10dp"
+                        android:text="Project Name -"
+                        android:textColor="#191818"
+                        android:textSize="20sp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        />
+                    <TextView
+                        android:id="@+id/tv_projtoken"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="3dp"
+                        android:text="token - "
+                        android:textSize="12sp"
+                        android:textColor="#EC252323"
+                        />
+                </LinearLayout>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#F7304FFE"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginEnd="25dp"/>
-                <TextView
-                    android:id="@+id/tv_pname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/spacing_medium"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="3dp"
-                    android:text="Project Name -"
-                    android:textColor="#191818"
-                    android:textSize="20sp"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                    />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"/>
+
                 <TextView
                     android:id="@+id/tv_pdesc"
                     android:layout_width="match_parent"
